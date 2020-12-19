@@ -1,31 +1,123 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<html>
+<head>
+    <title>
+        <h2>Choose Template</h2>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    <style>
+        .header{
+            font-size:44px;
+            padding-left:4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class=" header">
+            Choose A Template
+        </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">HOT</a></li>
+                    <li><a href="#">ALL</a></li>
+                    <li><a href="#">CUSTOM</a></li>
+                    <li><a href="#">NEW</a></li>
+                </ul>
+            </div>
+        </nav>
+        <form method="post" action="@Url.Action("" ,"")">
+            <input type="file" name="fileupload">
+            <button type="submit">Upload</button>
+        </form>
+        @*<div class="row">
+            <div class="col-md-2" style="height:100px; border:1px solid black;">
+
+            </div>
+            <div class="col-md-2" style="height: 100px; border: 1px solid black;"></div>
+            <div class="col-md-2" style="height: 100px; border: 1px solid black;"></div>
+            <div class="col-md-2" style="height: 100px; border: 1px solid black;"></div>
+            <div class="col-md-2" style="height: 100px; border: 1px solid black;"></div>
+            <div class="col-md-2" style="height: 100px; border: 1px solid black;"></div>
+        </div>*@
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#file').change(function () {
+            alert("first Image Upload");
+        })
+    })
+</script>
+<script>
+    //var canvas = document.getElementById("canvas1");
+    //var ctx = canvas.getContext("2d");
+    //ctx.font = "13px Arial";
+    //ctx.FillText("MY TEXT!", 20, 20);
+    //}
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+    function drop(ev) {
+        ev.preventDefault();
+        var d = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+
+</script>
+
+    
+    @ViewBag.Message

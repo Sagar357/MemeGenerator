@@ -3,20 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.IO;
 namespace MemeGenerator.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase file)
         {
-            return View();
+            if(file != null &&file.ContentLength >0 )
+            
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/image"),
+                      Path.GetFileName(file.FileName));
+                    file.SaveAs(path);
+                    
+                  ViewBag.ImageUrl = "../image/" + file.FileName;
+                   // ViewBag.Message = "File Upload Successfully";
+
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "Error:" + ex.Message.ToString();
+
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+
+            return View("Index");
         }
 
-        public ActionResult About()
+        public ActionResult Index(string Message=null)
         {
-            ViewBag.Message = "Your application description page.";
-
+            if (!string.IsNullOrEmpty(Message))
+            {
+                ViewBag.Message = Message;
+            }
             return View();
         }
 
