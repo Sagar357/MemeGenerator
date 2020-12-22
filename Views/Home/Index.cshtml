@@ -1,49 +1,41 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-<html>
-<head>
-    <title>
-        <h2>Choose Template</h2>
-    </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+@using MemeGenerator.Models
+@model MemeGenerator.Models.File_list
 
-    <style>
-        .header{
-            font-size:44px;
-            padding-left:4px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class=" header">
-            Choose A Template
-        </div>
+<div class="container">
+    <div class=" header">
+        Choose A Template
+    </div>
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">HOT</a></li>
-                    <li><a href="#">ALL</a></li>
-                    <li><a href="#">CUSTOM</a></li>
-                    <li><a href="#">NEW</a></li>
-                </ul>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
             </div>
-        </nav>
-        <form method="post" action="@Url.Action("" ,"")">
-            <input type="file" name="fileupload">
-            <button type="submit">Upload</button>
-        </form>
-        @*<div class="row">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">HOT</a></li>
+                <li><a href="#">ALL</a></li>
+                <li><a href="#">CUSTOM</a></li>
+                <li><a href="#">NEW</a></li>
+            </ul>
+        </div>
+    </nav>
+    @using (Html.BeginForm("Index", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="uploadfile">
+        <button type="submit">Upload</button>
+    }
+   
+    <div class="row">
+        @foreach (File_Model element in Model.list)
+        {
+            <div class="col-md-2" style="height: 100px; border: 1px solid black;" id="img-@element.fileid" onclick="location.href = '@Url.Action("NewMeme" ,"Home" ,new { id=element.fileid } )'">
+                <img src="@element.filepath" height="100" width="150" />
+            </div>
+        }
+    </div>
+    @*<div class="row">
             <div class="col-md-2" style="height:100px; border:1px solid black;">
 
             </div>
@@ -54,10 +46,8 @@
             <div class="col-md-2" style="height: 100px; border: 1px solid black;"></div>
         </div>*@
 
-    </div>
-    
-</body>
-</html>
+</div>
+
 
 
 

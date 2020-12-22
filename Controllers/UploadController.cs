@@ -13,10 +13,11 @@ namespace MemeGenerator.Controllers
         private static FileService service = new FileService();
         // GET: Upload
         [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file)
+        public ActionResult Index(HttpPostedFileBase uploadfile)
         {
             string uploadpath=Server.MapPath("~/image");
-            string Message = FileService.Upload(file, uploadpath);
+            string Message = FileService.Upload(uploadfile, uploadpath);
+       
             return RedirectToAction("Index", "Home" ,new { message=Message });
         }
 
@@ -25,6 +26,7 @@ namespace MemeGenerator.Controllers
         public ActionResult Details(int id)
         {
             return View();
+
         }
 
         // GET: Upload/Create

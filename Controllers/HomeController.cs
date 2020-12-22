@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using MemeGenerator.Services;
+using MemeGenerator.Models;
+
 namespace MemeGenerator.Controllers
 {
     public class HomeController : Controller
@@ -42,7 +45,9 @@ namespace MemeGenerator.Controllers
             {
                 ViewBag.Message = Message;
             }
-            return View();
+            File_list  fileList=FileService.GetFileList();
+            
+            return View(fileList);
         }
 
         public ActionResult Contact()
@@ -50,6 +55,13 @@ namespace MemeGenerator.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult NewMeme(int id)
+        {
+            ViewBag.Message = "Your contact page.";
+            File_Model response=FileService.GetFileById(id);
+            return View("View_NewMeme",response);
         }
     }
 }
