@@ -14,14 +14,13 @@
             <div style="width:160px; height:60px; position:absolute;border:1px solid red;z-index:12;display:inline-block;left:20px;color:white;"  onclick= "getPositionXY(this)" id="logotext"></div>
             
             @*<div id="mydiv">
-                //    <input type="text" id="name" name="name" />
+                   <input type="text" id="name" name="name" />
                 </div>*@
 
             <br />
-            <input type="text" id="txtwrite" class="form-control" name="txtImg"  onkeyup="myfunction()"
-                   placeholder="Write your text here..." style="margin-top:10px;" />
+            <input type="text" id="txtwrite" class="form-control" name="txtImg"  onkeyup="myfunction()" placeholder="Write your text here..." style="margin-top:10px;" />
             <input type="button" value="ADD IMAGE" id="" />
-          <p id='abc'></p>
+        <!-- <p id='abc'></p>-->
         </div>
         <div class="col-md-6" style="border:1px solid silver;">
 
@@ -51,7 +50,7 @@
                 Spot the Difference, Pam The Office meme, or Corporate needs you to find the differences between this picture and this picture.
             </p>
 
-            <button type="submit">Create Meme</button>
+            <button type="button" onclick="getPositionXY(this)">Create Meme</button>
             @*<input type="button" value="Create Meme" class="btn btn-primary" onclick="change()" />*@
         </div>
     </div>
@@ -100,6 +99,7 @@
             }
 
             function closeDragElement() {
+
               
                 document.onmouseup = null;
                 document.onmousemove = null;
@@ -109,7 +109,7 @@
         //    debugger
         //    var text = $('#logotext').html(this.value);
         //});
-        function myfunction() {
+      function myfunction() {
            
             var x = document.getElementById("txtwrite").value;
             document.getElementById("logotext").innerText = x;
@@ -119,7 +119,30 @@
     function getPositionXY(element) {
         debugger
         var cord = element.getBoundingClientRect();
-        document.getElementById('abc').innerHtml = 'X:' + cord.x + ',' + 'Y:' + cord.y
+        var text = $('#logotext').html();
+        var postObj = {};
+        postObj.text = text;
+        postObj.fileName = $('#logo').attr('src').split('/')[2];
+        postObj.x = cord.x;
+        postObj.y = cord.y;
+        
+
+        $.ajax({
+            url: '@Url.Action("WriteText" ,"Home")',
+            method: 'post',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify(postObj),
+            async: true,
+            success: data => {
+
+            },
+            error: error => {
+
+                }
+
+        });
+
         }
         
 </script>

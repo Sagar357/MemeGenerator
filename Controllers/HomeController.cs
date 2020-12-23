@@ -50,8 +50,11 @@ namespace MemeGenerator.Controllers
             return View(fileList);
         }
 
-        public ActionResult Contact()
+        public ActionResult WriteText(ImageModification_Model model)
         {
+            string uploadFile = Server.MapPath("~/image");
+            model.filePath = Path.Combine(uploadFile ,model.fileName);
+            FileService.WriteText(model);
             ViewBag.Message = "Your contact page.";
 
             return View();

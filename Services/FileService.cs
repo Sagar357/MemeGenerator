@@ -8,6 +8,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace MemeGenerator.Services
 {
@@ -137,6 +139,35 @@ namespace MemeGenerator.Services
 
             }
             return model;
+        }
+        public static string WriteText(ImageModification_Model model)
+        {
+            if(!string.IsNullOrEmpty(model.filePath))
+            {
+                string value = model.Text;
+                
+               using (Bitmap bitmap=new Bitmap(model.filePath, true))
+                {
+                    using (Graphics graphics = Graphics.FromImage(bitmap))
+                    {
+                        Brush brush = new SolidBrush(Color.White);
+                        Font font = new Font("Arial", 60, FontStyle.Italic, GraphicsUnit.Pixel);
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(value ,font);
+                        Point position = new Point(model.x, model.y);
+                        graphics.DrawString(value, font, brush, position);
+                        using (MemoryStream memStr =new MemoryStream())
+                        {
+                            bitmap.Save("new.jpg" ,memStr, ImageFormat.Jpeg);
+                            memStr.Position = 0;
+                            
+                        }
+                    }
+                       
+                }
+            }
+            return "success";
+
         }
     }
   }

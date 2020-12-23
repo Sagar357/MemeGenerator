@@ -24,4 +24,13 @@ namespace MemeGenerator.Models
 
 
     }
+
+    public class ImageModification_Model
+    {
+        public string filePath { get; set; }
+        public string fileName { get; set; }
+        public string Text { get; set; }
+        public int x { get; set; } 
+       public  int y { get; set; }
+    }
 }
