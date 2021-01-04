@@ -32,5 +32,6 @@ namespace MemeGenerator.Models
         public string Text { get; set; }
         public int x { get; set; } 
        public  int y { get; set; }
+        public string savePath { get; set; }
     }
 }

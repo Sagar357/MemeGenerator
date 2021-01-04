@@ -140,35 +140,53 @@ namespace MemeGenerator.Services
             }
             return model;
         }
-        public static string WriteText(ImageModification_Model model)
-        {
-            if(!string.IsNullOrEmpty(model.filePath))
-            {
-                string value = model.Text;
-                
-               using (Bitmap bitmap=new Bitmap(model.filePath, true))
-                {
-                    using (Graphics graphics = Graphics.FromImage(bitmap))
-                    {
-                        Brush brush = new SolidBrush(Color.White);
-                        Font font = new Font("Arial", 60, FontStyle.Italic, GraphicsUnit.Pixel);
-                        SizeF textSize = new SizeF();
-                        textSize = graphics.MeasureString(value ,font);
-                        Point position = new Point(model.x, model.y);
-                        graphics.DrawString(value, font, brush, position);
-                        using (MemoryStream memStr =new MemoryStream())
-                        {
-                            bitmap.Save("new.jpg" ,memStr, ImageFormat.Jpeg);
-                            memStr.Position = 0;
-                            
-                        }
-                    }
-                       
-                }
-            }
-            return "success";
+        //public static  FileDownload(ImageModification_Model model)
+        //{
+        //    string url = Server.MapPath( model.savePath + newimage;
+        //    string savepath =;
+        //    WebClient Client = new WebClient();
+        //    Client.downloadFile(url, savepath);
 
-        }
+        //}
+        //public static string WriteText(ImageModification_Model model)
+        //{
+        //    if(!string.IsNullOrEmpty(model.filePath))
+        //    {
+        //        string value = model.Text;
+                
+        //       using (Bitmap bitmap=new Bitmap(model.filePath, true))
+        //        {
+        //            try
+        //            {
+        //                using (Graphics graphics = Graphics.FromImage(bitmap))
+        //                {
+        //                    Brush brush = new SolidBrush(Color.White);
+        //                    Font font = new Font("Arial", 60, FontStyle.Italic, GraphicsUnit.Pixel);
+        //                    SizeF textSize = new SizeF();
+        //                    textSize = graphics.MeasureString(value, font);
+        //                    //Point position = new Point(model.x, model.y);
+
+        //                    Point position = new Point(bitmap.Width-((int)textSize.Width+model.x), bitmap.Height - ((int)textSize.Height + model.y));
+        //                    graphics.DrawString(value, font, brush, position);
+        //                    using (MemoryStream memStr = new MemoryStream())
+        //                    {
+        //                        bitmap.Save(memStr, ImageFormat.Png);
+        //                        memStr.Position = 0;
+        //                        return File(memStr.ToArray() ,"image/png" ,model.fileName);
+        //                    }
+        //                }
+        //            }
+        //            catch (Exception ex)
+        //            {
+
+        //                throw;
+        //            }
+                       
+        //        }
+        //    }
+        //    return "success";
+
+        //}
     }
   }
         

@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using System.IO;
 using MemeGenerator.Services;
 using MemeGenerator.Models;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Net;
 
 namespace MemeGenerator.Controllers
 {
@@ -53,12 +56,65 @@ namespace MemeGenerator.Controllers
         public ActionResult WriteText(ImageModification_Model model)
         {
             string uploadFile = Server.MapPath("~/image");
+            model.savePath = uploadFile;
             model.filePath = Path.Combine(uploadFile ,model.fileName);
-            FileService.WriteText(model);
-            ViewBag.Message = "Your contact page.";
+            WriteTextOp(model);
+            FileDownload(model);
 
             return View();
         }
+
+        public static string WriteTextOp(ImageModification_Model model)
+        {
+            if (!string.IsNullOrEmpty(model.filePath))
+            {
+                string value = model.Text;
+
+                using (Bitmap bitmap = new Bitmap(model.filePath, true))
+                {
+                    try
+                    {
+                        using (Graphics graphics = Graphics.FromImage(bitmap))
+                        {
+                            Brush brush = new SolidBrush(Color.White);
+                            Font font = new Font("Arial", 60, FontStyle.Italic, GraphicsUnit.Pixel);
+                            SizeF textSize = new SizeF();
+                            textSize = graphics.MeasureString(value, font);
+                            //Point position = new Point(model.x, model.y);
+
+                            Point position = new Point(bitmap.Width - ((int)textSize.Width + model.x), bitmap.Height - ((int)textSize.Height + model.y));
+                            graphics.DrawString(value, font, brush, position);
+                            //using (MemoryStream memStr = new MemoryStream())
+                            //{
+                            //    bitmap.Save(memStr, ImageFormat.Png);
+                            //    memStr.Position = 0;
+                            //    return File(memStr.ToArray(), "image/png", model.fileName);
+                            //}
+                        }
+                        bitmap.Save(Path.Combine(model.savePath ,"newimage.png"));
+                        
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw;
+                    }
+
+                }
+            }
+            return "success";
+
+        }
+
+        public void FileDownload(ImageModification_Model model)
+        {
+            string url = Path.Combine(model.savePath , "newimage");
+               //string savepath="" ;
+               WebClient Client = new WebClient();
+               Client.DownloadFile(url, @"D:\himasu");
+          
+        }
+
 
         public ActionResult NewMeme(int id)
         {
@@ -66,5 +122,7 @@ namespace MemeGenerator.Controllers
             File_Model response=FileService.GetFileById(id);
             return View("View_NewMeme",response);
         }
+
+
     }
 }
