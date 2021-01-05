@@ -72,173 +72,179 @@
                             <li class="li3 li_cmn" onclick="openSubList1('Sub_List3')">New</li>
                         </ul>
                     </div>
-                    <!-- head-line-end---her -->
-                    <!-- js render -->
-                    <!-- image--grid1---1-->
-                    <div class="main-grid" id="Sub_List1" style="display: none;">
-                        <div class="mid-grid mid_1st">
-                            <div class="item-wrp item-wrp1">
-                                <figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="@Url.Action("meme","Home")">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp2">
 
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp3">
-                                <figure>
-                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp4">
+                    @using (Html.BeginForm("Index", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <input type="file" name="uploadfile">
+                        <button type="submit">Upload</button>
 
-                                <figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp5">
+                        <!-- head-line-end---her -->
+                        <!-- js render -->
+                        <!-- image--grid1---1-->
+                        <div class="main-grid" id="Sub_List1" style="display: none;">
+                            <div class="mid-grid mid_1st">
+                                <div class="item-wrp item-wrp1">
+                                    <figure>
+                                        <img src="~/img/gallery/alina.png" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="@Url.Action("meme","Home")">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp2">
 
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp6">
+                                    <figure>
+                                        <img src="~/img/gallery/success.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp3">
+                                    <figure>
+                                        <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp4">
 
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp7">
-                                <figure>
-                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
+                                    <figure>
+                                        <img src="~/img/gallery/alina.png" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp5">
+
+                                    <figure>
+                                        <img src="~/img/gallery/success.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp6">
+
+                                    <figure>
+                                        <img src="~/img/gallery/success.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp7">
+                                    <figure>
+                                        <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end---here -->
-                    <!-- image--grid2---2-->
-                    <div class="main-grid" id="Sub_List2">
-                        <div class="mid-grid mid_2nd">
-                            <div class="item-wrp item-wrp1">
-                                <figure>
-                                    <img src="~/img/gallery/Mocking-Spongebob.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp2">
+                        <!-- end---here -->
+                        <!-- image--grid2---2-->
+                        <div class="main-grid" id="Sub_List2">
+                            <div class="mid-grid mid_2nd">
+                                <div class="item-wrp item-wrp1">
+                                    <figure>
+                                        <img src="~/img/gallery/Mocking-Spongebob.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp2">
 
-                                <figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp3">
-                                <figure>
-                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp4">
+                                    <figure>
+                                        <img src="~/img/gallery/alina.png" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp3">
+                                    <figure>
+                                        <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp4">
 
-                                <figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp5">
+                                    <figure>
+                                        <img src="~/img/gallery/alina.png" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp5">
 
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
+                                    <figure>
+                                        <img src="~/img/gallery/success.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end---here -->
-                    <!-- image--grid3---3-->
-                    <div class="main-grid" id="Sub_List3" style="display: none;">
-                        <div class="mid-grid mid_2nd">
-                            <div class="item-wrp item-wrp1">
-                                <figure>
-                                    <img src="~/img/gallery/X-Everywhere.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp2">
+                        <!-- end---here -->
+                        <!-- image--grid3---3-->
+                        <div class="main-grid" id="Sub_List3" style="display: none;">
+                            <div class="mid-grid mid_2nd">
+                                <div class="item-wrp item-wrp1">
+                                    <figure>
+                                        <img src="~/img/gallery/X-Everywhere.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp2">
 
-                                <figure>
-                                    <img src="~/img/gallery/One-Does-Not-Simply.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp3">
-                                <figure>
-                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp4">
+                                    <figure>
+                                        <img src="~/img/gallery/One-Does-Not-Simply.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp3">
+                                    <figure>
+                                        <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp4">
 
-                                <figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp5">
+                                    <figure>
+                                        <img src="~/img/gallery/alina.png" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                                <div class="item-wrp item-wrp5">
 
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
+                                    <figure>
+                                        <img src="~/img/gallery/success.jpg" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <a href="meme.html">meme Generate</a>
+                                    </figcaption>
+                                </div>
                             </div>
                         </div>
+                        <!-- end---here -->
                     </div>
-                    <!-- end---here -->
-                </div>
 
             </div>
         </section>
