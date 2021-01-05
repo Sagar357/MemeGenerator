@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link rel="stylesheet" href="~/fonts/stylesheet.css">
     <link rel="stylesheet" href="~/Content/css/Hover-master/css/hover-min.css">
+    <link href="~/Content/css/aos.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
 </head>
 
 <body onload="init()">
-    <main class="meme_Wrapper">
+    <main class="meme_Wrapper wow fadeIn" style="visibility: visible;">
         <header>
             <div class="container">
                 <!-- <div class="logo">  <h1>Meme Generator</h1></div> -->
@@ -39,18 +41,21 @@
             </div>
         </header>
         <!-- sidebar----section---end-here -->
-        <section class="middle_content">
+        <section class="middle_content wow fadeIn" style="visibility: visible;">
             <div class="container">
                 <div class="gallery grid-container grid-wrp">
                     <!-- js render -->
                     <div class="mid_wrp">
                         <div class="child-mid">
-                            <div class="left_side mid-cmn">
+                            <div class="left_side mid-cmn" data-aos="fade-right"
+                                 data-aos-easing="linear"
+                                 data-aos-duration="1500">
                                 <figure>
                                     <img src="img/gallery/alina.png" alt="">
                                 </figure>
                             </div>
-                            <div class="right-side mid-cmn">
+                            <div class="right-side mid-cmn" data-aos="fade-left" data-aos-duration="2000"
+                                 data-aos-easing="ease-in-sine">
                                 <div class="text-content">
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -91,9 +96,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="meme-container hidden">
+                <div class="meme-container hidden wow fadeIn" style="visibility: visible;">
                     <div class="meme-control">
-                        <canvas class="memeCanvas">
+                        <canvas class="memeCanvas" id=can>
                             Your browser does not support the HTML5 canvas tag.
                         </canvas>
                         <!-- <div class="canva_img">
@@ -120,7 +125,7 @@
                         </a>
                         <a href="#" class="choose_file">
                             <label for="#">
-                                <input type="file" name="file1" id="file1">
+                                <input type="file" multiple="false" name="file1" id="finput" onchange="upload()">
                             </label>
                         </a>
                     </div>
@@ -143,13 +148,20 @@
     </main>
 
 
-
     <!-- -script--section -->
     <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
     <script src="~/Scripts/js/images.js"></script>
     <script src="~/Scripts/js/meme.js"></script>
     <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Scripts/js/wow.min.js"></script>
     <script src="~/Scripts/js/aos.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

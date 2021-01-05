@@ -67,6 +67,7 @@ main .middle_content{
             @include flex;
             justify-content: flex-start;
             border-bottom: 1px solid #D9D9D9;
+            padding: 0 0 .5rem;
             .li_cmn{
                 font-size: 1.3rem;
                 list-style-type: none;
@@ -75,8 +76,10 @@ main .middle_content{
                 margin: .5rem .5rem 0 0;
                 padding: .8rem 3rem;
                 text-transform: capitalize;
-                border-top-right-radius: 5px;
-                border-top-left-radius: 5px;
+                // border-top-right-radius: 5px;
+                // border-top-left-radius: 5px;
+                border: 1px solid #99999930;
+                border-radius: 5px;
             }
             .List_active {
                 background: #007ead;
@@ -108,6 +111,7 @@ main{
                     cursor: pointer;
                     color: inherit;
                     background: inherit;
+                    padding: 5px 0;
                 }
             }
             .nav_item{
@@ -142,6 +146,13 @@ main{
     }
       
   .main-grid{
+      .item-wrp0{
+          figure{
+            //   width: 300px;
+              height: 280px;
+              border: 1px solid #999999;
+          }
+      }
       .item-wrp{
           figure{
               overflow: hidden;
@@ -165,6 +176,17 @@ main{
                       border-radius: 100px;
                       transition: $transition;
                   }
+              }
+              .hvr-bounce-to-right{
+                transition: $transition;
+                   &:hover{
+                       border-radius: 100px;
+                       transition: $transition;
+                       &::before{
+                           border-radius: 100px!important;
+                           transition: $transition;
+                       }
+                   }
               }
           }
       }
@@ -190,11 +212,12 @@ main{
 
     //----nav---bar----//
     .main-bar {
-        left: 40px;
+        right: 40px;
         top: 20px;
         display: block !important;
         cursor: pointer;
         position: absolute;
+        transform: rotate(180deg);
         div {
             width: 35px;
             height: 4px;
@@ -211,8 +234,8 @@ main{
         .b1 {
             width: 25px!important;
         }
-        .c1 {
-            width: 29px!important;
+        .a1 {
+            width: 31px!important;
         }
         &:hover .b1{
             width: 35px!important;
@@ -258,11 +281,15 @@ main{
         background: inherit;
         margin: .5rem 0;
         background: #fff;
+        text-transform: capitalize;
             &:hover {
             color: #007ead;
             transition:$transition;
         }
       }
+      .side_hide{
+        display: none;
+    }
     }
     .closebtn {
         position: absolute;
@@ -301,7 +328,7 @@ main{
     .back_home{
         position: absolute;
         top: 17px;
-        left: 32px;
+        right: 32px;
         a{
             padding: .8rem 1rem;
             background: transparent;
@@ -319,13 +346,18 @@ main{
         .mid_wrp {
             margin: 3rem 0 1rem;
             .child-mid{
-            display: grid;
+           // display: grid;
             // grid-template-rows: auto 1fr auto;
-            grid-template-columns:1fr 1fr; //repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 30px;
+           // grid-template-columns:1fr 1fr; //repeat(auto-fill, minmax(250px, 1fr));
+          //  grid-gap: 30px;
             width: 90%;
             margin: 0 auto 0;
-          //  padding: 7rem 0 0; 
+             background: #fff;
+             @include flex;
+             justify-content: space-around;
+             border-radius: 5px;
+             box-shadow: 0 0 6px 2px #99999942;
+             padding: 1rem;
             .left_side{
                 text-align: center;
             }
@@ -349,7 +381,7 @@ main{
                     font-size: 1.5em;
                     padding: 5px;
                     cursor: pointer;
-                    padding: 1.4rem 4rem;
+                    padding: 1.2rem 4rem;
                     text-transform: capitalize;
                     margin: 2rem 0 0;
                     transition: $transition;
@@ -372,8 +404,10 @@ main{
                 text-align: center;
                 padding: 1rem;
                 border-radius: 5px;
-                box-shadow: 0 0 7px 2px #7878784a;
+                // box-shadow: 0 0 7px 2px #7878784a;
+                box-shadow: 0 0 7px 2px #7878780f;
                 transition: $transition;
+                width: 48%;
                 &:hover{
                     transition: $transition;
                     box-shadow: 0 0 1px 1px #ffffff;
@@ -431,8 +465,31 @@ main{
         //----end----here----//
     }
     .secondary_controler {
-        margin: 3rem auto 0;
-    }
+    margin: 3rem auto 0;
+    background: #dfe7eb7d;
+    padding: .6rem .5rem;
+    border-radius: 5px;
+     @include flex;
+    justify-content: space-around;
+    width: 80%;
+     button,a{
+        background-color: #007ead;
+        padding: .7rem 1rem;
+        margin: .5rem .5rem;
+        outline:none;
+        transition: $transition;
+        &:hover{
+            opacity: .88;
+            transition: $transition;
+            box-shadow: 0 2px 3px 3px rgba(153, 153, 153, 0.425);
+         }
+     }
+     .choose_file{
+         input{
+             width: 100%;
+         }
+     }
+    } 
 }
 
 
@@ -440,7 +497,7 @@ main{
 
 // end----here----///
 
-
+@import'media';
 @import 'fonts';
 @import 'global';
 @import 'desktop';

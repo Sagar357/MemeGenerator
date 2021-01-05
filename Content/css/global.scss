@@ -7,14 +7,18 @@ button,
 a {
     display: inline-block;
     border-radius: 4px;
-    background-color: #274c5e;
+    background-color: #007ead;
     border: none;
     color: #FFFFFF;
     text-align: center;
     font-size: 1.1em;
     padding: 5px;
-    transition: all 0.3s;
+    transition: all .3s ease-in-out;
     cursor: pointer;
+    &:hover{
+        opacity: .88;
+        transition: all .3s ease-in-out;
+    }
 }
 
 
@@ -85,13 +89,22 @@ a {
     display: flex;
     flex-direction: column;
     margin: 3rem 0 1rem;
+    background: #fff;
+    width: 70%;
+    margin: 3rem auto 1rem;
+    padding: 2rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 11px 4px #00000012;
 }
 
 .meme-control {
 @include flex;
-display: grid!important;
-grid-template-columns: auto auto;
-grid-gap: 28px;
+justify-content: space-around;
+flex-wrap: nowrap;
+padding: 0 .5rem;
+// display: grid!important;
+// grid-template-columns: auto auto;
+// grid-gap: 28px;
 } 
 
 .meme-container > button {
@@ -101,17 +114,30 @@ grid-gap: 28px;
 
 .txt-editor {
     padding: 5px 10px;
-    border: 1px #f4511e solid;
+    border: 1px #007ead66 solid;
     border-radius: 5px;
-    margin: 5px;
+    margin:  .9rem 0 .9rem 1rem;
+    box-shadow: 0 0 3px 3px #81777721;
+    p{
+        padding: 5px 0;
+        input[type=text] {
+            padding: 5px;
+            border: 2px solid #ccc;
+            border-radius: 2px;
+            margin: 0 0 .5rem;
+        }
+    }
 }
 
 .memeCanvas {
     border: 2px solid white;
     border-radius: 2px;
+    width: 300px;
+    margin: 0 auto!important;
+    height: 270px;
     margin: 5px;
     // box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 0px 12px rgba(0, 0, 0, 0.22);    
 }
 
 input[type=text] {
