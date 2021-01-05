@@ -34,4 +34,6 @@ namespace MemeGenerator.Models
        public  int y { get; set; }
         public string savePath { get; set; }
     }
+   
+
 }

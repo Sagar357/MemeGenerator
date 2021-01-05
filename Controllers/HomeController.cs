@@ -15,7 +15,7 @@ namespace MemeGenerator.Controllers
     public class HomeController : Controller
     {
         [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file)
+        public ActionResult New1(HttpPostedFileBase file)
         {
             if(file != null &&file.ContentLength >0 )
             
@@ -42,7 +42,7 @@ namespace MemeGenerator.Controllers
             return View("Index");
         }
 
-        public ActionResult Index(string Message=null)
+        public ActionResult New(string Message=null)
         {
             if (!string.IsNullOrEmpty(Message))
             {
@@ -53,58 +53,58 @@ namespace MemeGenerator.Controllers
             return View(fileList);
         }
 
-        public ActionResult WriteText(ImageModification_Model model)
-        {
-            string uploadFile = Server.MapPath("~/image");
-            model.savePath = uploadFile;
-            model.filePath = Path.Combine(uploadFile ,model.fileName);
-            WriteTextOp(model);
-            FileDownload(model);
+        //public ActionResult WriteText(ImageModification_Model model)
+        //{
+        //    string uploadFile = Server.MapPath("~/image");
+        //    model.savePath = uploadFile;
+        //    model.filePath = Path.Combine(uploadFile ,model.fileName);
+        //    WriteTextOp(model);
+        //    FileDownload(model);
 
-            return View();
-        }
+        //    return View();
+       // }
 
-        public static string WriteTextOp(ImageModification_Model model)
-        {
-            if (!string.IsNullOrEmpty(model.filePath))
-            {
-                string value = model.Text;
+        //public static string WriteTextOp(ImageModification_Model model)
+        //{
+        //    if (!string.IsNullOrEmpty(model.filePath))
+        //    {
+        //        string value = model.Text;
 
-                using (Bitmap bitmap = new Bitmap(model.filePath, true))
-                {
-                    try
-                    {
-                        using (Graphics graphics = Graphics.FromImage(bitmap))
-                        {
-                            Brush brush = new SolidBrush(Color.White);
-                            Font font = new Font("Arial", 60, FontStyle.Italic, GraphicsUnit.Pixel);
-                            SizeF textSize = new SizeF();
-                            textSize = graphics.MeasureString(value, font);
-                            //Point position = new Point(model.x, model.y);
+        //        using (Bitmap bitmap = new Bitmap(model.filePath, true))
+        //        {
+        //            try
+        //            {
+        //                using (Graphics graphics = Graphics.FromImage(bitmap))
+        //                {
+        //                    Brush brush = new SolidBrush(Color.White);
+        //                    Font font = new Font("Arial", 60, FontStyle.Italic, GraphicsUnit.Pixel);
+        //                    SizeF textSize = new SizeF();
+        //                    textSize = graphics.MeasureString(value, font);
+        //                    //Point position = new Point(model.x, model.y);
 
-                            Point position = new Point(bitmap.Width - ((int)textSize.Width + model.x), bitmap.Height - ((int)textSize.Height + model.y));
-                            graphics.DrawString(value, font, brush, position);
-                            //using (MemoryStream memStr = new MemoryStream())
-                            //{
-                            //    bitmap.Save(memStr, ImageFormat.Png);
-                            //    memStr.Position = 0;
-                            //    return File(memStr.ToArray(), "image/png", model.fileName);
-                            //}
-                        }
-                        bitmap.Save(Path.Combine(model.savePath ,"newimage.png"));
+        //                    Point position = new Point(bitmap.Width - ((int)textSize.Width + model.x), bitmap.Height - ((int)textSize.Height + model.y));
+        //                    graphics.DrawString(value, font, brush, position);
+        //                    //using (MemoryStream memStr = new MemoryStream())
+        //                    //{
+        //                    //    bitmap.Save(memStr, ImageFormat.Png);
+        //                    //    memStr.Position = 0;
+        //                    //    return File(memStr.ToArray(), "image/png", model.fileName);
+        //                    //}
+        //                }
+        //                bitmap.Save(Path.Combine(model.savePath ,"newimage.png"));
                         
-                    }
-                    catch (Exception ex)
-                    {
+        //            }
+        //            catch (Exception ex)
+        //            {
 
-                        throw;
-                    }
+        //                throw;
+        //            }
 
-                }
-            }
-            return "success";
+        //        }
+        //    }
+        //    return "success";
 
-        }
+        //}
 
         public void FileDownload(ImageModification_Model model)
         {
@@ -116,13 +116,24 @@ namespace MemeGenerator.Controllers
         }
 
 
-        public ActionResult NewMeme(int id)
+        //public ActionResult NewMeme(int id)
+        //{
+        //    ViewBag.Message = "Your contact page.";
+        //    File_Model response=FileService.GetFileById(id);
+        //    return View("View_NewMeme",response);
+        //}
+
+        public ActionResult New()
         {
-            ViewBag.Message = "Your contact page.";
-            File_Model response=FileService.GetFileById(id);
-            return View("View_NewMeme",response);
+            return View("View_New");
         }
 
-
+        public ActionResult New1()
+        {
+        //    ViewBag.Message = "Your contact page.";
+        //    File_Model response = FileService.GetFileById(id);
+            return View("View_New1");
+            
+        }
     }
 }

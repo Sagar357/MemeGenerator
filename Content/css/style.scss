@@ -1,0 +1,239 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #292828;
+    font-size: 14px;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
+acronym, address, big, cite, code, del, dfn, em, img, ins, 
+kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label,
+legend, table, caption, tbody, tfoot, thead, tr, th, td, article, 
+aside, canvas, details, embed, figure, figcaption, footer, header, hgroup,
+menu, .head-wrp, output, ruby, section, summary, time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #292828;
+    font-size: 14px;
+}
+
+@import "mixin";
+
+h1,h2,h3,h4,h5,h6{
+    color:#2c3e50;
+    font-family: 'Gotham Pro bold';
+}
+a,p{
+    color:#787878;
+    font-family: 'Gotham Pro Regular';
+}
+  
+.container{
+    width: 90%;
+    margin: 0 auto;
+} 
+
+main .middle_content{
+    min-height: calc(100vh - 135px);
+    .head_line_wrp{
+        h2{
+            font-size: 2rem;
+            color: #222;
+            padding: 1.5rem 0;
+            text-transform: capitalize;
+            line-height: 1.4;
+            word-spacing: 2px;
+            letter-spacing: 1px;
+        }
+        .unorder{
+            @include flex;
+            justify-content: flex-start;
+            border-bottom: 1px solid #D9D9D9;
+            .li_cmn{
+                font-size: 1.3rem;
+                list-style-type: none;
+                font-family: "Gotham Pro Regular";
+                cursor: pointer;
+                margin: .5rem .5rem 0 0;
+                padding: .8rem 3rem;
+                text-transform: capitalize;
+                border-top-right-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+            .List_active {
+                background: #007ead;
+                color: #fff;
+            }
+        }
+    }
+}
+main{
+    header {
+        background:#007EAD;//#274c5e; // #3b8686;
+        .logo{
+            width: 100%;
+            text-align: center;
+            h1{
+                color: rgb(248, 247, 247);
+                font-size: 3em;
+                padding: 20px;
+                font-family: impact, 'dodisRegular', 'Courier New', Courier, monospace;
+            }
+       }
+    }
+      
+  .main-grid{
+      .item-wrp{
+          figure{
+              overflow: hidden;
+              transition: $transition;
+              img{
+                transition: $transition;
+                  &:hover{
+                      transform: scale(1.1);
+                      transition: $transition;
+                  }
+              }
+          }
+          figcaption{
+              a{
+                  padding: 1rem 0;
+                  background: #007EAD;
+                  font-size: 1.2rem;
+                  font-weight: normal;
+                  transition: $transition;
+                  &:hover{
+                      border-radius: 100px;
+                      transition: $transition;
+                  }
+              }
+          }
+      }
+  }
+
+    
+    //---footer-----//
+
+    footer{
+        // padding: 1rem 0;
+        background: #222;
+        .copy-right-wrapper{
+            p{
+                padding: 1rem 0;
+                text-transform: capitalize;
+                font-size: 1rem;
+                font-weight: 500;
+                text-align: center;
+            }
+        }
+    }
+
+
+    //----nav---bar----//
+    .main-bar {
+        left: 40px;
+        top: 25px;
+        display: block !important;
+        cursor: pointer;
+        position: absolute;
+        div {
+            width: 35px;
+            height: 4px;
+            margin: 6px 0;
+            background-image: linear-gradient(45deg, #ffffff, #faf9fc);
+            transition: all .4s ease-in;
+        }
+        .b1 {
+            width: 25px!important;
+        }
+        .c1 {
+            width: 29px!important;
+        }
+        &:hover .b1{
+            width: 35px!important;
+            transition: all .9s ease-in;
+        }
+    }
+    
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+        a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition:$transition;
+        background: inherit;
+            &:hover {
+            color: #f1f1f1;
+            transition:$transition;
+        }
+    }
+    .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+  }
+}
+
+// ------meme-------page-------sencond-----page-------//
+
+///--------meme----page-------second--------page=-------//
+.meme_Wrapper{
+    .back_home{
+        position: absolute;
+        top: 30px;
+        left: 50px;
+    }
+    .middle_content{
+        .mid_wrp {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 15px;
+            width: 90%;
+            margin: 0 auto 0;
+            padding: 7rem 0 0;
+        }
+    }
+}
+
+
+
+
+// end----here----///
+
+
+@import 'fonts';
+@import 'global';
+@import 'desktop';
+

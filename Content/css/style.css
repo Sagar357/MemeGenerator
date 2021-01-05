@@ -1,0 +1,567 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #292828;
+  font-size: 14px;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
+acronym, address, big, cite, code, del, dfn, em, img, ins,
+kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label,
+legend, table, caption, tbody, tfoot, thead, tr, th, td, article,
+aside, canvas, details, embed, figure, figcaption, footer, header, hgroup,
+menu, .head-wrp, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #292828;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50;
+  font-family: 'Gotham Pro bold';
+}
+
+a, p {
+  color: #787878;
+  font-family: 'Gotham Pro Regular';
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+main .middle_content {
+  min-height: calc(100vh - 135px);
+}
+
+main .middle_content .head_line_wrp h2 {
+  font-size: 2rem;
+  color: #222;
+  padding: 1.5rem 0;
+  text-transform: capitalize;
+  line-height: 1.4;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+main .middle_content .head_line_wrp .unorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+main .middle_content .head_line_wrp .unorder .li_cmn {
+  font-size: 1.3rem;
+  list-style-type: none;
+  font-family: "Gotham Pro Regular";
+  cursor: pointer;
+  margin: .5rem .5rem 0 0;
+  padding: .8rem 3rem;
+  text-transform: capitalize;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+main .middle_content .head_line_wrp .unorder .List_active {
+  background: #007ead;
+  color: #fff;
+}
+
+main header {
+  background: #007EAD;
+}
+
+main header .logo {
+  width: 100%;
+  text-align: center;
+}
+
+main header .logo h1 {
+  color: #f8f7f7;
+  font-size: 3em;
+  padding: 20px;
+  font-family: impact, 'dodisRegular', 'Courier New', Courier, monospace;
+}
+
+main .main-grid .item-wrp figure {
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .main-grid .item-wrp figure img {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .main-grid .item-wrp figure img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .main-grid .item-wrp figcaption a {
+  padding: 1rem 0;
+  background: #007EAD;
+  font-size: 1.2rem;
+  font-weight: normal;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .main-grid .item-wrp figcaption a:hover {
+  border-radius: 100px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main footer {
+  background: #222;
+}
+
+main footer .copy-right-wrapper p {
+  padding: 1rem 0;
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+main .main-bar {
+  left: 40px;
+  top: 25px;
+  display: block !important;
+  cursor: pointer;
+  position: absolute;
+}
+
+main .main-bar div {
+  width: 35px;
+  height: 4px;
+  margin: 6px 0;
+  background-image: linear-gradient(45deg, #ffffff, #faf9fc);
+  -webkit-transition: all .4s ease-in;
+  transition: all .4s ease-in;
+}
+
+main .main-bar .b1 {
+  width: 25px !important;
+}
+
+main .main-bar .c1 {
+  width: 29px !important;
+}
+
+main .main-bar:hover .b1 {
+  width: 35px !important;
+  -webkit-transition: all .9s ease-in;
+  transition: all .9s ease-in;
+}
+
+main .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+main .sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: inherit;
+}
+
+main .sidenav a:hover {
+  color: #f1f1f1;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.meme_Wrapper .back_home {
+  position: absolute;
+  top: 30px;
+  left: 50px;
+}
+
+.meme_Wrapper .middle_content .mid_wrp {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+  width: 90%;
+  margin: 0 auto 0;
+  padding: 7rem 0 0;
+}
+
+/*-------Fonts---------*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/font-awesome/fontawesome-webfont.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa {
+  font-family: 'FontAwesome';
+}
+
+/*---playfair---*/
+@font-face {
+  font-family: playfairRegular;
+  src: url("../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf");
+}
+
+@font-face {
+  font-family: playfairBold;
+  src: url("../fonts/Playfair_Display/PlayfairDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-family: playfairItalic;
+  src: url("../fonts/Playfair_Display/PlayfairDisplay-Italic.ttf");
+}
+
+/*---Inconsolata---*/
+@font-face {
+  font-family: inconsolata;
+  src: url("../fonts/Inconsolata/Inconsolata-Regular.ttf");
+}
+
+/*---Ubuntu---*/
+@font-face {
+  font-family: ubuntu;
+  src: url("../fonts/Ubuntu/Ubuntu-Light.ttf");
+}
+
+/*---Dodis---*/
+@font-face {
+  font-family: dodisRegular;
+  src: url("../fonts/dodis/Dodis-Regular.ttf");
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+a {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #274c5e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.1em;
+  padding: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+/*=====  End of Global  ======*/
+/*-------Layout-----*/
+/*-------header-----*/
+/*----Main------*/
+/*----------  Gallery  ----------*/
+.grid-container .mid-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  text-align: center;
+  grid-gap: 15px;
+  margin: 10px 0 .3rem;
+}
+
+.grid-container .item-wrp {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/*=============================================
+=            Meme Container            =
+=============================================*/
+.meme-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5px 0;
+}
+
+.meme-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.meme-container > button {
+  margin: 5px;
+  z-index: 1;
+}
+
+.txt-editor {
+  padding: 5px 10px;
+  border: 1px #f4511e solid;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.memeCanvas {
+  border: 2px solid white;
+  border-radius: 2px;
+  margin: 5px;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+input[type=text] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+}
+
+input[type=number] {
+  width: 45px;
+}
+
+#dl {
+  margin: 5px;
+}
+
+/*=====  End of Meme Container  ======*/
+/*----------  contact  ----------*/
+/*----Footer----*/
+/*=============================================
+=            Helpers            =
+=============================================*/
+/* vertically centering everything: */
+.vertical-center-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.clean-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clean-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/*=====  End of Helpers  ======*/
+/*---flex---*/
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.inline-flex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.space-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flex-full {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+/*-------Layout-----*/
+/*-------header-----*/
+/*----Main------*/
+/*----------  Gallery  ----------*/
+.grid-container .mid-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  text-align: center;
+  grid-gap: 15px;
+  margin: 10px 0 .3rem;
+}
+
+.grid-container .item-wrp {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.grid-container .item-wrp figure {
+  height: 299px;
+}
+
+.grid-container .item-wrp figure img {
+  max-width: 100%;
+  height: 299px;
+}
+
+.grid-container .item-wrp figcaption a {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/*=============================================
+=            Meme Container            =
+=============================================*/
+.meme-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.meme-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.memeCanvas {
+  border: 2px solid white;
+  border-radius: 2px;
+  margin: 5px;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+input[type=text] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+}
+
+input[type=number] {
+  width: 45px;
+}
+
+/*=====  End of Meme Container  ======*/
+.hidden {
+  display: none;
+}
+
+/*----------  contact  ----------*/
+/*----Footer----*/
+/*# sourceMappingURL=style.css.map */
