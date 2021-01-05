@@ -11,60 +11,66 @@ namespace MemeGenerator.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file)
+        //[HttpPost]
+        public ActionResult Index(/*HttpPostedFileBase file*/)
         {
-            if(file != null &&file.ContentLength >0 )
-            
-                try
-                {
-                    string path = Path.Combine(Server.MapPath("~/image"),
-                      Path.GetFileName(file.FileName));
-                    file.SaveAs(path);
-                    
-                  ViewBag.ImageUrl = "../image/" + file.FileName;
-                   // ViewBag.Message = "File Upload Successfully";
+            //if(file != null &&file.ContentLength >0 )
 
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.Message = "Error:" + ex.Message.ToString();
+            //    try
+            //    {
+            //        string path = Path.Combine(Server.MapPath("~/image"),
+            //          Path.GetFileName(file.FileName));
+            //        file.SaveAs(path);
 
-                }
-            else
-            {
-                ViewBag.Message = "You have not specified a file.";
-            }
+            //      ViewBag.ImageUrl = "../image/" + file.FileName;
+            //       // ViewBag.Message = "File Upload Successfully";
+
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        ViewBag.Message = "Error:" + ex.Message.ToString();
+
+            //    }
+            //else
+            //{
+            //    ViewBag.Message = "You have not specified a file.";
+            //}
 
             return View("Index");
         }
-
-        public ActionResult Index(string Message=null)
+        public ActionResult meme()
         {
-            if (!string.IsNullOrEmpty(Message))
-            {
-                ViewBag.Message = Message;
-            }
-            File_list  fileList=FileService.GetFileList();
-            
-            return View(fileList);
-        }
-
-        public ActionResult WriteText(ImageModification_Model model)
-        {
-            string uploadFile = Server.MapPath("~/image");
-            model.filePath = Path.Combine(uploadFile ,model.fileName);
-            FileService.WriteText(model);
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult NewMeme(int id)
-        {
-            ViewBag.Message = "Your contact page.";
-            File_Model response=FileService.GetFileById(id);
-            return View("View_NewMeme",response);
+            return View("meme");
         }
     }
 }
+
+//        public ActionResult Index(string Message=null)
+//        {
+//            if (!string.IsNullOrEmpty(Message))
+//            {
+//                ViewBag.Message = Message;
+//            }
+//            File_list  fileList=FileService.GetFileList();
+            
+//            return View(fileList);
+//        }
+
+//        public ActionResult WriteText(ImageModification_Model model)
+//        {
+//            string uploadFile = Server.MapPath("~/image");
+//            model.filePath = Path.Combine(uploadFile ,model.fileName);
+//            FileService.WriteText(model);
+//            ViewBag.Message = "Your contact page.";
+
+//            return View();
+//        }
+
+//        public ActionResult NewMeme(int id)
+//        {
+//            ViewBag.Message = "Your contact page.";
+//            File_Model response=FileService.GetFileById(id);
+//            return View("View_NewMeme",response);
+//        }
+//    }
+//}
