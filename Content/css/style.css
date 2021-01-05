@@ -187,7 +187,9 @@ main .main-grid .item-wrp figure {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-
+main .main-grid .item-wrp0 figure {
+  border:1px solid #3f444652;
+}
 main .main-grid .item-wrp figure img {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;

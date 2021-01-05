@@ -184,6 +184,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="image\Fotor_14582274873786.jpg" />
+    <Content Include="image\placeholder.png" />
     <Content Include="img\gallery\alina.png" />
     <Content Include="img\gallery\Ancient-Aliens.jpg" />
     <Content Include="img\gallery\Batman-Slapping-Robin.jpg" />

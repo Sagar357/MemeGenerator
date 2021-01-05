@@ -75,8 +75,8 @@
 
                     @using (Html.BeginForm("Index", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
-                        <input type="file" name="uploadfile">
-                        <button type="submit">Upload</button>
+                        @*<input type="file" name="uploadfile">
+                        <button type="submit">Upload</button>*@
                     }
 
                         <!-- head-line-end---her -->
@@ -84,6 +84,16 @@
                         <!-- image--grid1---1-->
                         <div class="main-grid" id="Sub_List1" style="display: none;">
                             <div class="mid-grid mid_1st">
+                                <div class="item-wrp item-wrp0" id="chooseImage">
+                                    <figure>
+                                        @*<img src="~/img/gallery/alina.png" alt="">*@
+                                        <img src="~/image/placeholder.png" />
+                                    </figure>
+                                    <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
+                                    <figcaption>
+                                        <a href="@Url.Action("meme","Home")">meme Generate</a>
+                                    </figcaption>
+                                </div>
                                 <div class="item-wrp item-wrp1">
                                     <figure>
                                         <img src="~/img/gallery/alina.png" alt="">
@@ -269,6 +279,12 @@
     <script src="~/Scripts/js/meme.js"></script>
     <script src="~/Scripts/js/main.js"></script>
     <script src="~/Scripts/js/aos.js"></script>
+
+    <script>
+        $('#chooseImage').on('click', function () {
+            $('#hiddenFileUpload').trigger('click')
+        });
+    </script>
 </body>
 
 </html>
