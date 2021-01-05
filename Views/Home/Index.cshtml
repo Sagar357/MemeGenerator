@@ -73,11 +73,9 @@
                         </ul>
                     </div>
 
-                    @using (Html.BeginForm("Index", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
                         @*<input type="file" name="uploadfile">
                         <button type="submit">Upload</button>*@
-                    }
+
 
                         <!-- head-line-end---her -->
                         <!-- js render -->
@@ -91,7 +89,7 @@
                                     </figure>
                                     <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
                                     <figcaption>
-                                        <a href="@Url.Action("meme","Home")">meme Generate</a>
+                                        <a href="@Url.Action("meme", "Home")">meme Generate</a>
                                     </figcaption>
                                 </div>
                                 <div class="item-wrp item-wrp1">
@@ -99,7 +97,7 @@
                                         <img src="~/img/gallery/alina.png" alt="">
                                     </figure>
                                     <figcaption>
-                                        <a href="@Url.Action("meme","Home")">meme Generate</a>
+                                        <a href="@Url.Action("meme", "Home")">meme Generate</a>
                                     </figcaption>
                                 </div>
                                 <div class="item-wrp item-wrp2">
@@ -256,7 +254,7 @@
                         </div>
                         <!-- end---here -->
                     </div>
-               
+
             </div>
         </section>
 
@@ -270,6 +268,7 @@
             </div>
         </footer>
     </main>
+                    
     <!-- <div class="svg_wrapper">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,128L1440,0L1440,320L0,320Z"></path></svg>
     </div> -->
@@ -284,6 +283,26 @@
         $('#chooseImage').on('click', function () {
             $('#hiddenFileUpload').trigger('click')
         });
+
+        $('#hiddenFileUpload').on('change', function () {
+            debugger
+            var formData = new FormData();
+            formData.append('uploadfile', this.files);
+            $.ajax({
+                url:'@Url.Action("Index" , "Upload")',
+                method: 'post',
+                contentType: false,
+                processData: false,
+                async: true,
+                data: formData,
+                success: function (data) {
+
+                },
+                error: function (error) {
+
+                }
+            });
+        })
     </script>
 </body>
 

@@ -11,7 +11,7 @@ namespace MemeGenerator.Controllers
 {
     public class HomeController : Controller
     {
-        //[HttpPost]
+        [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
         {
             if (file != null && file.ContentLength > 0)
@@ -39,16 +39,16 @@ namespace MemeGenerator.Controllers
             return View("Index");
         }
 
-        //public ActionResult Index(string Message = null)
-        //{
-        //    if (!string.IsNullOrEmpty(Message))
-        //    {
-        //        ViewBag.Message = Message;
-        //    }
-        //    File_list fileList = FileService.GetFileList();
+        public ActionResult Index(string Message = null)
+        {
+            if (!string.IsNullOrEmpty(Message))
+            {
+                ViewBag.Message = Message;
+            }
+            File_list fileList = FileService.GetFileList();
 
-        //    return View(fileList);
-        //}
+            return View(fileList);
+        }
     }
 }
 
