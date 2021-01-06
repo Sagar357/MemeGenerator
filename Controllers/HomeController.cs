@@ -39,11 +39,11 @@ namespace MemeGenerator.Controllers
             return View("Index");
         }
 
-        public ActionResult Index(string Message = null)
+        public ActionResult Index(string ImageUrl = null)
         {
-            if (!string.IsNullOrEmpty(Message))
+            if (!string.IsNullOrEmpty(ImageUrl))
             {
-                ViewBag.Message = Message;
+                ViewBag.ImageUrl = ImageUrl;
             }
             File_list fileList = FileService.GetFileList();
 

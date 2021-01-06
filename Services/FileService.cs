@@ -18,6 +18,7 @@ namespace MemeGenerator.Services
         public static string Upload(HttpPostedFileBase file, string uploadpath)
         {
             string message = string.Empty;
+            string value = string.Empty;
             if (file != null && file.ContentLength > 0)
             {
                 try
@@ -47,17 +48,18 @@ namespace MemeGenerator.Services
                 DataSet ds = new DataSet();
                 SqlParameter[] param = new SqlParameter[3];
                 param[0] = new SqlParameter("@attachmentcode", attachmentcode);
-                param[1] = new SqlParameter("@filepath", Path.Combine("/image/", file.FileName));
+                param[1] = new SqlParameter("@filepath", Path.Combine("../image/", file.FileName));
                 ds = SqlHelper.ExecuteDataset(db, CommandType.StoredProcedure, "InsertStoredProcedureFile", param);
+                 value = Path.Combine("../image/", file.FileName);
 
                 message = "success";
             }
 
-            return message;
+           // return message;
+            return value;
 
         }
-
-
+        
         public static File_list GetFileList()
         {
             File_list listObj = null;

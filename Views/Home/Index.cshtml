@@ -85,7 +85,14 @@
                                 <div class="item-wrp item-wrp0" id="chooseImage">
                                     <figure>
                                         @*<img src="~/img/gallery/alina.png" alt="">*@
-                                        <img src="~/image/placeholder.png" />
+                                        @if (!string.IsNullOrEmpty(ViewBag.ImageUrl))
+                                        {
+                                            <img src="@ViewBag.ImageUrl" />
+                                        }
+                                        else
+                                        {
+                                            <img src="~/image/placeholder.png" />
+                                        }
                                     </figure>
                                     <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
                                     <figcaption>
@@ -284,10 +291,11 @@
             $('#hiddenFileUpload').trigger('click')
         });
 
-        $('#hiddenFileUpload').on('change', function () {
+        $('#hiddenFileUpload').on('change', function (event) {
             debugger
+            var files = event.currentTarget;
             var formData = new FormData();
-            formData.append('uploadfile', this.files);
+            formData.append('uploadfile', files.files[0]);
             $.ajax({
                 url:'@Url.Action("Index" , "Upload")',
                 method: 'post',
