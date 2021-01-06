@@ -91,7 +91,7 @@
                                     }
                                     else
                                     {
-                                        <img src="~/image/placeholder.png" />
+                                        <img id="previewImage" src="~/image/placeholder.png" />
                                     }
                                 </figure>
                                 <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
@@ -304,7 +304,7 @@
                 async: true,
                 data: formData,
                 success: function (data) {
-
+                    $('#previewImage').attr('src' ,data);
                 },
                 error: function (error) {
 
@@ -314,15 +314,6 @@
         })
 
 
-    </script>
-    
-        <script>
-            $(document).ready(function () {
-                $('~/image/placeholder.png" /').click(function () {
-                    
-                });
-            })
-        
     </script>
     
 </body>
