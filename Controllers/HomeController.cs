@@ -49,8 +49,8 @@ namespace MemeGenerator.Controllers
 
             return View(fileList);
         }
-    }
-}
+   
+
 
             //public ActionResult WriteText(ImageModification_Model model)
             //{
@@ -62,11 +62,11 @@ namespace MemeGenerator.Controllers
             //    return View();
             //}
 
-//        public ActionResult NewMeme(int id)
-//        {
-//            ViewBag.Message = "Your contact page.";
-//            File_Model response=FileService.GetFileById(id);
-//            return View("View_NewMeme",response);
-//        }
-//    }
-//}
+        public ActionResult Meme(int id)
+        {
+           ViewBag.Message = "Your contact page.";
+           File_Model response=FileService.GetFileById(id);
+           return View("meme",response);
+       }
+}
+}
