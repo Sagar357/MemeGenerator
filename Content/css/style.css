@@ -623,11 +623,18 @@ a {
       grid-template-columns: auto auto;
   grid-gap: 28px;
 }
-
-.meme-container > button {
-  margin: 5px;
-  z-index: 1;
-}
+    .meme-control .child-cntrol{
+        width:50%;
+        margin:0  auto;
+    }
+        .meme-control .child-cntrol img{
+            max-width:100%;
+            object-fit:cover;
+        }
+        .meme-container > button {
+            margin: 5px;
+            z-index: 1;
+        }
 
 .txt-editor {
   padding: 5px 10px;

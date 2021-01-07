@@ -47,11 +47,12 @@
                         <div class="child-mid">
                             <div class="left_side mid-cmn">
                                 <figure>
-                                    <img src="img/gallery/alina.png" alt="">
+                                    <img src="@Model.filepath" id="photo" alt="">
                                 </figure>
                             </div>
                             <div class="right-side mid-cmn">
                                 <div class="text-content">
+                                    <button class="btn">convert</button>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                         Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
@@ -63,7 +64,7 @@
                                         Minus, fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum obcaecati molestias
                                         expedita sed dolor odit amet ducimus facere vel repellendus!
                                     </p>
-                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor(1,this)">create this meme </a>
+                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#img11',this)">create this meme </a>
                                 </div>
                             </div>
                         </div>
@@ -93,14 +94,22 @@
                 </div>
                 <div class="meme-container hidden">
                     <div class="meme-control">
-                        <canvas class="memeCanvas">
-                            Your browser does not support the HTML5 canvas tag.
-                        </canvas>
+                        @*<div class="child-cntrol">
+
+                                <img src="@Model.filepath" style="border :4px solid red,">
+                            </div>*@
+
+                        @*<canvas class="memeCanvas">
+
+                                <imgs id="img11" src="../img/gallery/alina.png" alt="">
+                            </canvas>*@
                         <!-- <div class="canva_img">
                             <figure>
                                 <img src="img/gallery/alina.png" alt="">
                             </figure>
                         </div> -->
+
+                        <canvas id="canvas" style="border:2px solid #000"></canvas>
 
                         <div class="txts-list">
                             <!-- js render -->
@@ -120,7 +129,8 @@
                         </a>
                         <a href="#" class="choose_file">
                             <label for="#">
-                                <input type="file" name="file1" id="file1">
+                                <input type="file" name="file1" id="inp">
+                                @*<input type="file" id="file1">*@
                             </label>
                         </a>
                     </div>
@@ -150,6 +160,39 @@
     <script src="~/Scripts/js/meme.js"></script>
     <script src="~/Scripts/js/main.js"></script>
     <script src="~/Scripts/js/aos.js"></script>
+    @*<script>
+        var x = XMLHttpRequest();
+        debugger
+        x.open("Get" "@Model.filepath", true);
+        x.responseType = "arraybuffer";
+        x.onload = function (e)
+
+        {
+            debugger
+            var arrayBufferView = new Uint8Array(this.response);
+            var blob = new Blob([arrayBufferView], { type: "image/jpeg" });
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL(blob);
+            var img = document.querySelector("#photo");
+            img.src = imageUrl;
+        };
+
+        x.send();
+
+    </script>*@
+<script>
+    let BtnEle = document.querySelector(".btn");
+    debugger
+        BtnEle.addEventListener("click", () => {
+            fetch("https://static.toiimg.com/photo/72975551.cms")
+                .then(function (response) {
+                    return response.blob();
+                })
+            .then(function (blob) {
+         resEle.innerHTML += "blob.type = " + blob.type + "<br>";
+      });
+   });
+    </script>
 </body>
 
 </html>

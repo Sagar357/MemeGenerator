@@ -33,6 +33,7 @@ function createTxt(line, x, y) {
 }
 
 function initMemeEditor(imgId) {
+    debugger
     toggleView();
     gMeme = createGmeme(imgId);
     initCanvas();

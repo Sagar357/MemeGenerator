@@ -62,11 +62,16 @@ namespace MemeGenerator.Controllers
             //    return View();
             //}
 
-        public ActionResult Meme(int id)
+        public ActionResult meme(int id)
         {
            ViewBag.Message = "Your contact page.";
            File_Model response=FileService.GetFileById(id);
            return View("meme",response);
        }
+
+        //public ActionResult New()
+        //{
+        //    return View("meme");
+        //}
 }
 }

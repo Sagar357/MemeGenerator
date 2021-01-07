@@ -95,78 +95,23 @@
                                     }
                                 </figure>
                                 <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
-
-
-                                @foreach (File_Model element in Model.list)
-                                {
-                                    <div class="col-md-2" style="height: 100px; border: 1px solid black;" id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { id=element.fileid } )'">
-                                        <img src="@element.filepath" height="100" width="150" />
-                                    </div>
-                                }
-                                <figcaption>
-                                           <a href="@Url.Action("meme", "Home")">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp1">
-                                <figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
-                                </figure>
                                 <figcaption>
                                     <a href="@Url.Action("meme", "Home")">meme Generate</a>
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp2">
+                            @foreach (File_Model element in Model.list)
+                            {
+                  
+                                <div class="item-wrp item-wrp1">
+                                    <figure  id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { id=element.fileid } )'">
+                                        <img src="@element.filepath"  height="100" width="150" />
+                                    </figure>
+                                    <figcaption>
+                                        <a href="@Url.Action("meme", "Home")">meme Generate</a>
+                                    </figcaption>
+                                </div>
+                            }
 
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp3">
-                                <figure>
-                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp4">
-
-                                <figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp5">
-
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp6">
-
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp7">
-                                <figure>
-                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html">meme Generate</a>
-                                </figcaption>
-                            </div>
                         </div>
                     </div>
                     <!-- end---here -->
@@ -175,10 +120,12 @@
                         <div class="mid-grid mid_2nd">
                             <div class="item-wrp item-wrp1">
                                 <figure>
-                                    <img src="~/img/gallery/Mocking-Spongebob.jpg" alt="">
+                                    @*<a href="@Url.Action("New","Home")">*@
+                                    <img id="1000" src="~/img/gallery/Mocking-Spongebob.jpg" alt="">
+                                    @*</a>*@
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    @*<a href="@Url.Action("meme" ,"Home" ,new { id=1000 } )">meme Generate</a>*@
                                 </figcaption>
                             </div>
                             <div class="item-wrp item-wrp2">
