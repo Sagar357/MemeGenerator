@@ -78,6 +78,7 @@ main .middle_content .head_line_wrp .unorder {
       -ms-flex-pack: start;
           justify-content: flex-start;
   border-bottom: 1px solid #D9D9D9;
+  padding: 0 0 .5rem;
 }
 
 main .middle_content .head_line_wrp .unorder .li_cmn {
@@ -88,8 +89,8 @@ main .middle_content .head_line_wrp .unorder .li_cmn {
   margin: .5rem .5rem 0 0;
   padding: .8rem 3rem;
   text-transform: capitalize;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border: 1px solid #99999930;
+  border-radius: 5px;
 }
 
 main .middle_content .head_line_wrp .unorder .List_active {
@@ -136,6 +137,7 @@ main header nav .logo a {
   cursor: pointer;
   color: inherit;
   background: inherit;
+  padding: 5px 0;
 }
 
 main header nav .nav_item {
@@ -182,6 +184,11 @@ main header .logo h1 {
   font-family: impact, 'dodisRegular', 'Courier New', Courier, monospace;
 }
 
+main .main-grid .item-wrp0 figure {
+  height: 280px;
+  border: 1px solid #999999;
+}
+
 main .main-grid .item-wrp figure {
   overflow: hidden;
   -webkit-transition: all 0.3s ease-in-out;
@@ -217,6 +224,23 @@ main .main-grid .item-wrp figcaption a:hover {
   transition: all 0.3s ease-in-out;
 }
 
+main .main-grid .item-wrp figcaption .hvr-bounce-to-right {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .main-grid .item-wrp figcaption .hvr-bounce-to-right:hover {
+  border-radius: 100px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .main-grid .item-wrp figcaption .hvr-bounce-to-right:hover::before {
+  border-radius: 100px !important;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
 main footer {
   background: #222;
 }
@@ -230,11 +254,13 @@ main footer .copy-right-wrapper p {
 }
 
 main .main-bar {
-  left: 40px;
+  right: 40px;
   top: 20px;
   display: block !important;
   cursor: pointer;
   position: absolute;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 main .main-bar div {
@@ -256,8 +282,8 @@ main .main-bar .b1 {
   width: 25px !important;
 }
 
-main .main-bar .c1 {
-  width: 29px !important;
+main .main-bar .a1 {
+  width: 31px !important;
 }
 
 main .main-bar:hover .b1 {
@@ -303,12 +329,17 @@ main .sidenav .side-item a {
   background: inherit;
   margin: .5rem 0;
   background: #fff;
+  text-transform: capitalize;
 }
 
 main .sidenav .side-item a:hover {
   color: #007ead;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+main .sidenav .side-item .side_hide {
+  display: none;
 }
 
 main .sidenav .closebtn {
@@ -339,7 +370,7 @@ main .sidenav .closebtn i {
 .meme_Wrapper .back_home {
   position: absolute;
   top: 17px;
-  left: 32px;
+  right: 32px;
 }
 
 .meme_Wrapper .back_home a {
@@ -367,13 +398,26 @@ main .sidenav .closebtn i {
 }
 
 .meme_Wrapper .middle_content .mid_wrp .child-mid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
   width: 90%;
   margin: 0 auto 0;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px 2px #99999942;
+          box-shadow: 0 0 6px 2px #99999942;
+  padding: 1rem;
 }
 
 .meme_Wrapper .middle_content .mid_wrp .child-mid .left_side {
@@ -414,7 +458,7 @@ main .sidenav .closebtn i {
   font-size: 1.5em;
   padding: 5px;
   cursor: pointer;
-  padding: 1.4rem 4rem;
+  padding: 1.2rem 4rem;
   text-transform: capitalize;
   margin: 2rem 0 0;
   -webkit-transition: all 0.3s ease-in-out;
@@ -443,10 +487,11 @@ main .sidenav .closebtn i {
   text-align: center;
   padding: 1rem;
   border-radius: 5px;
-  -webkit-box-shadow: 0 0 7px 2px #7878784a;
-          box-shadow: 0 0 7px 2px #7878784a;
+  -webkit-box-shadow: 0 0 7px 2px #7878780f;
+          box-shadow: 0 0 7px 2px #7878780f;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  width: 48%;
 }
 
 .meme_Wrapper .middle_content .mid_wrp .child-mid .mid-cmn:hover {
@@ -500,6 +545,200 @@ main .sidenav .closebtn i {
 
 .meme_Wrapper .secondary_controler {
   margin: 3rem auto 0;
+  background: #dfe7eb7d;
+  padding: .6rem .5rem;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 80%;
+}
+
+.meme_Wrapper .secondary_controler button, .meme_Wrapper .secondary_controler a {
+  background-color: #007ead;
+  padding: .7rem 1rem;
+  margin: .5rem .5rem;
+  outline: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.meme_Wrapper .secondary_controler button:hover, .meme_Wrapper .secondary_controler a:hover {
+  opacity: .88;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-box-shadow: 0 2px 3px 3px rgba(153, 153, 153, 0.425);
+          box-shadow: 0 2px 3px 3px rgba(153, 153, 153, 0.425);
+}
+
+.meme_Wrapper .secondary_controler .choose_file input {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  main header nav .logo {
+    width: 40%;
+  }
+  main header nav .nav_item {
+    width: 50%;
+  }
+  .meme-control {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+  }
+  .txt-editor {
+    margin: 1.1rem 0 0.5rem !important;
+  }
+  .meme_Wrapper .secondary_controler {
+    width: 100%;
+    margin: 1rem auto 0;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  main header nav .logo {
+    width: 35%;
+  }
+  main header nav .logo a h1 {
+    font-size: 2.1rem;
+  }
+  main .main-bar {
+    right: 40px;
+    top: 13px;
+  }
+  main header nav .nav_item {
+    width: 50%;
+  }
+  main header nav .nav_item {
+    display: none;
+  }
+  .side-item .side_hide {
+    display: block !important;
+  }
+  .meme_Wrapper .middle_content .mid_wrp .child-mid .mid-cmn {
+    width: 100%;
+    -webkit-box-shadow: 0 0 0px 0px #78787800;
+            box-shadow: 0 0 0px 0px #78787800;
+  }
+  .meme-container {
+    width: 90% !important;
+    margin: 2rem auto 2rem !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  main header nav .logo {
+    width: 100%;
+  }
+  main .main-bar {
+    right: 40px;
+    top: 13px;
+  }
+  .meme_Wrapper .back_home {
+    top: 10px;
+    right: 38px;
+  }
+  .meme_Wrapper .middle_content .mid_wrp .child-mid .right-side .text-content .meme_btn {
+    padding: 1.1rem 3rem;
+    font-size: 1.4em;
+  }
+  .meme-container {
+    width: 90% !important;
+    margin: 2rem auto 2rem !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  main .middle_content .head_line_wrp .unorder {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main .middle_content .head_line_wrp h2 {
+    text-align: center;
+  }
+  main .sidenav .side-item a {
+    font-size: 1.3em;
+  }
+  .meme_Wrapper .middle_content .mid_wrp .child-mid .right-side .text-content p {
+    font-size: 1.1rem;
+  }
+  main .main-bar {
+    right: 21px;
+  }
+  .meme_Wrapper .middle_content .mid_wrp .child-mid .right-side .text-content .meme_btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.3em;
+  }
+  .meme_Wrapper .middle_content .mid_wrp .child-mid .right-side .text-content p {
+    margin: 0;
+  }
+  .meme_Wrapper .middle_content .mid_wrp .child-mid .mid-cmn {
+    padding: .5rem 0;
+  }
+  .memeCanvas {
+    width: 95% !important;
+    height: 100% !important;
+  }
+  .txt-editor p input[type=number] {
+    width: 45px;
+    margin: .3rem 0;
+  }
+  .meme_Wrapper .middle_content .mid_wrp {
+    margin: 2rem 0 1rem;
+  }
+  .meme_Wrapper .middle_content .mid_wrp .child-mid {
+    width: 100%;
+  }
+  .meme-container {
+    width: 100% !important;
+  }
+  .meme_Wrapper .back_home {
+    top: 10px;
+    right: 23px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  main .middle_content .head_line_wrp .unorder {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  main .middle_content .head_line_wrp h2 {
+    text-align: center;
+  }
+  main .middle_content .head_line_wrp .unorder .li_cmn {
+    padding: .7rem 1.6rem;
+    margin: .5rem auto .5rem;
+  }
+  main .main-bar {
+    right: 20px;
+    top: 13px;
+  }
+  .meme_Wrapper .back_home {
+    top: 10px;
+    right: 20px;
+  }
 }
 
 /*-------Fonts---------*/
@@ -556,15 +795,22 @@ button,
 a {
   display: inline-block;
   border-radius: 4px;
-  background-color: #274c5e;
+  background-color: #007ead;
   border: none;
   color: #FFFFFF;
   text-align: center;
   font-size: 1.1em;
   padding: 5px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
   cursor: pointer;
+}
+
+button:hover,
+a:hover {
+  opacity: .88;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 /*=====  End of Global  ======*/
@@ -603,6 +849,13 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 3rem 0 1rem;
+  background: #fff;
+  width: 70%;
+  margin: 3rem auto 1rem;
+  padding: 2rem 1rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 11px 4px #00000012;
+          box-shadow: 0 0 11px 4px #00000012;
 }
 
 .meme-control {
@@ -617,11 +870,11 @@ a {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  display: -ms-grid !important;
-  display: grid !important;
-  -ms-grid-columns: auto auto;
-      grid-template-columns: auto auto;
-  grid-gap: 28px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  padding: 0 .5rem;
 }
     .meme-control .child-cntrol{
         width:50%;
@@ -638,17 +891,33 @@ a {
 
 .txt-editor {
   padding: 5px 10px;
-  border: 1px #f4511e solid;
+  border: 1px #007ead66 solid;
   border-radius: 5px;
-  margin: 5px;
+  margin: .9rem 0 .9rem 1rem;
+  -webkit-box-shadow: 0 0 3px 3px #81777721;
+          box-shadow: 0 0 3px 3px #81777721;
+}
+
+.txt-editor p {
+  padding: 5px 0;
+}
+
+.txt-editor p input[type=text] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+  margin: 0 0 .5rem;
 }
 
 .memeCanvas {
   border: 2px solid white;
   border-radius: 2px;
+  width: 300px;
+  margin: 0 auto !important;
+  height: 270px;
   margin: 5px;
-  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 0px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 0px 12px rgba(0, 0, 0, 0.22);
 }
 
 input[type=text] {
@@ -776,7 +1045,7 @@ input[type=number] {
 }
 
 .grid-container .item-wrp figure img {
-  max-width: 100%;
+  width: 100%;
   height: 299px;
 }
 
@@ -801,8 +1070,8 @@ input[type=number] {
   border: 2px solid white;
   border-radius: 2px;
   margin: 5px;
-  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 0px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3), 0 0px 12px rgba(0, 0, 0, 0.22);
   -ms-flex-item-align: start;
       align-self: flex-start;
 }

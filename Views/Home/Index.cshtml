@@ -13,13 +13,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meme Generator</title>
-    <script defer src="~/fonts/fontawesome-all.js"></script>
+   <script defer src="~/fonts/fontawesome-all.js"></script>
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link rel="stylesheet" href="~/fonts/stylesheet.css">
     <link rel="stylesheet" href="~/Content/css/Hover-master/css/hover-min.css">
+    <link href="~/Content/css/aos.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
 </head>
 <body>
-    <main>
+    <main class="wow fadeIn" style="visibility: visible;">
         <header>
             <div class="container">
                 <nav>
@@ -57,6 +59,8 @@
                 <a href="#">categories</a>
                 <a href="#" onclick="initMemeEditor(1,this)">open editor</a>
                 <a href="#">log in</a>
+                <a href="about.html" class="side_hide">about</a>
+                <a href="contact.html" class="side_hide">contact us</a>
             </div>
         </section>
         <!-- sidebar----section---end-here -->
@@ -81,8 +85,8 @@
                     <!-- js render -->
                     <!-- image--grid1---1-->
                     <div class="main-grid" id="Sub_List1" style="display: none;">
-                        <div class="mid-grid mid_1st">
-                            <div class="item-wrp item-wrp0" id="chooseImage">
+                        <div class="mid-grid mid_1st wow fadeIn" style="visibility: visible;">
+                            <div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">
                                 <figure>
                                     @*<img src="~/img/gallery/alina.png" alt="">*@
                                     @if (!string.IsNullOrEmpty(ViewBag.ImageUrl))
@@ -112,13 +116,46 @@
                                 </div>
                             }
 
+                                <figure>
+                                    <img src="~/img/gallery/alina.png" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-out-cubic">
+
+                                <figure>
+                                    <img src="~/img/gallery/success.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp6" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
+
+                                <figure>
+                                    <img src="~/img/gallery/success.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp7" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
                         </div>
                     </div>
                     <!-- end---here -->
                     <!-- image--grid2---2-->
                     <div class="main-grid" id="Sub_List2">
-                        <div class="mid-grid mid_2nd">
-                            <div class="item-wrp item-wrp1">
+                        <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
+                            <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
                                 <figure>
                                     @*<a href="@Url.Action("New","Home")">*@
                                     <img id="1000" src="~/img/gallery/Mocking-Spongebob.jpg" alt="">
@@ -128,39 +165,39 @@
                                     @*<a href="@Url.Action("meme" ,"Home" ,new { id=1000 } )">meme Generate</a>*@
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp2">
+                            <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
 
                                 <figure>
                                     <img src="~/img/gallery/alina.png" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp3">
+                            <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
                                 <figure>
                                     <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp4">
+                            <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
 
                                 <figure>
                                     <img src="~/img/gallery/alina.png" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp5">
+                            <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
 
                                 <figure>
                                     <img src="~/img/gallery/success.jpg" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
                         </div>
@@ -168,48 +205,48 @@
                     <!-- end---here -->
                     <!-- image--grid3---3-->
                     <div class="main-grid" id="Sub_List3" style="display: none;">
-                        <div class="mid-grid mid_2nd">
-                            <div class="item-wrp item-wrp1">
+                        <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
+                            <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
                                 <figure>
                                     <img src="~/img/gallery/X-Everywhere.jpg" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp2">
+                            <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
 
                                 <figure>
                                     <img src="~/img/gallery/One-Does-Not-Simply.jpg" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp3">
+                            <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
                                 <figure>
                                     <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp4">
+                            <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
 
                                 <figure>
                                     <img src="~/img/gallery/alina.png" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
-                            <div class="item-wrp item-wrp5">
+                            <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
 
                                 <figure>
                                     <img src="~/img/gallery/success.jpg" alt="">
                                 </figure>
                                 <figcaption>
-                                    <a href="meme.html">meme Generate</a>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
                         </div>
