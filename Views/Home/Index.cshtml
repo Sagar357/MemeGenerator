@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="~/Content/css/Hover-master/css/hover-min.css">
     <link href="~/Content/css/aos.css" rel="stylesheet" />
     <link href="~/Content/css/animate.css" rel="stylesheet" />
-    <script src="~/Scripts/js/main.js"></script>
+
 </head>
 <body>
     <main class="wow fadeIn" style="visibility: visible;">
@@ -46,6 +46,9 @@
 
             </div>
         </header>
+        <canvas id="canvas">
+
+        </canvas>
         <!-- sidebar---section -->
         <section id="mySidenav" class="sidenav">
             <div class="top-head">
@@ -291,10 +294,10 @@
     <script>
         $('#previewImage').on('click', function () {
             $('#hiddenFileUpload').trigger('click')
-           
+        // window.location.href = "@Url.Action("Index", "Upload")";
         });
 
-        document.getElementById('previewImage').onchange = function (e) {
+        $('#hiddenFileUpload').change ( function (e) {
             debugger
             var img = new Image();
             img.onload = draw;
@@ -302,7 +305,18 @@
             debugger
             img.src = URL.createObjectURL(this.files[0]);
             //img.src ="../image/placeholder.png"
-        };
+        });
+
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            canvas.width = this.width;
+            canvas.height = this.height;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(this, 0, 0);
+        }
+        function failed() {
+            console.error("The provided file couldn't be loaded as an Image media");
+        }
         @*$('#hiddenFileUpload').on('change', function (event) {
             debugger
             var files = event.currentTarget;
