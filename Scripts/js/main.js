@@ -36,14 +36,15 @@ $(document).ready(function(){
     }
   
     //----end---here----//
-
-document.getElementById('inp').onchange = function (e) {
+ 
+document.getElementById('previewImage').onchange = function (e) {
+    debugger
     var img = new Image();
     img.onload = draw;
     img.onerror = failed;
     debugger
     img.src = URL.createObjectURL(this.files[0]);
-    //img.src ="../image/placeholder.png"
+   //img.src ="../image/placeholder.png"
 };
 function draw() {
     var canvas = document.getElementById('canvas');
@@ -55,3 +56,24 @@ function draw() {
 function failed() {
     console.error("The provided file couldn't be loaded as an Image media");
 }
+
+function convertImgToBase64URL(url, callback, outputFormat) {
+    var img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = function () {
+        var canvas = document.createElement('CANVAS'),
+            ctx = canvas.getContext('2d'), dataURL;
+        canvas.height = img.height;
+        canvas.width = img.width;
+        ctx.drawImage(img, 0, 0);
+        dataURL = canvas.toDataURL(outputFormat);
+        callback(dataURL);
+        canvas = null;
+    };
+    img.src = url;
+}
+convertImgToBase64URL('https://cdn.evilmartians.com/front/posts/optimizing-react-virtual-dom-explained/cover-a1d5b40.png', function (base64Img) {
+    alert('it works');
+    $('.output').find('img').attr('src', base64Img);
+
+});

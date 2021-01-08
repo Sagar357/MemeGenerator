@@ -187,6 +187,7 @@ function renderTxtsEditor() {
 }
 
 function newTxtBtnClicked() {
+    debugger
     gMeme.txts.push(createTxt('New Line', 150, 150));
     drawCanvas();
     renderTxtsEditor();

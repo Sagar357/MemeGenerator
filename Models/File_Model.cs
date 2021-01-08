@@ -10,6 +10,8 @@ namespace MemeGenerator.Models
         public int fileid { get; set; }
         public string attachmentcode { get; set; }
         public string filepath { get; set; }
+        public string bloburl { get; set; }
+
 
 
     }

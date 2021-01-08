@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MemeGenerator.Models;
 using MemeGenerator.Services;
 
 namespace MemeGenerator.Controllers
@@ -19,8 +20,11 @@ namespace MemeGenerator.Controllers
         {
             string uploadpath = Server.MapPath("~/image");
             string Message = FileService.Upload(uploadfile[0], uploadpath);
-
-            return (Json(Message ,JsonRequestBehavior.AllowGet));
+            File_Model model = new File_Model();
+               string filePath = Server.MapPath("~/image");
+            string path = Path.Combine(filePath, uploadfile[0].FileName);
+            Byte[] b = System.IO.File.ReadAllBytes(path);
+            return (Json(b ,JsonRequestBehavior.AllowGet));
         }
 
 
