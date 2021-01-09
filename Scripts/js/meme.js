@@ -2,7 +2,8 @@
 
 var gMeme;
 var gCtx;
-var gImgObj;
+var img;
+var gImgObj = img;
 
 function createGmeme(imgId) {
     return {
@@ -34,9 +35,11 @@ function createTxt(line, x, y) {
 
 function initMemeEditor(imgId) {
     debugger
+    imgId = "#canvas";
     toggleView();
     gMeme = createGmeme(imgId);
-    initCanvas();
+  //  initCanvas();
+    initEditor()
     renderTxtsEditor();
 }
 
@@ -68,14 +71,14 @@ function getImgSrc() {
     return gImgs[imgIdx].url;
 }
 
-function drawCanvas() {
-    gCtx.drawImage(gImgObj, 0, 0);
+//function drawCanvas() {
+//    gCtx.drawImage(gImgObj, 0, 0);
 
-    gMeme.txts.forEach(function (txt) {
-        drawTxt(txt);
-    });
+//    gMeme.txts.forEach(function (txt) {
+//        drawTxt(txt);
+//    });
 
-}
+//}
 
 function drawTxt(txt) {
     gCtx.font = txt.size + 'px' + ' ' + txt.fontFamily;
@@ -202,7 +205,7 @@ function deleteTxt(txtIdx) {
 
 /* REGISTER DOWNLOAD HANDLER */
 function dlCanvas(eldllink) {
-    var canvas = document.querySelector('.memeCanvas');
+    var canvas = document.getElementById('canvas');
 
     var dt = canvas.toDataURL('image/png');
     /* Change MIME type to trick the browser to downlaod the file instead of displaying it */

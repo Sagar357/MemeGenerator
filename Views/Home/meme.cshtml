@@ -69,7 +69,7 @@
                                         Minus, fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum obcaecati molestias
                                         expedita sed dolor odit amet ducimus facere vel repellendus!
                                     </p>
-                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initEditor()">create this meme </a>
+                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#img11',this)">create this meme </a>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="meme-container  wow fadeIn" style="visibility: visible;">
+                <div class="meme-container hidden wow fadeIn" style="visibility: visible;">
                     <div class="meme-control">
                         @*<div class="child-cntrol">
 
@@ -206,6 +206,7 @@
         AOS.init();
     </script>
     <script>
+        var img;
         function initEditor() {
             var x;
             var imgpath = $('#photo').attr('src');
@@ -215,7 +216,7 @@
                     return response.blob();
                 }).then(function (blob) {
                     x = blob;
-                    var img = new Image();
+                     img = new Image();
                     img.onload = draw;
                     img.onerror = failed;
                     debugger
@@ -228,13 +229,26 @@
 
         function draw() {
             var canvas = document.getElementById('canvas');
-            canvas.width = this.width;
-            canvas.height = this.height;
+            gCtx = canvas.getContext('2d');
+            //canvas.width = this.width;
+            //canvas.height = this.height;
+            canvas.width = 500;
+            canvas.height = 600;
             var ctx = canvas.getContext('2d');
             ctx.drawImage(this, 0, 0);
+
         }
         function failed() {
             console.error("The provided file couldn't be loaded as an Image media");
+        }
+
+        function drawCanvas() {
+            gCtx.drawImage(img, 0, 0);
+
+            gMeme.txts.forEach(function (txt) {
+                drawTxt(txt);
+            });
+
         }
     </script>
 </body>
