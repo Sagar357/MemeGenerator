@@ -48,7 +48,7 @@ namespace MemeGenerator.Services
                 DataSet ds = new DataSet();
                 SqlParameter[] param = new SqlParameter[3];
                 param[0] = new SqlParameter("@attachmentcode", attachmentcode);
-                param[1] = new SqlParameter("@filepath", Path.Combine("../image/", file.FileName));
+                param[1] = new SqlParameter("@filepath", Path.Combine("/image/", file.FileName));
                 
                     
                 ds = SqlHelper.ExecuteDataset(db, CommandType.StoredProcedure, "InsertStoredProcedureFile", param);

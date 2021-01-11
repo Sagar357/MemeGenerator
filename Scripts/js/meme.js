@@ -8,7 +8,7 @@ var gImgObj = img;
 function createGmeme(imgId) {
     return {
         selectedImgId: imgId,
-        txts: [createTxt('Your Text', 150, 70), createTxt('Your Text', 150, 300)]
+        txts: [createTxt('Your Text', 150, 70)/*, createTxt('Your Text', 150, 300)*/]
     };
 }
 

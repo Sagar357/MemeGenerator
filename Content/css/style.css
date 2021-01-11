@@ -424,6 +424,10 @@ main .sidenav .closebtn i {
   text-align: center;
 }
 
+/*.txts-list .txt-editor:nth-child(2) {
+    display: none;
+}*/
+
 .meme_Wrapper .middle_content .mid_wrp .child-mid .right-side {
   display: -webkit-box;
   display: -ms-flexbox;

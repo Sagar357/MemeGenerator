@@ -27,13 +27,13 @@
             <div class="container">
                 <nav>
                     <div class="logo item1">
-                        <a href="index.html">
+                        <a href="@Url.Action("Index","Home")">
                             <!-- <img src="" alt=""> -->
                             <h1>Meme Generator</h1>
                         </a>
                     </div>
                     <ul class="nav_item item2">
-                        <li><a href="#" class="hvr-shadow-radial">Home</a></li>
+                        <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
                         <li><a href="about.html" class="hvr-shadow-radial">About</a></li>
                         <li><a href="contact.html" class="hvr-shadow-radial">contact us</a></li>
                     </ul>
@@ -46,6 +46,7 @@
 
             </div>
         </header>
+        
         @*<canvas id="canvas">
 
         </canvas>*@
@@ -59,9 +60,9 @@
                 </a>
             </div>
             <div class="side-item">
-                <a href="#">meme templates</a>
-                <a href="#">categories</a>
-                <a href="#" onclick="initMemeEditor(1,this)">open editor</a>
+                <a href="@Url.Action("Index","Home")">meme templates</a>
+                <a href="@Url.Action("Index","Home")">categories</a>
+                <a href="@Url.Action("meme","Home")">open editor</a>
                 <a href="#">log in</a>
                 <a href="about.html" class="side_hide">about</a>
                 <a href="contact.html" class="side_hide">contact us</a>
@@ -82,20 +83,21 @@
                     </div>
 
                     @*<input type="file" name="uploadfile">
-                        <button type="submit">Upload</button>*@
+                    <button type="submit">Upload</button>*@
 
 
                     <!-- head-line-end---her -->
                     <!-- js render -->
                     <!-- image--grid1---1-->
-                    <div class="main-grid" id="Sub_List1" style="display: none;">
+                <div class="main-grid" id="Sub_List1" style="display: none;">
+                    
                         <div class="mid-grid mid_1st wow fadeIn" style="visibility: visible;">
                             <div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">
                                 <figure>
                                     @*<img src="~/img/gallery/alina.png" alt="">*@
                                     @if (!string.IsNullOrEmpty(ViewBag.ImageUrl))
                                     {
-                                        <img src="@ViewBag.ImageUrl"  />
+                                        <img src="@ViewBag.ImageUrl" />
                                     }
                                     else
                                     {
@@ -103,8 +105,9 @@
                                     }
                                 </figure>
                                 <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
+                                
                                 <figcaption>
-                                    <a href="@Url.Action("meme", "Home")">meme Generate</a>
+                                   <a href="@Url.Action("Index","Home")">meme Generator</a>
                                 </figcaption>
                             </div>
                             @foreach (File_Model element in Model.list)
@@ -113,46 +116,49 @@
                                 <div class="item-wrp item-wrp1">
                                     <figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { id=element.fileid } )'">
                                         <img src="@element.filepath" height="100" width="150" />
+                                        @*<a href="@Url.Action("meme", "Home")">meme Generate</a>*@
                                     </figure>
                                     <figcaption>
-                                        <a href="@Url.Action("meme", "Home")">meme Generate</a>
+                                        @*<a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
+                                        <a href="@Url.Action("meme", "Home" ,new { id=element.fileid})" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                     </figcaption>
                                 </div>
                             }
 
+                           
                             @*<figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                                </figcaption>*@
+                    <img src="~/img/gallery/alina.png" alt="">
+                </figure>
+                <figcaption>
+                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                </figcaption>*@
                         </div>
                         @*<div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-out-cubic">
 
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp6" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
+                <figure>
+                    <img src="~/img/gallery/success.jpg" alt="">
+                </figure>
+                <figcaption>
+                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                </figcaption>
+            </div>
+            <div class="item-wrp item-wrp6" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
 
-                                <figure>
-                                    <img src="~/img/gallery/success.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp7" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
-                                <figure>
-                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                                </figure>
-                                <figcaption>
-                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                                </figcaption>
-                            </div>*@
+                <figure>
+                    <img src="~/img/gallery/success.jpg" alt="">
+                </figure>
+                <figcaption>
+                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                </figcaption>
+            </div>
+            <div class="item-wrp item-wrp7" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
+                <figure>
+                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
+                </figure>
+                <figcaption>
+                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                </figcaption>
+            </div>*@
                     </div>
                 </div>
 
@@ -163,49 +169,55 @@
                         <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
                             <figure>
                                 @*<a href="@Url.Action("New","Home")">*@
-                                <img id="1000" src="~/img/gallery/Mocking-Spongebob.jpg" alt="">
+                                @*<img id="1000" src="~/img/gallery/Mocking-Spongebob.jpg" alt="">*@
                                 @*</a>*@
                             </figure>
                             <figcaption>
                                 @*<a href="@Url.Action("meme" ,"Home" ,new { id=1000 } )">meme Generate</a>*@
                             </figcaption>
                         </div>
-                        <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+                        @*@foreach (File_Model element in Model.list)
+                        {*@
+
+                    <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+                        @*<figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { id=element.fileid } )'">
+                            <img src="@element.filepath" height="100" width="150" />
+                            </figure>*@
 
                             <figure>
-                                <img src="~/img/gallery/alina.png" alt="">
+                                @* <img src="~/img/gallery/alina.png" alt="">*@
                             </figure>
                             <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                @*<a href="@Url.Action("meme", "Home" ,new { id=element.fileid})" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
                             </figcaption>
-                        </div>
-                        <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
-                            <figure>
-                                <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                            </figure>
-                            <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                            </figcaption>
-                        </div>
-                        <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
-
-                            <figure>
-                                <img src="~/img/gallery/alina.png" alt="">
-                            </figure>
-                            <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                            </figcaption>
-                        </div>
-                        <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
-
-                            <figure>
-                                <img src="~/img/gallery/success.jpg" alt="">
-                            </figure>
-                            <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                            </figcaption>
-                        </div>
                     </div>
+                            <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                    @* <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">*@
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
+
+                                <figure>
+                                    @*<img src="~/img/gallery/alina.png" alt="">*@
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
+
+                                <figure>
+                                    @* <img src="~/img/gallery/success.jpg" alt="">*@
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
+                        </div>
                 </div>
                 <!-- end---here -->
                 <!-- image--grid3---3-->
@@ -317,7 +329,7 @@
         function failed() {
             console.error("The provided file couldn't be loaded as an Image media");
         }
-        @*$('#hiddenFileUpload').on('change', function (event) {
+        $('#hiddenFileUpload').on('change', function (event) {
             debugger
             var files = event.currentTarget;
             var formData = new FormData();
@@ -338,6 +350,26 @@
                 }
             });
 
+        })
+
+        @*$('#customupload').on('change', function (event) {
+            var files = event.currentTarget;
+            var formData = new formData();
+            formData.append('uploadfile', files.files[0]);
+            $.ajax({
+                url: '@Url.Action("Index" ,"Upload")',
+                method: 'post',
+                contentType: false,
+                processData: false,
+                async: true,
+                data: formData,
+                sucess: function (data) {
+                    $('#customupload').attr('src', data);
+                },
+                error: function (error) {
+
+                }
+            });
         })*@
 
 
