@@ -10,6 +10,7 @@ function createGmeme(imgId) {
         selectedImgId: imgId,
         txts: [createTxt('Your Text', 150, 70)/*, createTxt('Your Text', 150, 300)*/]
     };
+
 }
 
 function createTxt(line, x, y) {
@@ -42,6 +43,7 @@ function initMemeEditor(imgId) {
     initEditor()
     renderTxtsEditor();
 }
+
 
 function initCanvas() {
 

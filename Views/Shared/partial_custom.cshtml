@@ -1,0 +1,144 @@
+﻿
+
+@using MemeGenerator.Models
+@model MemeGenerator.Models.File_list
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator</title>
+    <script defer src="~/fonts/fontawesome-all.js"></script>
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/fonts/stylesheet.css">
+    <link rel="stylesheet" href="~/Content/css/Hover-master/css/hover-min.css">
+    <link href="~/Content/css/aos.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
+
+</head>
+<body>
+    <main class="wow fadeIn" style="visibility: visible;">
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo item1">
+                        @* <a href="@Url.Action("Index","Home")">*@
+                        <!-- <img src="" alt=""> -->
+                        <h1>Meme Generator</h1>
+                        </a>
+                    </div>
+                    <ul class="nav_item item2">
+                        <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
+                        <li><a href="about.html" class="hvr-shadow-radial">About</a></li>
+                        <li><a href="contact.html" class="hvr-shadow-radial">contact us</a></li>
+                    </ul>
+                </nav>
+                <div class="main-bar openbtn">
+                    <div class="a1"></div>
+                    <div class="b1"></div>
+                    <div class="c1"></div>
+                </div>
+
+            </div>
+        </header>
+
+        <section class="middle_content">
+
+            <div class="main-grid" id="Sub_List2" style="height:100%;">
+                <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
+                    <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
+                        <figure>
+                            @*<a href="@Url.Action("New","Home")">*@
+                            @*<img id="1000" src="~/img/gallery/Mocking-Spongebob.jpg" alt="">*@
+                            @*</a>*@
+                        </figure>
+                        <figcaption>
+                            @*<a href="@Url.Action("meme" ,"Home" ,new { id=1000 } )">meme Generate</a>*@
+                        </figcaption>
+                    </div>
+                    @*@foreach (File_Model element in Model.list)
+                {*@
+
+                    <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+                        @*<figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { id=element.fileid } )'">
+                    <img src="@element.filepath" height="100" width="150" />
+                    </figure>*@
+
+                        <figure>
+                            @* <img src="~/img/gallery/alina.png" alt="">*@
+                        </figure>
+                        <figcaption>
+                            @*<a href="@Url.Action("meme", "Home" ,new { id=element.fileid})" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
+                        </figcaption>
+                    </div>
+                    <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
+                        <!--<figure>-->
+                        @* <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">*@
+                        <!--</figure>-->
+                        <canvas id="canvas1" style="border:2px solid #000">
+                        </canvas>
+                        <figcaption>
+                            <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                        </figcaption>
+                    </div>
+                    <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
+
+                        <!--<figure>-->
+                        @*<img src="~/img/gallery/alina.png" alt="">*@
+                        <!--</figure>-->
+                        <canvas id="canvas2" style="border:2px solid #000">
+                        </canvas>
+
+
+                        <figcaption>
+                            <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                        </figcaption>
+                    </div>
+                    <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
+
+                        <!--<figure>-->
+                        @* <img src="~/img/gallery/success.jpg" alt="">*@
+                        <!--</figure>-->
+
+                        <canvas id="canvas3" style="border:2px solid #000">
+                        </canvas>
+                        <figcaption>
+                            <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                        </figcaption>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="copy-right-wrapper">
+                    <p>2020 meme Generator.com © All Rights Reserved</p>
+                </div>
+            </div>
+
+        </footer>
+    </main>
+
+    <!-- <div class="svg_wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,128L1440,0L1440,320L0,320Z"></path></svg>
+    </div> -->
+    <!-- -script--section -->
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="~/Scripts/js/images.js"></script>
+    <script src="~/Scripts/js/meme.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Scripts/js/wow.min.js"></script>
+    <script src="~/Scripts/js/aos.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script>
+        AOS.init();
+    </script>
+    </body>
+</html>

@@ -1020,6 +1020,14 @@ input[type=number] {
       -ms-flex: 1;
           flex: 1;
 }
+/*
+.canvas1 {
+    height: 60px !important;
+    width: 37% !important;
+    position: absolute;
+    top: -47px;
+    left: 7px;
+}*/
 
 /*-------Layout-----*/
 /*-------header-----*/
@@ -1062,12 +1070,14 @@ input[type=number] {
 =            Meme Container            =
 =============================================*/
 .meme-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 5rem 1rem 2rem;
+    position:relative;
 }
 
 .memeCanvas {
@@ -1095,6 +1105,19 @@ input[type=number] {
   display: none;
 }
 
+/*canvas#canvas1 {
+    height: 65px !important;
+    width: 36% !important;
+    position: absolute;
+    top: 18px;
+    left: 20px;
+}
+*/
+/*canvas#canvas {
+    width: 38%;*/
+    /* overflow: hidden; */
+    /*object-fit: cover;
+}*/
 /*----------  contact  ----------*/
 /*----Footer----*/
 /*# sourceMappingURL=style.css.map */

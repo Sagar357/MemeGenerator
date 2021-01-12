@@ -77,7 +77,12 @@
                         <h2>choose templates</h2>
                         <ul class="unorder">
                             <li class="li1 li_cmn" onclick="openSubList1('Sub_List1')">All</li>
-                            <li class="li2 li_cmn List_active" onclick="openSubList1('Sub_List2')">custom</li>
+                            
+                                @*<li>
+                                    <a href="@Url.Action("custom","Home")"></a>
+                                </li>*@
+                            <li class="li2 li_cmn List_active" onclick="getCustom()">custom</li>
+                           
                             <li class="li3 li_cmn" onclick="openSubList1('Sub_List3')">New</li>
                         </ul>
                     </div>
@@ -107,7 +112,7 @@
                                 <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
                                 
                                 <figcaption>
-                                   <a href="@Url.Action("Index","Home")">meme Generator</a>
+                                   <a href="@Url.Action("Index","Home")">Meme Generator</a>
                                 </figcaption>
                             </div>
                             @foreach (File_Model element in Model.list)
@@ -161,64 +166,64 @@
             </div>*@
                     </div>
                 </div>
-
+                
                 <!-- end---here -->
                 <!-- image--grid2---2-->
-                <div class="main-grid" id="Sub_List2">
+                <!--<div class="main-grid" id="Sub_List2">
                     <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
                         <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
-                            <figure>
+                            <figure>-->
                                 @*<a href="@Url.Action("New","Home")">*@
                                 @*<img id="1000" src="~/img/gallery/Mocking-Spongebob.jpg" alt="">*@
                                 @*</a>*@
-                            </figure>
-                            <figcaption>
+                            <!--</figure>
+                            <figcaption>-->
                                 @*<a href="@Url.Action("meme" ,"Home" ,new { id=1000 } )">meme Generate</a>*@
-                            </figcaption>
-                        </div>
+                            <!--</figcaption>
+                        </div>-->
                         @*@foreach (File_Model element in Model.list)
                         {*@
 
-                    <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+                    <!--<div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">-->
                         @*<figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { id=element.fileid } )'">
                             <img src="@element.filepath" height="100" width="150" />
                             </figure>*@
 
-                            <figure>
+                            <!--<figure>-->
                                 @* <img src="~/img/gallery/alina.png" alt="">*@
-                            </figure>
-                            <figcaption>
+                            <!--</figure>
+                            <figcaption>-->
                                 @*<a href="@Url.Action("meme", "Home" ,new { id=element.fileid})" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
-                            </figcaption>
+                            <!--</figcaption>
                     </div>
                             <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
-                                <figure>
+                                <figure>-->
                                     @* <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">*@
-                                </figure>
+                                <!--</figure>
                                 <figcaption>
                                     <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
                             <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
 
-                                <figure>
+                                <figure>-->
                                     @*<img src="~/img/gallery/alina.png" alt="">*@
-                                </figure>
+                                <!--</figure>
                                 <figcaption>
                                     <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
                             <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
 
-                                <figure>
+                                <figure>-->
                                     @* <img src="~/img/gallery/success.jpg" alt="">*@
-                                </figure>
+                                <!--</figure>
                                 <figcaption>
                                     <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
                             </div>
                         </div>
-                </div>
+                </div>-->
                 <!-- end---here -->
                 <!-- image--grid3---3-->
                 <div class="main-grid" id="Sub_List3" style="display: none;">
@@ -228,7 +233,7 @@
                                 <img src="~/img/gallery/X-Everywhere.jpg" alt="">
                             </figure>
                             <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
                             </figcaption>
                         </div>
                         <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
@@ -237,7 +242,7 @@
                                 <img src="~/img/gallery/One-Does-Not-Simply.jpg" alt="">
                             </figure>
                             <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
                             </figcaption>
                         </div>
                         <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
@@ -245,7 +250,7 @@
                                 <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
                             </figure>
                             <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
                             </figcaption>
                         </div>
                         <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
@@ -254,7 +259,7 @@
                                 <img src="~/img/gallery/alina.png" alt="">
                             </figure>
                             <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
                             </figcaption>
                         </div>
                         <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
@@ -263,7 +268,7 @@
                                 <img src="~/img/gallery/success.jpg" alt="">
                             </figure>
                             <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
                             </figcaption>
                         </div>
                     </div>
@@ -372,7 +377,10 @@
             });
         })*@
 
-
+        function getCustom()
+        {
+            location.href = '@Url.Action("custom", "Home")';
+        }
     </script>
 
 </body>

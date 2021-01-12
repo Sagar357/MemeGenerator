@@ -759,6 +759,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\View_NewMeme.cshtml" />
     <Content Include="Views\Home\meme.cshtml" />
+    <Content Include="Views\Shared\partial_custom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -71,6 +71,11 @@ namespace MemeGenerator.Controllers
             return View("meme",response);
        }
 
+        public ActionResult custom()
+        {
+            return PartialView("partial_custom");
+        }
+
         //public ActionResult New()
         //{
         //    return View("meme");

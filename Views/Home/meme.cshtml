@@ -100,20 +100,25 @@
                     <div class="meme-control">
                         @*<div class="child-cntrol">
 
-                                <img src="@Model.filepath" style="border :4px solid red,">
-                            </div>*@
+            <img src="@Model.filepath" style="border :4px solid red,">
+        </div>*@
 
                         @*<canvas class="memeCanvas">
 
-                                <imgs id="img11" src="../img/gallery/alina.png" alt="">
-                            </canvas>*@
+            <imgs id="img11" src="../img/gallery/alina.png" alt="">
+        </canvas>*@
                         <!-- <div class="canva_img">
-                            <figure>
-                                <img src="img/gallery/alina.png" alt="">
-                            </figure>
-                        </div> -->
-                   
-                        <canvas id="canvas" style="border:2px solid #000"></canvas>
+        <figure>
+            <img src="img/gallery/alina.png" alt="">
+        </figure>
+    </div> -->
+                        @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
+        </canvas>*@
+
+                        <canvas id="canvas" style="border:2px solid #000">
+                        </canvas>
+                        
+                        @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
 
                         <div class="txts-list">
                             <!-- js render -->
@@ -222,6 +227,8 @@
                     img.src = URL.createObjectURL(x);
                 });
 
+
+
         }
        
 
@@ -229,14 +236,18 @@
         function draw() {
             var canvas = document.getElementById('canvas');
             gCtx = canvas.getContext('2d');
+            //var txt=createTxt("sample text" ,10 ,10);
+            //drawTxt(txt);
             canvas.width = this.width;
             canvas.height = this.height;
             //canvas.width = 500;
             //canvas.height = 600;
             var ctx = canvas.getContext('2d');
+            
             ctx.drawImage(this, 0, 0);
 
         }
+
         function failed() {
             console.error("The provided file couldn't be loaded as an Image media");
         }
@@ -249,6 +260,11 @@
             });
 
         }
+
+        //function write() {
+        //    var b = document.getElementById('canvas1');
+        //    var new= canvas.getnew('2d');
+        //}
     </script>
 </body>
 
