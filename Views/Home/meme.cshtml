@@ -83,12 +83,46 @@
                                 <h3>Downloading Images</h3>
                                 <li>
                                     <p>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                        Repellendus molestiae labore ratione.
-                                        Hic nam unde quisquam dolore et non odio autem iste temporibus animi aliquam aut,
-                                        optio nisi perspiciatis quaerat!
-                                        iste temporibus animi aliquam aut,
-                                        optio nisi perspiciatis quaerat!
+                                        After your meme is created, press the "Save Meme"button. 
+                                        This will either prompt you to save the image or automatically save the image to
+                                        your downloads folder. Then you can post your new meme to the internet!
+
+                                    </p>
+                                </li>
+                                <h3>
+                                    Customizing Text
+                                </h3>
+                                <li>
+                                    <p>
+                                        Text can be selected by pressing on the text on the image or on the list of 
+                                        canvas objects. A textbox will appear where you can enter the text. Press enter/return to 
+                                        make a new line.
+
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        The text can also be customized by pressing the settings icon next to the
+                                        textbox. You can change the font, font color, outline size, outline color, alignment, weight, 
+                                        background color, and the padding.
+
+                                    </p>
+                                </li>
+                                <h3>
+                                    Customizing Images
+                                </h3>
+                                <li>
+                                    <p>
+                                        Images can be selected by pressing on the text on the image or on the list of
+                                        canvas objects. A choose image button will appear where you can select an image from your device.
+
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        The images can also be customed by pressing the settings icon next to the choose 
+                                        image button. You can change the background color, the type (inline or background), and the padding.
+
                                     </p>
                                 </li>
                             </ul>
@@ -115,7 +149,7 @@
                         @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
         </canvas>*@
 
-                        <canvas id="canvas" style="border:2px solid #000">
+                        <canvas id="canvas" style="border:2px solid #000" ondrop="drop(event)" ondragover="allowDrop(event)">
                         </canvas>
                         
                         @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
@@ -261,6 +295,9 @@
 
         }
 
+        function addImage(imgobj) {
+            debugger
+        }
         //function write() {
         //    var b = document.getElementById('canvas1');
         //    var new= canvas.getnew('2d');

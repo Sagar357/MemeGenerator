@@ -254,7 +254,7 @@ main footer .copy-right-wrapper p {
 }
 
 main .main-bar {
-  right: 40px;
+  left: 40px;
   top: 20px;
   display: block !important;
   cursor: pointer;
@@ -1105,14 +1105,64 @@ input[type=number] {
   display: none;
 }
 
-/*canvas#canvas1 {
+/*.main_containt {
+    margin: 2rem 0 0;
+}
+.main_content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem 0;
+}
+
+.main_content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: .6rem 0;
+    color: #000000;
+}
+
+.main_content ul {
+    padding: .5rem 0;
+}
+
+    .main_content ul li {
+        font-size: 1.1rem;
+        color: #000;
+        padding: .5rem 0;
+    }*/
+
+.main_containt .privacy h2 {
+    font-size: 1.8em;
+    line-height: 1.5;
+    padding: .5rem 0 1rem;
+}
+
+.main_containt .privacy p {
+    font-size: 1.2em;
+    line-height: 1.4;
+    padding: 0 0 1.3rem;
+}
+
+.main_containt .privacy ul {
+    padding: 0 0 3rem 3rem;
+}
+
+    .main_containt .privacy ul li {
+        font-size: 1.2em;
+        padding: .6rem 0 0 0rem;
+        line-height: 1.5;
+    }
+
+
+
+/*canvas#canvas0 {
     height: 65px !important;
     width: 36% !important;
     position: absolute;
     top: 18px;
     left: 20px;
-}
-*/
+}*/
+/**/
 /*canvas#canvas {
     width: 38%;*/
     /* overflow: hidden; */

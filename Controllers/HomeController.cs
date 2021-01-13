@@ -71,19 +71,19 @@ namespace MemeGenerator.Controllers
             return View("meme",response);
        }
 
-        public ActionResult custom()
-        {
-            return PartialView("partial_custom");
-        }
+        //public ActionResult custom()
+        //{
+        //    return PartialView("partial_custom");
+        //}
 
         public ActionResult contact()
         {
             return View("Contact");
         }
 
-        //public ActionResult New()
-        //{
-        //    return View("meme");
-        //}
+        public ActionResult PrivacyPolicy()
+        {
+            return View("View_PrivacyPolicy");
+        }
 }
 }

@@ -42,6 +42,7 @@ function initMemeEditor(imgId) {
   //  initCanvas();
     initEditor()
     renderTxtsEditor();
+
 }
 
 
@@ -181,8 +182,9 @@ function renderTxtsEditor() {
                     <i class="fas fa-arrows-alt-v"></i><input type="number" value="${txt.shadowOffsetY}"  step="1" data-property="shadowOffsetY" oninput="editTxt(this ,${idx})">
                     Blur: <input type="number" value="${txt.shadowBlur}" data-property="shadowBlur" oninput="editTxt(this,${idx})">
                     </p>
-                 
+                 <div> <input type="file" onchange='upload(event)'/> </div>
                 </div>
+
         `
     })
         .join(' ');

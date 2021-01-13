@@ -38,7 +38,7 @@
                         <li><a href="@Url.Action("Contact","Home")" class="hvr-shadow-radial">contact us</a></li>
                     </ul>
                 </nav>
-                <div class="main-bar" class="openbtn">
+                <div class="main-bar openbtn">
                     <div class="a1"></div>
                     <div class="b1"></div>
                     <div class="c1"></div>
@@ -64,6 +64,7 @@
                 <a href="@Url.Action("Index","Home")">categories</a>
                 <a href="@Url.Action("meme","Home")">open editor</a>
                 <a href="#">log in</a>
+                <a href="@Url.Action("PrivacyPolicy","Home")">Privacy Policy</a>
                 <a href="about.html" class="side_hide">about</a>
                 <a href="contact.html" class="side_hide">contact us</a>
             </div>
@@ -75,16 +76,16 @@
                     <!-- head-line -->
                     <div class="head_line_wrp">
                         <h2>choose templates</h2>
-                        <ul class="unorder">
-                            <li class="li1 li_cmn" onclick="openSubList1('Sub_List1')">All</li>
+                        <!--<ul class="unorder">
+                            <li class="li1 li_cmn" onclick="openSubList1('Sub_List1')">All</li>-->
                             
                                 @*<li>
                                     <a href="@Url.Action("custom","Home")"></a>
                                 </li>*@
-                            <li class="li2 li_cmn List_active" onclick="getCustom()">custom</li>
+                            @*<li class="li2 li_cmn List_active" onclick="getCustom()">custom</li>
                            
-                            <li class="li3 li_cmn" onclick="openSubList1('Sub_List3')">New</li>
-                        </ul>
+                            <li class="li3 li_cmn" onclick="openSubList1('Sub_List3')">New</li>*@
+                        <!--</ul>-->
                     </div>
 
                     @*<input type="file" name="uploadfile">
@@ -94,7 +95,7 @@
                     <!-- head-line-end---her -->
                     <!-- js render -->
                     <!-- image--grid1---1-->
-                <div class="main-grid" id="Sub_List1" style="display: none;">
+                <div class="main-grid" id="Sub_List1" style="">
                     
                         <div class="mid-grid mid_1st wow fadeIn" style="visibility: visible;">
                             <div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">
@@ -226,7 +227,7 @@
                 </div>-->
                 <!-- end---here -->
                 <!-- image--grid3---3-->
-                <div class="main-grid" id="Sub_List3" style="display: none;">
+                @*<div class="main-grid" id="Sub_List3" style="display: none;">
                     <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
                         <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
                             <figure>
@@ -272,7 +273,7 @@
                             </figcaption>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <!-- end---here -->
 
 
