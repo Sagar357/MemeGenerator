@@ -269,7 +269,14 @@
 
         }
 
-
+        function drawcanvas() {
+            var canvas1 = document.getElementById('dragCanvas');
+            gtx = canvas1.getContext('2d');
+            canvas1.width = this.width;
+            canvas.height = this.height;
+            var gt = cavas1.getContext('2d');
+            gt.drawImage(this, 0, 0);
+        }
 
         function draw() {
             var canvas = document.getElementById('canvas');
@@ -307,17 +314,20 @@
 
 
         dragElement(document.getElementById("dragCanvas"));
-
+        $("#dragCanvas").dblclick(function () {
+            $("#dragCanvas").resizable("destroy");
+        });
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
             if (document.getElementById(elmnt.id + "header")) {
-
+                //document.ondblclick = $("#dragCanvas").resizable("destroy");
                 document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
             } else {
 
                 elmnt.onmousedown = dragMouseDown;
+                //elmnt.ondblclick = $("#dragCanvas").resizable("destroy");
             }
-
+           
             function dragMouseDown(e) {
                 e = e || window.event;
                 e.preventDefault();
@@ -350,6 +360,7 @@
                 document.onmouseup = $("#dragCanvas").resizable({
                     grid: 50
                 });
+            
                 document.onmousemove = null;
             }
 
