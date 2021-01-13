@@ -47,11 +47,12 @@ function upload(e) {
    //img.src ="../image/placeholder.png"
 }
 function drawImg() {
-    var canvas = document.getElementById('canvas');
-    //canvas.width = this.width;
-    //canvas.height = this.height;
+    //var canvas = document.getElementById('canvas');
+    var canvas = document.getElementById('dragCanvas');
+    canvas.width = this.width;
+    canvas.height = this.height;
     var ctx = canvas.getContext('2d');
-    ctx.drawImage(this, 30, 30 ,30 ,30);
+    ctx.drawImage(this, 0,0 );
 }
 function failed() {
     console.error("The provided file couldn't be loaded as an Image media");

@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="~/Content/css/Hover-master/css/hover-min.css">
     <link href="~/Content/css/aos.css" rel="stylesheet" />
     <link href="~/Content/css/animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 </head>
 
-<body >
+<body>
     <main class="meme_Wrapper wow fadeIn" style="visibility: visible;">
         <header>
             <div class="container">
@@ -83,7 +85,7 @@
                                 <h3>Downloading Images</h3>
                                 <li>
                                     <p>
-                                        After your meme is created, press the "Save Meme"button. 
+                                        After your meme is created, press the "Save Meme"button.
                                         This will either prompt you to save the image or automatically save the image to
                                         your downloads folder. Then you can post your new meme to the internet!
 
@@ -94,8 +96,8 @@
                                 </h3>
                                 <li>
                                     <p>
-                                        Text can be selected by pressing on the text on the image or on the list of 
-                                        canvas objects. A textbox will appear where you can enter the text. Press enter/return to 
+                                        Text can be selected by pressing on the text on the image or on the list of
+                                        canvas objects. A textbox will appear where you can enter the text. Press enter/return to
                                         make a new line.
 
                                     </p>
@@ -103,7 +105,7 @@
                                 <li>
                                     <p>
                                         The text can also be customized by pressing the settings icon next to the
-                                        textbox. You can change the font, font color, outline size, outline color, alignment, weight, 
+                                        textbox. You can change the font, font color, outline size, outline color, alignment, weight,
                                         background color, and the padding.
 
                                     </p>
@@ -120,7 +122,7 @@
                                 </li>
                                 <li>
                                     <p>
-                                        The images can also be customed by pressing the settings icon next to the choose 
+                                        The images can also be customed by pressing the settings icon next to the choose
                                         image button. You can change the background color, the type (inline or background), and the padding.
 
                                     </p>
@@ -134,24 +136,25 @@
                     <div class="meme-control">
                         @*<div class="child-cntrol">
 
-            <img src="@Model.filepath" style="border :4px solid red,">
-        </div>*@
+                                <img src="@Model.filepath" style="border :4px solid red,">
+                            </div>*@
 
                         @*<canvas class="memeCanvas">
 
-            <imgs id="img11" src="../img/gallery/alina.png" alt="">
-        </canvas>*@
+                                <imgs id="img11" src="../img/gallery/alina.png" alt="">
+                            </canvas>*@
                         <!-- <div class="canva_img">
-        <figure>
-            <img src="img/gallery/alina.png" alt="">
-        </figure>
-    </div> -->
+                            <figure>
+                                <img src="img/gallery/alina.png" alt="">
+                            </figure>
+                        </div> -->
                         @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
-        </canvas>*@
+                            </canvas>*@
 
-                        <canvas id="canvas" style="border:2px solid #000" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <canvas id="canvas" style="border:2px solid #000">
                         </canvas>
-                        
+                        <canvas width="100" height="120" draggable="true" id="dragCanvas" class="ui-widget-content" style="position: absolute; width: 100px; height: 125px; left: 0px; top: 0px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
+
                         @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
 
                         <div class="txts-list">
@@ -204,39 +207,40 @@
     <script src="~/Scripts/js/main.js"></script>
     <script src="~/Scripts/js/wow.min.js"></script>
     <script src="~/Scripts/js/aos.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     @*<script>
-        var x = XMLHttpRequest();
-        debugger
-        x.open("Get" "@Model.filepath", true);
-        x.responseType = "arraybuffer";
-        x.onload = function (e)
-
-        {
+            var x = XMLHttpRequest();
             debugger
-            var arrayBufferView = new Uint8Array(this.response);
-            var blob = new Blob([arrayBufferView], { type: "image/jpeg" });
-            var urlCreator = window.URL || window.webkitURL;
-            var imageUrl = urlCreator.createObjectURL(blob);
-            var img = document.querySelector("#photo");
-            img.src = imageUrl;
-        };
+            x.open("Get" "@Model.filepath", true);
+            x.responseType = "arraybuffer";
+            x.onload = function (e)
 
-        x.send();
+            {
+                debugger
+                var arrayBufferView = new Uint8Array(this.response);
+                var blob = new Blob([arrayBufferView], { type: "image/jpeg" });
+                var urlCreator = window.URL || window.webkitURL;
+                var imageUrl = urlCreator.createObjectURL(blob);
+                var img = document.querySelector("#photo");
+                img.src = imageUrl;
+            };
 
-    </script>*@
-@*<script>
-    let BtnEle = document.querySelector(".btn");
-    debugger
-        BtnEle.addEventListener("click", () => {
-            fetch("https://static.toiimg.com/photo/72975551.cms")
-                .then(function (response) {
-                    return response.blob();
-                })
-            .then(function (blob) {
-         resEle.innerHTML += "blob.type = " + blob.type + "<br>";
-      });
-   });
-    </script>*@
+            x.send();
+
+        </script>*@
+    @*<script>
+         let BtnEle = document.querySelector(".btn");
+         debugger
+             BtnEle.addEventListener("click", () => {
+                 fetch("https://static.toiimg.com/photo/72975551.cms")
+                     .then(function (response) {
+                         return response.blob();
+                     })
+                 .then(function (blob) {
+              resEle.innerHTML += "blob.type = " + blob.type + "<br>";
+           });
+        });
+         </script>*@
     <script>
         new WOW().init();
     </script>
@@ -254,7 +258,7 @@
                     return response.blob();
                 }).then(function (blob) {
                     x = blob;
-                     img = new Image();
+                    img = new Image();
                     img.onload = draw;
                     img.onerror = failed;
                     debugger
@@ -264,11 +268,12 @@
 
 
         }
-       
+
 
 
         function draw() {
             var canvas = document.getElementById('canvas');
+
             gCtx = canvas.getContext('2d');
             //var txt=createTxt("sample text" ,10 ,10);
             //drawTxt(txt);
@@ -277,7 +282,7 @@
             //canvas.width = 500;
             //canvas.height = 600;
             var ctx = canvas.getContext('2d');
-            
+
             ctx.drawImage(this, 0, 0);
 
         }
@@ -295,13 +300,73 @@
 
         }
 
-        function addImage(imgobj) {
-            debugger
-        }
         //function write() {
         //    var b = document.getElementById('canvas1');
         //    var new= canvas.getnew('2d');
         //}
+
+
+        dragElement(document.getElementById("dragCanvas"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "header")) {
+
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+
+                document.onmousemove = elementDrag;
+
+               
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+
+
+                document.onmouseup = $("#dragCanvas").resizable({
+                    grid: 50
+                });
+                document.onmousemove = null;
+            }
+
+      
+        }
+        //$('#txtwrite').change(function () {
+        //    debugger
+        //    var text = $('#logotext').html(this.value);
+        //});
+        function myfunction() {
+
+            var x = document.getElementById("txtwrite").value;
+            document.getElementById("logotext").innerText = x;
+        }
+
+
+
     </script>
 </body>
 
