@@ -8,7 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meme Generator</title>
+    <meta name="description" content="(Memes-generator.net is the first online meme generator. Browse the most popular memes on the internet, create your own meme or caption your favorite character. Export your meme directly as JPG or MP4. Fast, online, and powerful, Generator lets you make memes perfectly, every time.)" />
+    <title>Meme Generator - Meme Creator - Make a Meme Online</title>
     <script defer src="~/fonts/fontawesome-all.js"></script>
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link rel="stylesheet" href="~/fonts/stylesheet.css">
@@ -22,18 +23,18 @@
             <div class="container">
                 <nav>
                     <div class="logo item1">
-                        <a href="index.html">
+                        <a href="@Url.Action("Index","Home")">
                             <!-- <img src="" alt=""> -->
                             <h1>Meme Generator</h1>
                         </a>
                     </div>
                     <ul class="nav_item item2">
-                        <li><a href="index.html" class="hvr-shadow-radial">Home</a></li>
-                        <li><a href="#" class="hvr-shadow-radial">About</a></li>
-                        <li><a href="contact.html" class="hvr-shadow-radial">contact us</a></li>
+                        <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
+                        <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
+                        @*<li><a href="@Url.Action("Contact","Home")" class="hvr-shadow-radial">contact us</a></li>*@
                     </ul>
                 </nav>
-                <div class="main-bar" class="openbtn">
+                <div class="main-bar openbtn">
                     <div class="a1"></div>
                     <div class="b1"></div>
                     <div class="c1"></div>
@@ -41,28 +42,82 @@
 
             </div>
         </header>
-        <!-- sidebar---section -->
-        <section id="mySidenav" class="sidenav">
-            <div class="top-head">
-                <h2> Meme Generator</h2>
-                <a href="javascript:void(0)" class="closebtn">
-                    <i class="fas fa-chevron-left"></i>
-                    <!-- &times; -->
-                </a>
-            </div>
-            <div class="side-item">
-                <a href="@Url.Action("Index","Home")">meme templates</a>
-                <a href="@Url.Action("Index","Home")">categories</a>
-                <a href="@Url.Action("meme","Home")">open editor</a>
-                       
-                <a href="#">log in</a>
-                <a href="@Url.Action("PrivacyPolicy","Home")">Privacy Policy</a>
-            </div>
-        </section>
-        <!-- sidebar----section---end-here -->
         <section class="middle_content">
-            <div class="container">
-                <h3>about page</h3>
+            <!-- sidebar---section -->
+            <section id="mySidenav" class="sidenav">
+                <div class="top-head">
+                    <h2> Meme Generator</h2>
+                    <a href="javascript:void(0)" class="closebtn">
+                        <i class="fas fa-chevron-left"></i>
+                        <!-- &times; -->
+                    </a>
+                </div>
+                <div class="side-item">
+                    <a href="@Url.Action("Index","Home")">meme templates</a>
+                    <a href="@Url.Action("Index","Home")">categories</a>
+                    @*<a href="@Url.Action("meme","Home")">open editor</a>*@
+
+                    @*<a href="#">log in</a>*@
+                    <a href="@Url.Action("PrivacyPolicy","Home")">Privacy Policy</a>
+                </div>
+            </section>
+            <!-- sidebar----section---end-here -->
+            <div class="main_containt">
+                <div class="container">
+                    <div class="privacy">
+                        <h2>
+                            What is a Meme Generator?
+                        </h2>
+                        <p>
+                            It's a free online meme maker that licenses you to add custom resizable substance to pictures.
+                            It works in HTML5 canvas, so your photos are made promptly on your own contraption. Most usually, people
+                            use the generator to add text captions to set up pictures, so indeed it's significantly more a picture
+                            than a meme maker. In any case, you can moreover move your own photos as formats. Additionally, make your own
+                            new picture from your own imaginative brain by moving an image and adding your substance and captions to it
+                            In this effort for making the universe of online delivery simpler, we dispatched a meme generator. So now, you
+                            can without a doubt adjust pictures in mass, brisk! Also, save your important time for more critical concerns.
+                            All you need for pressing, altering, evolving over, and resizing is here. Furthermore, to be sure, it is similarly
+                            free.
+
+                        </p>
+                        <h2>
+                            How should I change my meme?
+                        </h2>
+                        <p>
+                            You can move and resize the substance boxes by pulling them around. In the event that you're on a wireless, you
+                            may have to at first check "enable drag/drop" in the More Options territory. 
+                            You can modify the literary style tone and system tone near where you type your substance.
+                            You can moreover retry the literary style in the More Options zone, and besides, add additional substance boxes.
+                            Pictures Generator supports all web text styles and Windows/Mac printed styles including solid and italic, in
+                            case they are presented on your device. Some other printed style on your contraption can similarly be used.
+
+                        </p>
+                        <p>
+                            Note that Android and other adaptable working systems may maintain fewer content styles aside from on the
+                            off chance that you present them yourself.
+
+                        </p>
+                        <p>
+                            You can embed famous or custom stickers and different pictures including sleaze ball caps, manage its
+                            shades, discourse air pockets, and then some. Obscurity and resizing are upheld. You can pivot, flip, and
+                            yield any format your transfer. You can draw, layout, or scrawl on your image utilizing the board simply over
+                            the image review picture. You can create "meme chains" of multiple images stacked vertically by adding new images
+                            with the "below current image" setting.
+
+                        </p>
+                        <h2>
+                            Would I have the option to use the generator for some different options from memes?
+                        </h2>
+                        <p>
+                            Genuinely! The <b>Meme Generator</b> is a versatile device for certain reasons.
+                            By moving custom pictures and using all the customizations, you can design various inventive
+                            works including flags, flags, advancements, and other custom delineations. You can do a lot, all you need
+                            is your imagination or you can also try trial and error.
+
+                        </p>
+
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -71,7 +126,7 @@
         <footer>
             <div class="container">
                 <div class="copy-right-wrapper">
-                    <p>2020 meme Generator.com © All Rights Reserved</p>
+                    <p>memes-generator.net © All Rights Reserved</p>
                 </div>
             </div>
         </footer>

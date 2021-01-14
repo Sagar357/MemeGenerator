@@ -76,14 +76,19 @@ namespace MemeGenerator.Controllers
         //    return PartialView("partial_custom");
         //}
 
-        public ActionResult contact()
-        {
-            return View("Contact");
-        }
+        //public ActionResult contact()
+        //{
+        //    return View("Contact");
+        //}
 
         public ActionResult PrivacyPolicy()
         {
             return View("View_PrivacyPolicy");
+        }
+
+        public ActionResult About()
+        {
+            return View();
         }
 }
 }

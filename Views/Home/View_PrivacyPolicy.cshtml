@@ -12,7 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meme Generator</title>
+    <meta name="description" content="(Memes-generator.net is the first online meme generator. Browse the most popular memes on the internet, create your own meme or caption your favorite character. Export your meme directly as JPG or MP4. Fast, online, and powerful, Generator lets you make memes perfectly, every time.)" />
+    <title>Meme Generator - Meme Creator - Make a Meme Online</title>
     <script defer src="~/fonts/fontawesome-all.js"></script>
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link rel="stylesheet" href="~/fonts/stylesheet.css">
@@ -34,8 +35,8 @@
                     </div>
                     <ul class="nav_item item2">
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
-                        <li><a href="about.html" class="hvr-shadow-radial">About</a></li>
-                        <li><a href="@Url.Action("Contact","Home")" class="hvr-shadow-radial">contact us</a></li>
+                        <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
+                        @*<li><a href="@Url.Action("Contact","Home")" class="hvr-shadow-radial">contact us</a></li>*@
                     </ul>
                 </nav>
                 <div class="main-bar openbtn">
@@ -62,20 +63,24 @@
                 <div class="side-item">
                     <a href="@Url.Action("Index","Home")">meme templates</a>
                     <a href="@Url.Action("Index","Home")">categories</a>
-                    <a href="@Url.Action("meme","Home")">open editor</a>
-                    <a href="#">log in</a>
+                    @*<a href="@Url.Action("meme","Home")">open editor</a>*@
+                    @*<a href="#">log in</a>*@
                     <a href="@Url.Action("PrivacyPolicy","Home")">Privacy Policy</a>
                     <a href="about.html" class="side_hide">about</a>
-                    <a href="contact.html" class="side_hide">contact us</a>
+                    @*<a href="contact.html" class="side_hide">contact us</a>*@
                 </div>
             </section>
             <div class="main_containt">
             <div class="container">
                 <div class="privacy">
-                    <h2>Privacy Policy for meme generator<a href="http://memes-generator.net"></a></h2>
+                    <h2>
+                        <a href="http://memes-generator.net/">
+                        Privacy Policy for meme generator
+                        </a>
+                    </h2>
 
                     <p>
-                        At memes-generator, accessible from <a href="http://memes-generator.net/"></a>, one of our main priorities is the
+                        At memes-generator, accessible from <a href="http://memes-generator.net/">http://memes-generator.net/</a>, one of our main priorities is the
                         privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded
                         by memes-generator and how we use it.
                     </p>
@@ -146,7 +151,7 @@
 
                     <p>
                         Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our
-                        site visitors based upon their visit to <a href="www.website.com"></a> and other sites on the internet. However, visitors may choose to decline
+                        site visitors based upon their visit to <a href="www.website.com">www.website.com</a> and other sites on the internet. However, visitors may choose to decline
                         the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following
                         URL – <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>
                     </p>
@@ -216,7 +221,7 @@
  <footer>
             <div class="container">
                 <div class="copy-right-wrapper">
-                    <p>2020 meme Generator.com © All Rights Reserved</p>
+                    <p>memes-generator.net  © All Rights Reserved</p>
                 </div>
             </div>
         </footer>
