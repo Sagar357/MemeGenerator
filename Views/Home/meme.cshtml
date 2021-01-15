@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="(Memes-generator.net is the first online meme generator. Browse the most popular memes on the internet, create your own meme or caption your favorite character. Export your meme directly as JPG or MP4. Fast, online, and powerful, Generator lets you make memes perfectly, every time.)" />
     <title>Meme Generator - Meme Creator - Make a Meme Online</title>
+    <link rel="icon" href="\image\Logo MG 3.png">
     <script defer src="~/fonts/fontawesome-all.js"></script>
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link rel="stylesheet" href="~/fonts/stylesheet.css">
@@ -38,9 +39,9 @@
                         @*<li><a href="contact.html" class="hvr-shadow-radial">contact us</a></li>*@
                     </ul>
                 </nav>
-                <div class="back_home" style="position: absolute;">
+                @*<div class="back_home" style="position: absolute;">
                     <a href="index.html" title="Back To Home"> <i class="fas fa-home" title="Back To Home"></i></a>
-                </div>
+                </div>*@
             </div>
         </header>
         <!-- sidebar----section---end-here -->
@@ -86,7 +87,7 @@
                                 <h3>Downloading Images</h3>
                                 <li>
                                     <p>
-                                        After your meme is created, press the "Save Meme"button.
+                                        After your meme is created, press the "Download" button.
                                         This will either prompt you to save the image or automatically save the image to
                                         your downloads folder. Then you can post your new meme to the internet!
 
@@ -97,35 +98,34 @@
                                 </h3>
                                 <li>
                                     <p>
-                                        Text can be selected by pressing on the text on the image or on the list of
-                                        canvas objects. A textbox will appear where you can enter the text. Press enter/return to
+                                        Text can be selected by pressing on the text on the editor or on the list of
+                                       Add line. A textbox will appear where you can enter the text on the area of text editor. Press Add Line to
                                         make a new line.
 
                                     </p>
                                 </li>
                                 <li>
                                     <p>
-                                        The text can also be customized by pressing the settings icon next to the
-                                        textbox. You can change the font, font color, outline size, outline color, alignment, weight,
-                                        background color, and the padding.
-
-                                    </p>
+                                        We gives all the access through editor to move the text anywhere and also you can
+                                        change the font color ,font-sige,outline size,alignment,background color and the padding.              The text can also be customized by pressing the settings icon next to the
+                                     </p>
                                 </li>
                                 <h3>
                                     Customizing Images
                                 </h3>
                                 <li>
                                     <p>
-                                        Images can be selected by pressing on the text on the image or on the list of
-                                        canvas objects. A choose image button will appear where you can select an image from your device.
+                                        Images can be selected by pressing on the Add Image Button.Then
+                                        canvas will appear.
+                                        A choose image button will appear where you can select an image from your device.
 
                                     </p>
                                 </li>
                                 <li>
                                     <p>
-                                        The images can also be customed by pressing the settings icon next to the choose
-                                        image button. You can change the background color, the type (inline or background), and the padding.
-
+                                        The image can also be customed through double tap on the canvas to drag the image
+                                        and also resize the image to slide the right down corner of the canvas.
+                                       Press the save meme button to save the image and then you have free to download.
                                     </p>
                                 </li>
                             </ul>
@@ -152,7 +152,7 @@
                         @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
                             </canvas>*@
 
-                        <canvas id="canvas" style="border:2px solid #000">
+                        <canvas id="canvas" >
                         </canvas>
                         <canvas draggable="true" id="dragCanvas"  class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
 
