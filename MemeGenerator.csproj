@@ -763,6 +763,7 @@
     <Content Include="Views\Home\meme.cshtml" />
     <Content Include="Views\Shared\partial_custom.cshtml" />
     <Content Include="Views\Home\View_PrivacyPolicy.cshtml" />
+    <Content Include="Views\Home\custom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

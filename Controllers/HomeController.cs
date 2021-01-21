@@ -90,5 +90,9 @@ namespace MemeGenerator.Controllers
         {
             return View();
         }
+        public ActionResult custom()
+        {
+            return View();
+        }
 }
 }

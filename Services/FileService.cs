@@ -142,18 +142,19 @@ namespace MemeGenerator.Services
             return model;
         }
 
-        public static contactus(memecontact contact)
-        {
-            string status = string.Empty;
-            try
-            {
-                using (SqlConnection con = connectionutils.getConnection())
-                {
+        //public static contactus(memecontact contact)
+        //{
+        //    string status = string.Empty;
+        //    try
+        //    {
+        //        using (SqlConnection con = connectionutils.getConnection())
+        //        {
                   
-                }
-            }
+        //        }
+        //    }
+          
 
-        }
+        //}
     }
 }
 //      public static string WriteText(ImageModification_Model model)

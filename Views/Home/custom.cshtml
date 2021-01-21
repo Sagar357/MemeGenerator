@@ -1,0 +1,477 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="(Memes-generator.net is the first online meme generator. Browse the most popular memes on the internet, create your own meme or caption your favorite character. Export your meme directly as JPG or MP4. Fast, online, and powerful, Generator lets you make memes perfectly, every time.)" />
+    <title>Meme Generator - Meme Creator - Make a Meme Online</title>
+    <link rel="icon" href="\image\Logo MG 3.png">
+    <script defer src="~/fonts/fontawesome-all.js"></script>
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/fonts/stylesheet.css">
+    <link rel="stylesheet" href="~/Content/css/Hover-master/css/hover-min.css">
+    <link href="~/Content/css/aos.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+
+<body>
+    <main class="meme_Wrapper wow fadeIn" style="visibility: visible;">
+        <header>
+            <div class="container">
+                <!-- <div class="logo">  <h1>Meme Generator</h1></div> -->
+                <nav>
+                    <div class="logo item1">
+                        <a href="@Url.Action("Index","Home")">
+                            <!-- <img src="" alt=""> -->
+                            <h1>Meme Generator</h1>
+                        </a>
+                    </div>
+                    <ul class="nav_item item2">
+                        <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
+                        <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">About</a></li>
+                        @*<li><a href="contact.html" class="hvr-shadow-radial">contact us</a></li>*@
+                    </ul>
+                </nav>
+                @*<div class="back_home" style="position: absolute;">
+                        <a href="index.html" title="Back To Home"> <i class="fas fa-home" title="Back To Home"></i></a>
+                    </div>*@
+            </div>
+        </header>
+        <!-- sidebar----section---end-here -->
+        <section class="middle_content wow fadeIn" style="visibility: visible;">
+            <div class="container">
+                <div class="gallery grid-container grid-wrp">
+                    <!-- js render -->
+                    <div class="mid_wrp">
+                        <div class="child-mid">
+                            <div class="left_side mid-cmn" data-aos="fade-right"
+                                 data-aos-easing="linear"
+                                 data-aos-duration="1500">
+                              
+                                @* custom image *@
+                                <figure>
+                                    <img id="customImage" src="" alt="">
+                                </figure>
+                            </div>
+                            <div class="right-side mid-cmn" data-aos="fade-left" data-aos-duration="2000"
+                                 data-aos-easing="ease-in-sine">
+                                <div class="text-content">
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum obcaecati molestias
+                                        expedita sed dolor odit amet ducimus facere vel repellendus!
+                                    </p>
+                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#img11',this)">create this meme </a>
+
+                                    @*custom image*@
+
+                                    <input type='file' onchange="readURL(this);" />
+                                    
+                                    @*<canvas id="canvas1">
+
+        </canvas>*@
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Instructions -->
+                    <div class="Instruction_wrp">
+                        <div class="instruct_content">
+                            <div class="head_Line">
+                                <h3>Instructions</h3>
+                            </div>
+                            <ul>
+                                <h3>Downloading Images</h3>
+                                <li>
+                                    <p>
+                                        After your meme is created, press the "Download" button.
+                                        This will either prompt you to save the image or automatically save the image to
+                                        your downloads folder. Then you can post your new meme to the internet!
+
+                                    </p>
+                                </li>
+                                <h3>
+                                    Customizing Text
+                                </h3>
+                                <li>
+                                    <p>
+                                        Text can be selected by pressing on the text on the editor or on the list of
+                                        Add line. A textbox will appear where you can enter the text on the area of text editor. Press Add Line to
+                                        make a new line.
+
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        We gives all the access through editor to move the text anywhere and also you can
+                                        change the font color ,font-sige,outline size,alignment,background color and the padding.              The text can also be customized by pressing the settings icon next to the
+                                    </p>
+                                </li>
+                                <h3>
+                                    Customizing Images
+                                </h3>
+                                <li>
+                                    <p>
+                                        Images can be selected by pressing on the Add Image Button.Then
+                                        canvas will appear.
+                                        A choose image button will appear where you can select an image from your device.
+
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        The image can also be customed through double tap on the canvas to drag the image
+                                        and also resize the image to slide the right down corner of the canvas.
+                                        Press the save meme button to save the image and then you have free to download.
+                                    </p>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="meme-container hidden wow fadeIn" style="visibility: visible;">
+                    <div class="meme-control">
+                        @*<div class="child-cntrol">
+
+                                <img src="@Model.filepath" style="border :4px solid red,">
+                            </div>*@
+
+                        @*<canvas class="memeCanvas">
+
+                                <imgs id="img11" src="../img/gallery/alina.png" alt="">
+                            </canvas>*@
+                        <!-- <div class="canva_img">
+                            <figure>
+                                <img src="img/gallery/alina.png" alt="">
+                            </figure>
+                        </div> -->
+                        @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
+                            </canvas>*@
+
+                        <canvas id="canvas">
+                        </canvas>
+                        <canvas draggable="true" id="dragCanvas" class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
+
+                        @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
+
+                        <div class="txts-list">
+                            <!-- js render -->
+                        </div>
+                    </div>
+                    <div class="secondary_controler">
+                        <button onclick="newTxtBtnClicked()">
+                            <i class="fas fa-plus"></i>  Add Line
+                        </button>
+                        <button onclick="toggleView()" class="back-home">
+                            <i class="fas fa-times"></i> Back to Gallery
+                        </button>
+                        <a id="dl" download="meme.png" href="#" onclick="dlCanvas(this)">
+                            <span>
+                                <i class="fas fa-cloud-download-alt"></i> Download
+                            </span>
+                        </a>
+                        <button type="button" style="display:none;" id="btndrg" class="choose_file" onclick='writeImage()'>
+                            <span>
+                                Create Meme
+                            </span>
+                        </button>
+                        <button type="button" class="choose_file" onclick='activateCanvas()'>
+                            <span>
+                                Add Imaage
+                            </span>
+                        </button>
+                        <div class="choose_file" id="imgUpload" style="display:none;">
+                            <input type="file" onchange='upload(event)' />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- footer -->
+        <footer>
+            <div class="container">
+                <div class="copy-right-wrapper">
+                    <p>memes-generator.net  © All Rights Reserved</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+
+    <!-- -script--section -->
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+    <script src="~/Scripts/js/images.js"></script>
+    <script src="~/Scripts/js/meme.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Scripts/js/wow.min.js"></script>
+    <script src="~/Scripts/js/aos.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    @*<script>
+            var x = XMLHttpRequest();
+            debugger
+            x.open("Get" "@Model.filepath", true);
+            x.responseType = "arraybuffer";
+            x.onload = function (e)
+
+            {
+                debugger
+                var arrayBufferView = new Uint8Array(this.response);
+                var blob = new Blob([arrayBufferView], { type: "image/jpeg" });
+                var urlCreator = window.URL || window.webkitURL;
+                var imageUrl = urlCreator.createObjectURL(blob);
+                var img = document.querySelector("#photo");
+                img.src = imageUrl;
+            };
+
+            x.send();
+
+        </script>*@
+    @*<script>
+         let BtnEle = document.querySelector(".btn");
+         debugger
+             BtnEle.addEventListener("click", () => {
+                 fetch("https://static.toiimg.com/photo/72975551.cms")
+                     .then(function (response) {
+                         return response.blob();
+                     })
+                 .then(function (blob) {
+              resEle.innerHTML += "blob.type = " + blob.type + "<br>";
+           });
+        });
+         </script>*@
+    <script>
+        new WOW().init();
+    </script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        var img;
+        function initEditor() {
+            var x;
+            var imgpath = $('#photo').attr('src');
+            //  "/image/photo.jpg"
+            var img2 = fetch(imgpath)
+                .then(function (response) {
+                    return response.blob();
+                }).then(function (blob) {
+                    x = blob;
+                    img = new Image();
+                    img.onload = draw;
+                    img.onerror = failed;
+                    debugger
+                    img.src = URL.createObjectURL(x);
+                });
+
+
+
+        }
+
+        function drawcanvas() {
+            var canvas1 = document.getElementById('dragCanvas');
+            debugger
+            gtx = canvas1.getContext('2d');
+            canvas1.width = this.width;
+            canvas.height = this.height;
+            var gt = cavas1.getContext('2d');
+            gt.drawImage(this, 0, 0);
+        }
+
+        function getpostionxy(element) {
+            debugger
+            var cord = element.getBoundingClientRect();
+            var postObj = {};
+            postObj.x = cord.x;
+            postObj.y = cord.y;
+            return postObj;
+        }
+
+        function draw() {
+            var canvas = document.getElementById('canvas');
+
+            gCtx = canvas.getContext('2d');
+            //var txt=createTxt("sample text" ,10 ,10);
+            //drawTxt(txt);
+            canvas.width = this.width;
+            canvas.height = this.height;
+            //canvas.width = 500;
+            //canvas.height = 600;
+            var ctx = canvas.getContext('2d');
+
+            ctx.drawImage(this, 0, 0);
+
+        }
+
+        function failed() {
+            console.error("The provided file couldn't be loaded as an Image media");
+        }
+
+        function drawCanvas() {
+            gCtx.drawImage(img, 0, 0);
+
+            gMeme.txts.forEach(function (txt) {
+                drawTxt(txt);
+            });
+
+        }
+
+        //function write() {
+        //    var b = document.getElementById('canvas1');
+        //    var new= canvas.getnew('2d');
+        //}
+
+
+        dragElement(document.getElementById("dragCanvas"));
+        $("#dragCanvas").dblclick(function () {
+            $("#dragCanvas").resizable("destroy");
+        });
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "header")) {
+                //document.ondblclick = $("#dragCanvas").resizable("destroy");
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+
+                elmnt.onmousedown = dragMouseDown;
+                //elmnt.ondblclick = $("#dragCanvas").resizable("destroy");
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+
+                document.onmousemove = elementDrag;
+
+
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+
+
+                document.onmouseup = $("#dragCanvas").resizable({
+                    grid: 50
+                });
+
+                document.onmousemove = null;
+            }
+
+
+        }
+        //$('#txtwrite').change(function () {
+        //    debugger
+        //    var text = $('#logotext').html(this.value);
+        //});
+        function myfunction() {
+
+            var x = document.getElementById("txtwrite").value;
+            document.getElementById("logotext").innerText = x;
+        }
+
+        function writeImage() {
+            debugger
+            var c = document.getElementById('dragCanvas');
+            var p = document.getElementById('canvas');
+            var destCtx = p.getContext('2d');
+
+            //  var pos = getpostionxy(c);
+            //destCtx.drawImage(c, window.innerWidth + pos.x, window.innerHeight+pos.y, 735, 500);
+
+            destCtx.drawImage(c, c.parentElement.offsetLeft - (c.parentElement.offsetWidth / 2), c.parentElement.offsetTop - (c.parentElement.offsetHeight / 2), c.parentElement.offsetWidth, c.parentElement.offsetHeight);
+
+            var sourceCtx = c.getContext('2d');
+            var img = sourceCtx.createImageData(c.width, c.height);
+            for (var i = img.data.length; --i >= 0;)
+                img.data[i] = 0;
+            sourceCtx.putImageData(img, 0, 0);
+        }
+
+        function activateCanvas() {
+            $('#btndrg').show();
+            $('#dragCanvas').show();
+            $('#imgUpload').show();
+        }
+    </script>
+    @*<script>
+        document.getElementById('myfile').onchange = function (e) {
+            var img = new Image()
+             var img = new Image();
+                img.onload = draw;
+                img.onerror = failed;
+                img.src = URL.createObjectURL(this.files[0]);
+            };
+            function draw() {
+                var canvas = document.getElementById('canvas1');
+                canvas.width = this.width;
+                canvas.height = this.height;
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(this, 0, 0);
+            }
+            function failed() {
+                console.error("The provided file couldn't be loaded as an Image media");
+            }
+      
+    </script>*@
+    <script>
+        function readURL(input)
+
+        {
+            debugger 
+            if (input.files && input.files[0])
+            {
+                var reader = new FileReader();
+
+                reader.onload = function (e)
+                {
+                    debugger
+                    $('#customImage').attr('src', e.target.result)
+                        .width(500)
+                        .height(500);
+                };
+               
+                 reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>
