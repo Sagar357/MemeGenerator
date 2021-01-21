@@ -55,11 +55,11 @@
                         <div class="child-mid">
                             <div class="left_side mid-cmn" data-aos="fade-right"
                                  data-aos-easing="linear"
-                                 data-aos-duration="1500">
+                                 data-aos-duration="1500" id="canvasContainer">
                               
                                 @* custom image *@
                                 <figure>
-                                    <img id="customImage" src="" alt="">
+                                    <img id="photo" src="" alt="">
                                 </figure>
                             </div>
                             <div class="right-side mid-cmn" data-aos="fade-left" data-aos-duration="2000"
@@ -76,7 +76,7 @@
                                         Minus, fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum obcaecati molestias
                                         expedita sed dolor odit amet ducimus facere vel repellendus!
                                     </p>
-                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#img11',this)">create this meme </a>
+                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#photo',this)">create this meme </a>
 
                                     @*custom image*@
 
@@ -311,14 +311,18 @@
 
         function draw() {
             var canvas = document.getElementById('canvas');
-
             gCtx = canvas.getContext('2d');
             //var txt=createTxt("sample text" ,10 ,10);
             //drawTxt(txt);
             canvas.width = this.width;
             canvas.height = this.height;
+           
+            //canvas.height = canvas.width * (this.height / this.width);
+            //canvas.width = canvas.height * (this.height / this.width);
             //canvas.width = 500;
             //canvas.height = 600;
+
+           
             var ctx = canvas.getContext('2d');
 
             ctx.drawImage(this, 0, 0);
@@ -463,7 +467,7 @@
                 reader.onload = function (e)
                 {
                     debugger
-                    $('#customImage').attr('src', e.target.result)
+                    $('#photo').attr('src', e.target.result)
                         .width(500)
                         .height(500);
                 };
