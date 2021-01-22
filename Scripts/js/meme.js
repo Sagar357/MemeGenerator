@@ -4,6 +4,7 @@ var gMeme;
 var gCtx;
 var img;
 var gImgObj = img;
+var increament = 0;
 
 function createGmeme(imgId) {
     return {
@@ -14,7 +15,9 @@ function createGmeme(imgId) {
 }
 
 function createTxt(line, x, y) {
+
     return {
+  
         //object txt = {property:value}
         line: line,
         size: 40,
@@ -139,6 +142,7 @@ function editTxt(elinput, txtIdx) {
 
 function renderTxtsEditor() {
     var strHtml = gMeme.txts.map(function (txt, idx) {
+        debugger
         return `
         <div class="txt-editor">
                    
@@ -174,7 +178,8 @@ function renderTxtsEditor() {
                     <input type="color" value="${txt.strokeStyle}" data-property="strokeStyle" oninput="editTxt(this,${idx})">
                     </p>
                     <p>
-                    
+                    <input type='hidden' id='hiddenx' value="${txt.x}" />
+                    <input type='hidden' id='hiddeny' value="${txt.y}" />
                     <input id="shadow" type="checkbox" data-property="isShadow" onclick="editTxt(this,${idx})">
                     <label for="shadow">Shadow</label>
                     <input type="color" value="${txt.shadowColor}" data-property="shadowColor" oninput="editTxt(this,${idx})">
@@ -195,9 +200,15 @@ function renderTxtsEditor() {
 
 function newTxtBtnClicked() {
     debugger
-    gMeme.txts.push(createTxt('New Line', 150, 150));
+    //var x = parseInt($('#hiddenx').html());
+    //var y = parseInt($('#hiddeny').html());
+    //var y = txt.y;  var x = txt.x;
+ 
+    gMeme.txts.push(createTxt('New Line', 150 , 150 + increament ));
+    increament += 40;
     drawCanvas();
     renderTxtsEditor();
+   
 }
 
 function deleteTxt(txtIdx) {

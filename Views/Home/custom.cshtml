@@ -24,6 +24,14 @@
 </head>
 
 <body>
+    <style>
+        canvas#canvascrop {
+            position: absolute;
+            z-index: 3000;
+            left: 10px;
+            border: 1px solid gray;
+        }
+    </style>
     <main class="meme_Wrapper wow fadeIn" style="visibility: visible;">
         <header>
             <div class="container">
@@ -55,10 +63,10 @@
                         <div class="child-mid">
                             <div class="left_side mid-cmn" data-aos="fade-right"
                                  data-aos-easing="linear"
-                                 data-aos-duration="1500" id="canvasContainer">
-                              
+                                 data-aos-duration="1500">
+
                                 @* custom image *@
-                                <figure>
+                                <figure id="canvasContainer">
                                     <img id="photo" src="" alt="">
                                 </figure>
                             </div>
@@ -76,15 +84,16 @@
                                         Minus, fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum obcaecati molestias
                                         expedita sed dolor odit amet ducimus facere vel repellendus!
                                     </p>
-                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#photo',this)">create this meme </a>
+                                    <div class="meme-btn-wrp">
+                                        <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#photo',this)">create this meme </a>
 
-                                    @*custom image*@
+                                        @*custom image*@
 
-                                    <input type='file' onchange="readURL(this);" />
-                                    
+                                        <a href="#" class="meme_btn hvr-bounce-to-right"> <input type='file' onchange="readURL(this);" /></a>
+                                    </div>
                                     @*<canvas id="canvas1">
 
-        </canvas>*@
+                                        </canvas>*@
                                     <br />
                                 </div>
                             </div>
@@ -120,7 +129,8 @@
                                 <li>
                                     <p>
                                         We gives all the access through editor to move the text anywhere and also you can
-                                        change the font color ,font-sige,outline size,alignment,background color and the padding.              The text can also be customized by pressing the settings icon next to the
+                                        change the font color ,font-sige,outline size,alignment,background color and the padding.
+                                        The text can also be customized by pressing the settings icon next to the
                                     </p>
                                 </li>
                                 <h3>
@@ -165,7 +175,7 @@
                         @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
                             </canvas>*@
 
-                        <canvas id="canvas">
+                        <canvas id="canvas" ">
                         </canvas>
                         <canvas draggable="true" id="dragCanvas" class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
 
@@ -221,7 +231,7 @@
 
 
     <!-- -script--section -->
-    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
     <script src="~/Scripts/js/images.js"></script>
     <script src="~/Scripts/js/meme.js"></script>
@@ -316,13 +326,13 @@
             //drawTxt(txt);
             canvas.width = this.width;
             canvas.height = this.height;
-           
+
             //canvas.height = canvas.width * (this.height / this.width);
             //canvas.width = canvas.height * (this.height / this.width);
             //canvas.width = 500;
             //canvas.height = 600;
 
-           
+
             var ctx = canvas.getContext('2d');
 
             ctx.drawImage(this, 0, 0);
@@ -436,45 +446,60 @@
         }
     </script>
     @*<script>
-        document.getElementById('myfile').onchange = function (e) {
-            var img = new Image()
-             var img = new Image();
-                img.onload = draw;
-                img.onerror = failed;
-                img.src = URL.createObjectURL(this.files[0]);
-            };
-            function draw() {
-                var canvas = document.getElementById('canvas1');
-                canvas.width = this.width;
-                canvas.height = this.height;
-                var ctx = canvas.getContext('2d');
-                ctx.drawImage(this, 0, 0);
-            }
-            function failed() {
-                console.error("The provided file couldn't be loaded as an Image media");
-            }
-      
-    </script>*@
-    <script>
-        function readURL(input)
+            document.getElementById('myfile').onchange = function (e) {
+                var img = new Image()
+                 var img = new Image();
+                    img.onload = draw;
+                    img.onerror = failed;
+                    img.src = URL.createObjectURL(this.files[0]);
+                };
+                function draw() {
+                    var canvas = document.getElementById('canvas1');
+                    canvas.width = this.width;
+                    canvas.height = this.height;
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(this, 0, 0);
+                }
+                function failed() {
+                    console.error("The provided file couldn't be loaded as an Image media");
+                }
 
-        {
-            debugger 
-            if (input.files && input.files[0])
-            {
+        </script>*@
+    <script>
+        function readURL(input) {
+            debugger
+            if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function (e)
-                {
+                reader.onload = function (e) {
                     debugger
                     $('#photo').attr('src', e.target.result)
                         .width(500)
                         .height(500);
                 };
-               
-                 reader.readAsDataURL(input.files[0]);
+                reader.onloadend = function (e) {
+                    $('#canvasContainer').append('<canvas id="canvascrop"  style="width:500px;height:500px;"> </canvas>');
+                    var cropContainer = document.getElementById('canvascrop');
+                    var ctx = cropContainer.getContext('2d');
+                    cropContainer.width = 500;
+                    cropContainer.height = 500;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+
             }
         }
+
+            //$.ready(function () {
+            //    $('#canvasContainer').append('<canvas id="canvascrop"> </canvas>');
+            //    var cropContainer = document.getElementById('canvasContainer');
+            //    var ctx = cropContainer.getContext('2d');
+            //    cropContainer.width = 500;
+            //    cropContainer.height = 500;
+            //});
+            //$('#hidenfile').change(function (e) {
+            //    var image=Image
+            //});
     </script>
 </body>
 

@@ -36,7 +36,7 @@
                     <ul class="nav_item item2">
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">About</a></li>
-                        @*<li><a href="contact.html" class="hvr-shadow-radial">contact us</a></li>*@
+                        <li><a href="("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
                     </ul>
                 </nav>
                 @*<div class="back_home" style="position: absolute;">
@@ -152,13 +152,13 @@
                         @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
                             </canvas>*@
 
-                        <canvas id="canvas" >
+                        <canvas id="canvas"> @*class="cmn01"*@ 
                         </canvas>
                         <canvas draggable="true" id="dragCanvas"  class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
 
                         @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
 
-                        <div class="txts-list">
+                        <div class="txts-list"> @*class="cmn01"*@
                             <!-- js render -->
                         </div>
                     </div>

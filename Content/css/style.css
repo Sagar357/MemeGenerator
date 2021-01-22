@@ -1158,8 +1158,17 @@ input[type=number] {
     padding: 0 .5em;
 }
 
+.meme-btn-wrp input[type="file"] {
+    border: none;
+    outline: none;
+}
 
-
+/*.cmn01 {
+    width: 48%;
+}
+.cmn01 img{
+     max-width:100%;
+}*/
 /*canvas#canvas0 {
     height: 65px !important;
     width: 36% !important;
