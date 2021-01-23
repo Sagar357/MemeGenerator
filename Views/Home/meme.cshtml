@@ -155,7 +155,9 @@
                         <canvas id="canvas"> @*class="cmn01"*@ 
                         </canvas>
                         <canvas draggable="true" id="dragCanvas"  class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
+                        @*<canvas  id="persistcanvas">
 
+                        </canvas>*@
                         @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
 
                         <div class="txts-list"> @*class="cmn01"*@
@@ -186,6 +188,7 @@
                         </button>
                         <div class="choose_file" id="imgUpload" style="display:none;">
                         <input type="file" onchange='upload(event)' />
+                        
                         </div>
                     </div>
                 </div>
@@ -280,7 +283,7 @@
         function drawcanvas() {
             var canvas1 = document.getElementById('dragCanvas');
             debugger
-            gtx = canvas1.getContext('2d');
+            //gtx = canvas1.getContext('2d');
             canvas1.width = this.width;
             canvas.height = this.height;
             var gt = cavas1.getContext('2d');
@@ -306,10 +309,11 @@
             canvas.height = this.height;
             //canvas.width = 500;
             //canvas.height = 600;
-            var ctx = canvas.getContext('2d');
-
-            ctx.drawImage(this, 0, 0);
-
+           // var gCtx = canvas.getContext('2d');
+            
+            
+            gCtx.drawImage(this, 0, 0);
+            persistCanvas = canvas;
         }
 
         function failed() {
@@ -398,18 +402,21 @@
             debugger
             var c = document.getElementById('dragCanvas');
             var p = document.getElementById('canvas');
-            var destCtx = p.getContext('2d');
+             gCtx = p.getContext('2d');
          
           //  var pos = getpostionxy(c);
             //destCtx.drawImage(c, window.innerWidth + pos.x, window.innerHeight+pos.y, 735, 500);
 
-            destCtx.drawImage(c, c.parentElement.offsetLeft - (c.parentElement.offsetWidth / 2), c.parentElement.offsetTop - (c.parentElement.offsetHeight / 2), c.parentElement.offsetWidth, c.parentElement.offsetHeight);
+            gCtx.drawImage(c, c.parentElement.offsetLeft - (c.parentElement.offsetWidth / 2), c.parentElement.offsetTop - (c.parentElement.offsetHeight / 2), c.parentElement.offsetWidth, c.parentElement.offsetHeight);
 
             var sourceCtx = c.getContext('2d');
             var img = sourceCtx.createImageData(c.width, c.height);
             for (var i = img.data.length; --i >= 0;)
                 img.data[i] = 0;
             sourceCtx.putImageData(img, 0, 0);
+          //  persistCanvas = document.getElementById('canvas');
+            //persistCanvas = document.getElementById('persistcanvas');
+            //persistCanvas.getContext('2d').drawImage(c ,500 ,500);
         }
 
         function activateCanvas()
@@ -418,6 +425,7 @@
             $('#dragCanvas').show();
             $('#imgUpload').show();
         }
+
     </script>
 </body>
 

@@ -5,6 +5,7 @@ var gCtx;
 var img;
 var gImgObj = img;
 var increament = 0;
+var persistCanvas;
 
 function createGmeme(imgId) {
     return {
@@ -77,6 +78,8 @@ function getImgSrc() {
     return gImgs[imgIdx].url;
 }
 
+
+
 //function drawCanvas() {
 //    gCtx.drawImage(gImgObj, 0, 0);
 
@@ -122,7 +125,7 @@ function addTxtOutline(txt) {
 function editTxt(elinput, txtIdx) {
     var property = elinput.dataset.property;  // using data-* attributes
     var value;
-
+   
     switch (elinput.type) {
         case 'select-one':
             value = elinput.options[elinput.selectedIndex].value;
@@ -135,8 +138,8 @@ function editTxt(elinput, txtIdx) {
             break;
     }
     gMeme.txts[txtIdx][property] = value;
-
     drawCanvas();
+    //drawText();
 }
 
 
@@ -205,15 +208,18 @@ function newTxtBtnClicked() {
     //var y = txt.y;  var x = txt.x;
  
     gMeme.txts.push(createTxt('New Line', 150 , 150 + increament ));
-    increament += 40;
+    increament += 50;
     drawCanvas();
+    //drawText();
     renderTxtsEditor();
    
 }
 
 function deleteTxt(txtIdx) {
+    debugger
     gMeme.txts.splice(txtIdx, 1); //arr.splice(start, deleteCount)
     drawCanvas();
+   // drawText();
     renderTxtsEditor();
 }
 
@@ -235,4 +241,15 @@ function dlCanvas(eldllink) {
 function toggleView() {
     document.querySelector('.meme-container').classList.toggle('hidden');
     document.querySelector('.gallery').classList.toggle('hidden');
+}
+
+
+function drawText() {
+    gCtx.drawImage(persistCanvas, 0, 0);
+    var p = document.getElementById('canvas');
+    gCtx = p.getContext('2d');
+    gMeme.txts.forEach(function (txt) {
+        drawTxt(txt);
+    });
+
 }

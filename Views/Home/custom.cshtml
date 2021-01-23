@@ -45,7 +45,7 @@
                     </div>
                     <ul class="nav_item item2">
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
-                        <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">About</a></li>
+                        <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
                         @*<li><a href="contact.html" class="hvr-shadow-radial">contact us</a></li>*@
                     </ul>
                 </nav>
@@ -66,9 +66,13 @@
                                  data-aos-duration="1500">
 
                                 @* custom image *@
-                                <figure id="canvasContainer">
-                                    <img id="photo" src="" alt="">
+                                <figure>
+                                    @*id="canvasContainer"*@
+                                    <img id="photo" src="~/image/placeholder.png" alt="" />
+                                    @*<img id="photo" src="" alt="">*@
                                 </figure>
+                                @*<input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">*@
+                                <input type='file' onchange="readURL(this)" id="uploadimage" style="display:none;" />
                             </div>
                             <div class="right-side mid-cmn" data-aos="fade-left" data-aos-duration="2000"
                                  data-aos-easing="ease-in-sine">
@@ -89,7 +93,7 @@
 
                                         @*custom image*@
 
-                                        <a href="#" class="meme_btn hvr-bounce-to-right"> <input type='file' onchange="readURL(this);" /></a>
+                                      @*  <a href="#" class="meme_btn hvr-bounce-to-right"> <input type='file' onchange="readURL(this);" /></a>*@
                                     </div>
                                     @*<canvas id="canvas1">
 
@@ -175,7 +179,7 @@
                         @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
                             </canvas>*@
 
-                        <canvas id="canvas" ">
+                        <canvas id="canvas" >
                         </canvas>
                         <canvas draggable="true" id="dragCanvas" class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
 
@@ -241,13 +245,13 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     @*<script>
             var x = XMLHttpRequest();
-            debugger
+            
             x.open("Get" "@Model.filepath", true);
             x.responseType = "arraybuffer";
             x.onload = function (e)
 
             {
-                debugger
+                
                 var arrayBufferView = new Uint8Array(this.response);
                 var blob = new Blob([arrayBufferView], { type: "image/jpeg" });
                 var urlCreator = window.URL || window.webkitURL;
@@ -261,7 +265,7 @@
         </script>*@
     @*<script>
          let BtnEle = document.querySelector(".btn");
-         debugger
+         
              BtnEle.addEventListener("click", () => {
                  fetch("https://static.toiimg.com/photo/72975551.cms")
                      .then(function (response) {
@@ -292,7 +296,7 @@
                     img = new Image();
                     img.onload = draw;
                     img.onerror = failed;
-                    debugger
+                    
                     img.src = URL.createObjectURL(x);
                 });
 
@@ -302,7 +306,7 @@
 
         function drawcanvas() {
             var canvas1 = document.getElementById('dragCanvas');
-            debugger
+            
             gtx = canvas1.getContext('2d');
             canvas1.width = this.width;
             canvas.height = this.height;
@@ -311,7 +315,7 @@
         }
 
         function getpostionxy(element) {
-            debugger
+            
             var cord = element.getBoundingClientRect();
             var postObj = {};
             postObj.x = cord.x;
@@ -331,9 +335,10 @@
             //canvas.width = canvas.height * (this.height / this.width);
             //canvas.width = 500;
             //canvas.height = 600;
-
+            
 
             var ctx = canvas.getContext('2d');
+            
 
             ctx.drawImage(this, 0, 0);
 
@@ -352,6 +357,7 @@
 
         }
 
+    
         //function write() {
         //    var b = document.getElementById('canvas1');
         //    var new= canvas.getnew('2d');
@@ -412,7 +418,7 @@
 
         }
         //$('#txtwrite').change(function () {
-        //    debugger
+        //    
         //    var text = $('#logotext').html(this.value);
         //});
         function myfunction() {
@@ -422,7 +428,7 @@
         }
 
         function writeImage() {
-            debugger
+            
             var c = document.getElementById('dragCanvas');
             var p = document.getElementById('canvas');
             var destCtx = p.getContext('2d');
@@ -465,30 +471,53 @@
                 }
 
         </script>*@
-    <script>
-        function readURL(input) {
-            debugger
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+    
+<script>
+    $('#photo').click(function () {
+        $('#uploadimage').trigger('click');
+    });
+    function readURL(input) {
+        
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    debugger
-                    $('#photo').attr('src', e.target.result)
-                        .width(500)
-                        .height(500);
-                };
-                reader.onloadend = function (e) {
-                    $('#canvasContainer').append('<canvas id="canvascrop"  style="width:500px;height:500px;"> </canvas>');
-                    var cropContainer = document.getElementById('canvascrop');
-                    var ctx = cropContainer.getContext('2d');
-                    cropContainer.width = 500;
-                    cropContainer.height = 500;
-                }
+            reader.onload = function (e) {
+                
+                $('#photo').attr('src', e.target.result)
+                    .width(500)
+                    .height(500);
+            };
+            //reader.onloadend = function (e) {
 
-                reader.readAsDataURL(input.files[0]);
+                //$('#canvasContainer').append('<canvas id="canvascrop"  style="width:500px;height:500px;"> </canvas>');
+                //var cropContainer = document.getElementById('canvascrop');
+                //var ctx = cropContainer.getContext('2d');
+                //cropContainer.width = 500;
+                //cropContainer.height = 500;
+                // update
+                //<!--ctx.drawImage(cropContainer, 0, 0);
+                //var imageData = ctx.getImageData(10, 10, 500, 500);
 
-            }
+                //var canvas = document.getElementById('canvas');
+                //gCtx = canvas.getContext('2d');
+
+                //canvas.width = this.width;
+                //canvas.height = this.height;
+
+                //var ctx = canvas.getContext('2d');
+                //var dstimage = document.getElementById('photo');
+                //ctx.drawImage(dstimage, 0, 0);
+                
+                //dstimage.src = cropContainer.toDataURL("image/png");
+                //ctx.drawImage(this, 0, 0)-->
+                
+
+            //}
+
+            reader.readAsDataURL(input.files[0]);
+
         }
+    }
 
             //$.ready(function () {
             //    $('#canvasContainer').append('<canvas id="canvascrop"> </canvas>');
@@ -500,7 +529,7 @@
             //$('#hidenfile').change(function (e) {
             //    var image=Image
             //});
-    </script>
+</script>
 </body>
 
 </html>
