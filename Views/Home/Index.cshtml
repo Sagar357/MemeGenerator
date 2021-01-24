@@ -129,10 +129,13 @@
                                     </figure>
                                     <figcaption>
                                         @*<a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
-                                        <a href="@Url.Action("meme", "Home" ,new { id=element.fileid})" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+
+                                        <a href="@Url.Action("meme", "Home" ,new { id=element.fileid})" class="meme_btn hvr-bounce-to-right">@element.fileName</a>
+                                        @*<a href="#"></a>*@
                                     </figcaption>
                                 </div>
                             }
+                         
 
                            
                             @*<figure>
@@ -479,15 +482,12 @@
         // window.location.href = "@Url.Action("Index", "Upload")";
         });
 
-        $('#hiddenFileUpload').change ( function (e) {
-            debugger
-            var img = new Image();
-            img.onload = draw;
-            img.onerror = failed;
-            debugger
-            img.src = URL.createObjectURL(this.files[0]);
-            //img.src ="../image/placeholder.png"
-        });
+        //$('#hiddenFileUpload').change ( function (e) {
+        //    debugger
+           
+        //    //img.src ="../image/placeholder.png"
+           
+        //});
 
         function draw() {
             var canvas = document.getElementById('canvas');
@@ -501,6 +501,11 @@
         }
         $('#hiddenFileUpload').on('change', function (event) {
             debugger
+            var img = new Image();
+            img.onload = draw;
+            img.onerror = failed;
+            debugger
+            img.src = URL.createObjectURL(this.files[0]);
             var files = event.currentTarget;
             var formData = new FormData();
             formData.append('uploadfile', files.files[0]);
@@ -509,6 +514,7 @@
                 method: 'post',
                 contentType: false,
                 processData: false,
+                dataType:'json',
                 async: true,
                 data: formData,
                 success: function (data) {

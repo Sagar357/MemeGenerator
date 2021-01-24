@@ -1,0 +1,218 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator</title>
+    <script defer src="/fonts/fontawesome-all.js"></script>
+    <link rel="stylesheet" href="/Content/css/style.css">
+    <link rel="stylesheet" href="/fonts/stylesheet.css">
+    <link rel="stylesheet" href="/Content/css/Hover-master/css/hover-min.css">
+    <link href="/Content/css/aos.css" rel="stylesheet" />
+    <link href="/Content/css/animate.css" rel="stylesheet" />
+</head>
+
+<body >
+    <main class="meme_Wrapper wow fadeIn" style="visibility: visible;">
+        <header>
+            <div class="container">
+                <!-- <div class="logo">  <h1>Meme Generator</h1></div> -->
+                <nav>
+                    <div class="logo item1">
+                        <a href="index.html">
+                            <!-- <img src="" alt=""> -->
+                            <h1>Meme Generator</h1>
+                        </a>
+                    </div>
+                    <ul class="nav_item item2">
+                        <li><a href="index.html" class="hvr-shadow-radial">Home</a></li>
+                        <li><a href="about.html" class="hvr-shadow-radial">About</a></li>
+                        <li><a href="contact.html" class="hvr-shadow-radial">contact us</a></li>
+                    </ul>
+                </nav>
+                <div class="back_home" style="position: absolute;">
+                    <a href="index.html" title="Back To Home"> <i class="fas fa-home" title="Back To Home"></i></a>
+                </div>
+            </div>
+        </header>
+        <!-- sidebar----section---end-here -->
+        <section class="middle_content wow fadeIn" style="visibility: visible;">
+            <div class="container">
+                <div class="gallery grid-container grid-wrp">
+                    <!-- js render -->
+                    <div class="mid_wrp">
+                        <div class="child-mid">
+                            <div class="left_side mid-cmn" data-aos="fade-right"
+                                 data-aos-easing="linear"
+                                 data-aos-duration="1500">
+                                <figure>
+                                    <img src="/image/B612_20171225_152135 - Copy.jpg" id="photo" alt="">
+                                </figure>
+                            </div>
+                            <div class="right-side mid-cmn" data-aos="fade-left" data-aos-duration="2000"
+                                 data-aos-easing="ease-in-sine">
+                                <div class="text-content">
+                                    <button class="btn">convert</button>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
+                                        Minus, fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum obcaecati molestias
+                                        expedita sed dolor odit amet ducimus facere vel repellendus!
+                                    </p>
+                                    <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#img11',this)">create this meme </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Instructions -->
+                    <div class="Instruction_wrp">
+                        <div class="instruct_content">
+                            <div class="head_Line">
+                                <h3>Instructions</h3>
+                            </div>
+                            <ul>
+                                <h3>Downloading Images</h3>
+                                <li>
+                                    <p>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Repellendus molestiae labore ratione.
+                                        Hic nam unde quisquam dolore et non odio autem iste temporibus animi aliquam aut,
+                                        optio nisi perspiciatis quaerat!
+                                        iste temporibus animi aliquam aut,
+                                        optio nisi perspiciatis quaerat!
+                                    </p>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="meme-container hidden wow fadeIn" style="visibility: visible;">
+                    <div class="meme-control">
+                        
+
+                        
+                        <!-- <div class="canva_img">
+                            <figure>
+                                <img src="img/gallery/alina.png" alt="">
+                            </figure>
+                        </div> -->
+                   
+                        <canvas id="canvas" style="border:2px solid #000"></canvas>
+
+                        <div class="txts-list">
+                            <!-- js render -->
+                        </div>
+                    </div>
+                    <div class="secondary_controler">
+                        <button onclick="newTxtBtnClicked()">
+                            <i class="fas fa-plus"></i>  Add Line
+                        </button>
+                        <button onclick="toggleView()" class="back-home">
+                            <i class="fas fa-times"></i> Back to Gallery
+                        </button>
+                        <a id="dl" download="meme.png" href="#" onclick="dlCanvas(this)">
+                            <span>
+                                <i class="fas fa-cloud-download-alt"></i> Download
+                            </span>
+                        </a>
+                        <a href="#" class="choose_file">
+                            <label for="#">
+                                <input type="file" name="file1" id="inp">
+                                
+                            </label>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- footer -->
+        <footer>
+            <div class="container">
+                <div class="copy-right-wrapper">
+                    <p>2020 meme Generator.com © All Rights Reserved</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+
+    <!-- -script--section -->
+    <script src="/Scripts/js/jquery.min.js"></script>
+    <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+    <script src="/Scripts/js/images.js"></script>
+    <script src="/Scripts/js/meme.js"></script>
+    <script src="/Scripts/js/main.js"></script>
+    <script src="/Scripts/js/wow.min.js"></script>
+    <script src="/Scripts/js/aos.js"></script>
+    
+
+    <script>
+        new WOW().init();
+    </script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        var img;
+        function initEditor() {
+            var x;
+            var imgpath = $('#photo').attr('src');
+            //  "/image/photo.jpg"
+            var img2 = fetch(imgpath)
+                .then(function (response) {
+                    return response.blob();
+                }).then(function (blob) {
+                    x = blob;
+                     img = new Image();
+                    img.onload = draw;
+                    img.onerror = failed;
+                    debugger
+                    img.src = URL.createObjectURL(x);
+                });
+
+        }
+       
+
+
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            gCtx = canvas.getContext('2d');
+            //canvas.width = this.width;
+            //canvas.height = this.height;
+            canvas.width = 500;
+            canvas.height = 600;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(this, 0, 0);
+
+        }
+        function failed() {
+            console.error("The provided file couldn't be loaded as an Image media");
+        }
+
+        function drawCanvas() {
+            gCtx.drawImage(img, 0, 0);
+
+            gMeme.txts.forEach(function (txt) {
+                drawTxt(txt);
+            });
+
+        }
+    </script>
+</body>
+
+</html>

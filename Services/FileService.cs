@@ -49,8 +49,8 @@ namespace MemeGenerator.Services
                 SqlParameter[] param = new SqlParameter[3];
                 param[0] = new SqlParameter("@attachmentcode", attachmentcode);
                 param[1] = new SqlParameter("@filepath", Path.Combine("/image/", file.FileName));
-                
-                    
+                param[2] = new SqlParameter("@filename", Path.GetFileNameWithoutExtension(file.FileName));
+
                 ds = SqlHelper.ExecuteDataset(db, CommandType.StoredProcedure, "InsertStoredProcedureFile", param);
                  value = Path.Combine("../image/", file.FileName);
 
@@ -93,6 +93,14 @@ namespace MemeGenerator.Services
                         {
                             model.filepath = "";
                         }
+                        if(!string.IsNullOrEmpty(dr["fileName"].ToString()))
+                        {
+                            model.fileName = dr["fileName"].ToString();
+                        }
+                        else
+                        {
+                            model.fileName = "";
+                        }
                         listObj.list.Add(model);
                     }
                 }
@@ -133,6 +141,14 @@ namespace MemeGenerator.Services
                         else
                         {
                             model.filepath = "";
+                        }
+                        if(!string.IsNullOrEmpty(dr["fileName"].ToString()))
+                        {
+                            model.fileName = dr["fileName"].ToString();
+                        }
+                        else
+                        {
+                            model.fileName = "";
                         }
 
                     }
