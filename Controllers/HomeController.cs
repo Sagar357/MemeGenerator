@@ -61,11 +61,11 @@ namespace MemeGenerator.Controllers
 
             //    return View();
             //}
-
-        public ActionResult meme(int id)
+        [Route("Meme/{FileName}")]
+        public ActionResult meme(string FileName )
         {
       
-            File_Model response =FileService.GetFileById(id);
+            File_Model response =FileService.GetFileById(FileName);
             string filePath = Server.MapPath("~/image");
             string path = Path.Combine(filePath, response.filepath);
             return View("meme",response);

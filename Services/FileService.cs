@@ -50,6 +50,7 @@ namespace MemeGenerator.Services
                 param[0] = new SqlParameter("@attachmentcode", attachmentcode);
                 param[1] = new SqlParameter("@filepath", Path.Combine("/image/", file.FileName));
                 param[2] = new SqlParameter("@filename", Path.GetFileNameWithoutExtension(file.FileName));
+              
 
                 ds = SqlHelper.ExecuteDataset(db, CommandType.StoredProcedure, "InsertStoredProcedureFile", param);
                  value = Path.Combine("../image/", file.FileName);
@@ -77,14 +78,15 @@ namespace MemeGenerator.Services
                     foreach (DataRow dr in ds.Tables[0].Rows)
                     {
                         File_Model model = new File_Model();
-                        if (!string.IsNullOrEmpty(dr["fileid"].ToString()))
-                        {
-                            model.fileid = Convert.ToInt32(dr["fileid"]);
-                        }
-                        else
-                        {
-                            model.fileid = 0;
-                        }
+                        //if (!string.IsNullOrEmpty(dr["fileid"].ToString()))
+                        //{
+                        //  // model.slug = dr["slug"].ToString();
+                        //  model.fileid = Convert.ToInt32(dr["fileid"]);
+                        //}
+                        //else
+                        //{
+                        //    model.fileid = 0;
+                        //}
                         if (!string.IsNullOrEmpty(dr["filepath"].ToString()))
                         {
                             model.filepath = dr["filepath"].ToString();
@@ -109,7 +111,7 @@ namespace MemeGenerator.Services
             return listObj;
         }
 
-        public static File_Model GetFileById(int id)
+        public static File_Model GetFileById(string id)
         {
             File_Model model = null;
             using (SqlConnection con = connectionutils.getConnection())
@@ -117,7 +119,7 @@ namespace MemeGenerator.Services
                 con.Open();
                 DataSet ds = new DataSet();
                 SqlParameter[] param = new SqlParameter[2];
-                param[0] = new SqlParameter("@fileid", id);
+                param[0] = new SqlParameter("@slug", id);
                 ds = SqlHelper.ExecuteDataset(con, CommandType.StoredProcedure, "GetAttachment", param);
 
                 if (ds.Tables.Count > 0)
@@ -128,10 +130,12 @@ namespace MemeGenerator.Services
                         model = new File_Model();
                         if (!string.IsNullOrEmpty(dr["fileid"].ToString()))
                         {
+                            //model.fileName = dr["fileName"].ToString();
                             model.fileid = Convert.ToInt32(dr["fileid"]);
                         }
                         else
                         {
+                              // model.fileName = null;
                             model.fileid = 0;
                         }
                         if (!string.IsNullOrEmpty(dr["filepath"].ToString()))

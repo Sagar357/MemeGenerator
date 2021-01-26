@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="(Memes-generator.net is the first online meme generator. Browse the most popular memes on the internet, create your own meme or caption your favorite character. Export your meme directly as JPG or MP4. Fast, online, and powerful, Generator lets you make memes perfectly, every time.)" />
-    <title>Meme Generator - Meme Creator - Make a Meme Online</title>
+    <meta name="description" content="make @Model.fileName memes with Meme-Creator.net, the fast and totally free meme generator. No watermark, custom text and images." />
+    <title>@Model.fileName - Meme Template and Creator</title>
     <link rel="icon" href="\image\Logo MG 3.png">
     <script defer src="~/fonts/fontawesome-all.js"></script>
     <link rel="stylesheet" href="~/Content/css/style.css">
@@ -36,7 +36,7 @@
                     <ul class="nav_item item2">
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">About</a></li>
-                        <li><a href="("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
+                        <li><a href="@Url.Action("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
                     </ul>
                 </nav>
                 @*<div class="back_home" style="position: absolute;">
@@ -50,11 +50,13 @@
                 <div class="gallery grid-container grid-wrp">
                     <!-- js render -->
                     <div class="mid_wrp">
+                       
                         <div class="child-mid">
+                          
                             <div class="left_side mid-cmn" data-aos="fade-right"
                                  data-aos-easing="linear"
                                  data-aos-duration="1500">
-                                <h2><a href="#">@Model.fileName</a></h2>
+                                <h2 style="font-weight:700; font-size:2em;margin-bottom:2rem;">@Model.fileName</h2>
                                 <figure>
                                     <img src="@Model.filepath" id="photo" alt="">
                                 </figure>

@@ -57,6 +57,33 @@ function drawImg() {
 function failed() {
     console.error("The provided file couldn't be loaded as an Image media");
 }
+// inspect block code start//
+
+ $(document).keydown(function(event){
+  if(event.keyCode==123){
+       return false;
+   }
+   else if (event.ctrlKey && event.shiftKey && event.keyCode==73){        
+            return false;
+   }
+ });
+
+ $(document).on("contextmenu",function(e){        
+  e.preventDefault();
+ });
+// end inspect block code//
+
+//start control u source code block//
+document.onkeydown = function (e) {
+    if (e.ctrlKey &&
+        (e.keyCode === 85)) {
+        return false;
+    }
+};
+
+//end control u source code block//
+
+
 
 //function convertImgToBase64URL(url, callback, outputFormat) {
 //    var img = new Image();

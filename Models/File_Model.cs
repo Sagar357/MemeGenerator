@@ -12,6 +12,8 @@ namespace MemeGenerator.Models
         public string filepath { get; set; }
         public string bloburl { get; set; }
         public string fileName { get; set; }
+        
+
 
 
 
