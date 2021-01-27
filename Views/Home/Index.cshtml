@@ -12,7 +12,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Memes-generator.net is the first online meme generator. Browse the most popular memes on the internet, create your own meme or caption your favorite character. Export your meme directly as JPG or MP4. Fast, online, and powerful, Generator lets you make memes perfectly, every time." />
-   @* <meta name="description" content="Make @element.fileName memes with Meme-Creator.net, the fast and totally free meme generator. No watermark, custom text and images." />*@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meme Generator - Meme Creator - Make a Meme Online</title>
     <link rel="icon" href="\image\Logo MG 3.png">
@@ -131,7 +130,7 @@
                                     <figcaption>
                                         @*<a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
 
-                                        <a href="@Url.Action("meme", "Home" ,new { FileName=element.fileName})" class="meme_btn hvr-bounce-to-right">@element.fileName</a>
+                                        <a href="@Url.Action("meme", "Home" ,new { FileName=element.fileName})" class="meme_btn hvr-bounce-to-right">@element.fileName.Replace('-' ,' ')</a>
                                         @*<a href="#"></a>*@
                                     </figcaption>
                                 </div>

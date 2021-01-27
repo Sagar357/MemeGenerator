@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="make @Model.fileName memes with Meme-Creator.net, the fast and totally free meme generator. No watermark, custom text and images." />
-    <title>@Model.fileName - Meme Template and Creator</title>
+    <meta name="description" content="make @Model.fileName.Replace('-',' ') memes with memes-generator.net,  the fast and totally free meme generator. No watermark, custom text and images." />
+    <title>@Model.fileName.Replace('-',' ') - Meme Template and Creator</title>
     <link rel="icon" href="\image\Logo MG 3.png">
     <script defer src="~/fonts/fontawesome-all.js"></script>
     <link rel="stylesheet" href="~/Content/css/style.css">
@@ -56,7 +56,7 @@
                             <div class="left_side mid-cmn" data-aos="fade-right"
                                  data-aos-easing="linear"
                                  data-aos-duration="1500">
-                                <h2 style="font-weight:700; font-size:2em;margin-bottom:2rem;">@Model.fileName</h2>
+                                <h2 style="font-weight:700; font-size:2em;margin-bottom:2rem;">@Model.fileName.Replace('-',' ')</h2>
                                 <figure>
                                     <img src="@Model.filepath" id="photo" alt="">
                                 </figure>
