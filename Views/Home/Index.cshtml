@@ -48,10 +48,10 @@
 
             </div>
         </header>
-        
+
         @*<canvas id="canvas">
 
-        </canvas>*@
+            </canvas>*@
         <!-- sidebar---section -->
         <section id="mySidenav" class="sidenav">
             <div class="top-head">
@@ -81,29 +81,33 @@
                         <h2>choose templates</h2>
                         <!--<ul class="unorder">
                             <li class="li1 li_cmn" onclick="openSubList1('Sub_List1')">All</li>-->
-                            
-                                @*<li>
-                                    <a href="@Url.Action("custom","Home")"></a>
-                                </li>*@
-                            @*<li class="li2 li_cmn List_active" onclick="getCustom()">custom</li>
-                           
+                        @*<li>
+                                <a href="@Url.Action("custom","Home")"></a>
+                            </li>*@
+                        @*<li class="li2 li_cmn List_active" onclick="getCustom()">custom</li>
+
                             <li class="li3 li_cmn" onclick="openSubList1('Sub_List3')">New</li>*@
                         <!--</ul>-->
                     </div>
 
                     @*<input type="file" name="uploadfile">
-                    <button type="submit">Upload</button>*@
+                        <button type="submit">Upload</button>*@
 
 
                     <!-- head-line-end---her -->
                     <!-- js render -->
                     <!-- image--grid1---1-->
-                <div class="main-grid" id="Sub_List1" style="">
-                    
+                    <div class="main-grid" id="Sub_List1" style="">
+
                         <div class="mid-grid mid_1st wow fadeIn" style="visibility: visible;">
-                            <div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">
-                                <figure>
-                                    @*<img src="~/img/gallery/alina.png" alt="">*@
+
+
+                            @* image upload view started here  *@
+
+
+                            @*<div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">*@
+                                @*<figure>
+                                    <img src="~/img/gallery/alina.png" alt="">
                                     @if (!string.IsNullOrEmpty(ViewBag.ImageUrl))
                                     {
                                         <img src="@ViewBag.ImageUrl" />
@@ -114,117 +118,120 @@
                                     }
                                 </figure>
                                 <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
-                                
+
                                 <figcaption>
-                                   <a href="@Url.Action("Index","Home")">Meme Generator</a>
-                                </figcaption>
-                            </div>
+                                    <a href="@Url.Action("Index","Home")">Meme Generator</a>
+                                </figcaption>*@
+                              @*</div>*@
+
+                            @* image upload end here*@
+
                             @foreach (File_Model element in Model.list)
                             {
 
                                 <div class="item-wrp item-wrp1">
                                     <figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { FileName=element.fileName } )'">
-                                        <img src="@element.filepath"  id="picture" height="100" width="150" />
+                                        <img src="@element.filepath" id="picture" height="100" width="150" />
                                         @*<a href="@Url.Action("meme", "Home")">meme Generate</a>*@
                                     </figure>
                                     <figcaption>
                                         @*<a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
 
-                                        <a href="@Url.Action("meme", "Home" ,new { FileName=element.fileName})" class="meme_btn hvr-bounce-to-right">@element.fileName.Replace('-' ,' ')</a>
+                                        <a href="@Url.Action("meme", "Home" ,new { FileName=element.fileName})" class="meme_btn hvr-bounce-to-right">@element.fileName.Replace('-', ' ')</a>
                                         @*<a href="#"></a>*@
                                     </figcaption>
                                 </div>
                             }
-                         
 
-                           
+
+
                             @*<figure>
-                    <img src="~/img/gallery/alina.png" alt="">
-                </figure>
-                <figcaption>
-                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                </figcaption>*@
+                                    <img src="~/img/gallery/alina.png" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>*@
                         </div>
                         @*<div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-out-cubic">
 
-                <figure>
-                    <img src="~/img/gallery/success.jpg" alt="">
-                </figure>
-                <figcaption>
-                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                </figcaption>
-            </div>
-            <div class="item-wrp item-wrp6" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                    <img src="~/img/gallery/success.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp6" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
 
-                <figure>
-                    <img src="~/img/gallery/success.jpg" alt="">
-                </figure>
-                <figcaption>
-                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                </figcaption>
-            </div>
-            <div class="item-wrp item-wrp7" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
-                <figure>
-                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                </figure>
-                <figcaption>
-                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                </figcaption>
-            </div>*@
+                                <figure>
+                                    <img src="~/img/gallery/success.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp7" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                                </figcaption>
+                            </div>*@
                     </div>
                 </div>
-                
-                <!-- end---here -->
+
+                <!-- end---here 
                 <!-- image--grid2---2-->
                 <!--<div class="main-grid" id="Sub_List2">
                     <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
                         <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
                             <figure>-->
-                                @*<a href="@Url.Action("New","Home")">*@
-                                @*<img id="1000" src="~/img/gallery/Mocking-Spongebob.jpg" alt="">*@
-                                @*</a>*@
-                            <!--</figure>
-                            <figcaption>-->
-                                @*<a href="@Url.Action("meme" ,"Home" ,new { id=1000 } )">meme Generate</a>*@
-                            <!--</figcaption>
-                        </div>-->
-                        @*@foreach (File_Model element in Model.list)
-                        {*@
+                @*<a href="@Url.Action("New","Home")">*@
+                @*<img id="1000" src="~/img/gallery/Mocking-Spongebob.jpg" alt="">*@
+                @*</a>*@
+                <!--</figure>
+                <figcaption>-->
+                @*<a href="@Url.Action("meme" ,"Home" ,new { id=1000 } )">meme Generate</a>*@
+                <!--</figcaption>
+                </div>-->
+                @*@foreach (File_Model element in Model.list)
+                    {*@
 
-                    <!--<div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">-->
-                        @*<figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { id=element.fileid } )'">
-                            <img src="@element.filepath" height="100" width="150" />
-                            </figure>*@
+                <!--<div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">-->
+                @*<figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { id=element.fileid } )'">
+                    <img src="@element.filepath" height="100" width="150" />
+                    </figure>*@
 
-                            <!--<figure>-->
-                                @* <img src="~/img/gallery/alina.png" alt="">*@
-                            <!--</figure>
-                            <figcaption>-->
-                                @*<a href="@Url.Action("meme", "Home" ,new { id=element.fileid})" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
-                            <!--</figcaption>
-                    </div>
-                            <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
-                                <figure>-->
-                                    @* <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">*@
-                                <!--</figure>
-                                <figcaption>
-                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
+                <!--<figure>-->
+                @* <img src="~/img/gallery/alina.png" alt="">*@
+                <!--</figure>
+                <figcaption>-->
+                @*<a href="@Url.Action("meme", "Home" ,new { id=element.fileid})" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
+                <!--</figcaption>
+                </div>
+                        <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
+                            <figure>-->
+                @* <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">*@
+                <!--</figure>
+                    <figcaption>
+                        <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                    </figcaption>
+                </div>
+                <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
 
-                                <figure>-->
-                                    @*<img src="~/img/gallery/alina.png" alt="">*@
-                                <!--</figure>
-                                <figcaption>
-                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
-                                </figcaption>
-                            </div>
-                            <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
+                    <figure>-->
+                @*<img src="~/img/gallery/alina.png" alt="">*@
+                <!--</figure>
+                    <figcaption>
+                        <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
+                    </figcaption>
+                </div>
+                <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
 
-                                <figure>-->
-                                    @* <img src="~/img/gallery/success.jpg" alt="">*@
-                                <!--</figure>
+                    <figure>-->
+                @* <img src="~/img/gallery/success.jpg" alt="">*@
+                <!--</figure>
                                 <figcaption>
                                     <a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>
                                 </figcaption>
@@ -234,54 +241,54 @@
                 <!-- end---here -->
                 <!-- image--grid3---3-->
                 @*<div class="main-grid" id="Sub_List3" style="display: none;">
-                    <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
-                        <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
-                            <figure>
-                                <img src="~/img/gallery/X-Everywhere.jpg" alt="">
-                            </figure>
-                            <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
-                            </figcaption>
-                        </div>
-                        <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+                        <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
+                            <div class="item-wrp item-wrp1" data-aos="zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                    <img src="~/img/gallery/X-Everywhere.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp2" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
 
-                            <figure>
-                                <img src="~/img/gallery/One-Does-Not-Simply.jpg" alt="">
-                            </figure>
-                            <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
-                            </figcaption>
-                        </div>
-                        <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
-                            <figure>
-                                <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
-                            </figure>
-                            <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
-                            </figcaption>
-                        </div>
-                        <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                    <img src="~/img/gallery/One-Does-Not-Simply.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp3" data-aos="zoom-in" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                    <img src="~/img/gallery/Batman-Slapping-Robin.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp4" data-aos="zoom-in" data-aos-duration="1400" data-aos-easing="ease-out-cubic">
 
-                            <figure>
-                                <img src="~/img/gallery/alina.png" alt="">
-                            </figure>
-                            <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
-                            </figcaption>
-                        </div>
-                        <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                    <img src="~/img/gallery/alina.png" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
+                                </figcaption>
+                            </div>
+                            <div class="item-wrp item-wrp5" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
 
-                            <figure>
-                                <img src="~/img/gallery/success.jpg" alt="">
-                            </figure>
-                            <figcaption>
-                                <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
-                            </figcaption>
+                                <figure>
+                                    <img src="~/img/gallery/success.jpg" alt="">
+                                </figure>
+                                <figcaption>
+                                    <a href="meme.html" class="meme_btn hvr-bounce-to-right">Meme Generate</a>
+                                </figcaption>
+                            </div>
                         </div>
-                    </div>
-                </div>*@
+                    </div>*@
                 <!-- end---here -->
-                
+
 
             </div>
             <div class="main_containt">
@@ -291,7 +298,7 @@
                             <a href="http://memes-generator.net/">
                                 Meme Generator
                             </a>
-                           
+
                         </h2>
                         <p>
                             An internet meme which is also known as Memes is spread throughout the world through the internet.
@@ -320,7 +327,7 @@
                             image layout at whatever point you need to communicate somebody's unnecessary temper. Add names over
                             every one of the sheets in this image arrangement.
                             We have also uploaded images of SpongeBob images which users can use in our meme generator as
-                           <b>Spongebob meme generator</b>. Creating these memes is very easy as images are pre-loaded so don’t need
+                            <b>Spongebob meme generator</b>. Creating these memes is very easy as images are pre-loaded so don’t need
                             to search for images. You should simply choose the pictures from the presetting pictures that are
                             accessible on the image generator and afterward add your setting to it by entering the setting that
                             you need to include the picture to the setting viper that is accessible. At the point when you see a
@@ -347,11 +354,11 @@
 
                         </p>
                         <p>
-                        This is one of the latest trending memes, and to be frank, this meme can always be used, you
-                        just need to find creative context for it. You can also use our <b>drake meme generator</b> using which
-                        you can make a meme with the help of the pre context drake images of his most famous meme of
-                        drake doesn’t like and drake likes images.
-                            </p>
+                            This is one of the latest trending memes, and to be frank, this meme can always be used, you
+                            just need to find creative context for it. You can also use our <b>drake meme generator</b> using which
+                            you can make a meme with the help of the pre context drake images of his most famous meme of
+                            drake doesn’t like and drake likes images.
+                        </p>
 
                         <h2>
                             Meme text generator
@@ -360,16 +367,16 @@
                             A meme text generator is a tool using which you can add text or subtitles to images and videos.
                             It is one of the web's best meme tools for adding captions to your images and videos with no watermark.
                             Research has shown that captioned recordings via online media get fundamentally higher commitment than
-                            recordings without captions. This editor permits you to burn the captions into the video straightforwardly 
+                            recordings without captions. This editor permits you to burn the captions into the video straightforwardly
                             so the captions won't be lost regardless of what stage the video gets shared to
                         </p>
                         <p>
                             The text generator also allows the creators to time out subtitles to the video.
-                            Even for very short or choppy dialogues, we have got your back with making your video and image 
+                            Even for very short or choppy dialogues, we have got your back with making your video and image
                             memes more accessible in the world
                         </p>
                         <p>
-                            You can also use the <b>‘it’s free real estate meme generator’</b>. This image format is for portraying 
+                            You can also use the <b>‘it’s free real estate meme generator’</b>. This image format is for portraying
                             circumstances in which something is easy pickings, or when someone utilizes something all in all too
                             regularly. The "it’s free real estate" could be quite a few things – a style, a triumph, an expression,
                             conduct. This image producer itself is free land – exploit!
@@ -380,22 +387,22 @@
                             which depend on entries from some of the absolute best meme producers on the web. Feel free to through
                             our assortment of meme images, GIFs, PNGs, and recordings to locate the ideal image for your meme or to
                             get motivation. And at that point, you can simply include your inscription, and afterward, you are all
-                            set to offer your astonishing images to the world. Furthermore, that is the reason behind why this is a 
+                            set to offer your astonishing images to the world. Furthermore, that is the reason behind why this is a
                             standout amongst other <b>free meme generators</b> out there
                         </p>
                         <p>
                             We welcome you to a powerful solution for all your meme needs, which is easy enough for anyone to use.
                             Meme generator supports almost all images, GIF, and video files including the mp4 ones, gif, jpg, png, avi, and more.
                             It is all exists inside the browser which is supported by all the Operating systems like
-                            macOS, Windows, Android, iOS, and Linux. Therefore, there are no necessary downloads to make it work,which 
-                            means you can instantly start making memes. Instead of a meme generator app, you should use a 
-                            memes generator using your browsers on your phone or computer to create memes from anywhere, this will 
+                            macOS, Windows, Android, iOS, and Linux. Therefore, there are no necessary downloads to make it work,which
+                            means you can instantly start making memes. Instead of a meme generator app, you should use a
+                            memes generator using your browsers on your phone or computer to create memes from anywhere, this will
                             also help you free some space from your devices. And that is why this is the <b>best free meme generator</b>.
 
                         </p>
                         <p>
-                            Anyone can use memes generator from students, small businesses, professionals, and even 
-                            casual content creators as well. Use this <b>free pc check meme generator</b> to make memes and then 
+                            Anyone can use memes generator from students, small businesses, professionals, and even
+                            casual content creators as well. Use this <b>free pc check meme generator</b> to make memes and then
                             share your amazing content with the world. Here at Memes generator, you are in good hands. 
 
                         </p>
@@ -407,7 +414,7 @@
                             It gives you the flexibility to work on HTML5 canvas so that your memes are made speedily on your
                             contraption. Typically individuals utilize the generator to add text inscriptions to set up pictures.
                             Regardless, you can also add your photographs as arrangements to make a meme. Furthermore, we provide
-                            you with a wide variety of meme images to help to make your new memes from your own creative mind by 
+                            you with a wide variety of meme images to help to make your new memes from your own creative mind by
                             just choosing a picture from our collection and adding your captions or subtitles to it.
 
                         </p>
@@ -415,15 +422,15 @@
                             You can also use our <b>Spongebob mocking meme text generator</b> to make memes using images
                             and videos from SpongeBob. SpongeBob Squarepants is an image legend and in this picture, he
                             twists his body to appear as though a chicken while deriding the exact opposite thing somebody said.
-                            Utilize this image when you need to violently ridicule something that you or another person has attempted 
+                            Utilize this image when you need to violently ridicule something that you or another person has attempted
                             to state. SpongeBob’s joke is additionally emphasized by the blend of upper and lowercase letters in the
                             subtitle. Supplement your own content over the picture to make a Mocking SpongeBob Meme.
 
                         </p>
                         <p>
-                            You can use our <b>distorted text meme generator</b> to make text memes. 
-                            This tool will help you to distort the text with just one click. In order to do so, all you 
-                            need to do is to select the text you want to distort and click on the generate button and your 
+                            You can use our <b>distorted text meme generator</b> to make text memes.
+                            This tool will help you to distort the text with just one click. In order to do so, all you
+                            need to do is to select the text you want to distort and click on the generate button and your
                             text will be distorted and now you can use it in your memes. 
 
                         </p>
@@ -443,10 +450,10 @@
                             can add text to it using the <b>text meme generator</b> tool and your meme will be ready to be shared with the world.  
                         </p>
                     </div>
-                    </div>
                 </div>
+            </div>
 
-</section>
+        </section>
 
 
         <!-- footer -->
@@ -484,9 +491,9 @@
 
         //$('#hiddenFileUpload').change ( function (e) {
         //    debugger
-           
+
         //    //img.src ="../image/placeholder.png"
-           
+
         //});
 
         function draw() {
@@ -558,6 +565,19 @@
             location.href = '@Url.Action("custom", "Home")';
         }
     </script>
+
+
+    @* bot scriot start here *@
+    @*<script SameSite="None; Secure" src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+    <script>
+        var myLandbot = new Landbot.Popup({
+            
+            configUrl: 'https://chats.landbot.io/v3/H-808783-V9O4LTFYF8ESHO3K/index.json',
+        });
+    </script>*@
+
+    @* bot script end here*@
+
 
 </body>
 
