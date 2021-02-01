@@ -178,17 +178,44 @@
                         </div> -->
                         @*<canvas id="canvas" style="border:2px solid #000;height:auto;"
                             </canvas>*@
-
-                        <canvas id="canvas" >
-                        </canvas>
-                        <canvas draggable="true" id="dragCanvas" class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
-
-                        @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
-
-                        <div class="txts-list">
-                            <!-- js render -->
-                        </div>
+                        <div class="mm-preview" id="preview-container">
+                            <canvas id="canvas" style="height:inherit; width:inherit;">
+                            </canvas>
+                            <!--   <div class="drag-box resizable" id="draggable-container" >
+                @*<div class="wrapN">
+                    <div class="resize N" data-dir="N"></div>
+                </div>
+                <div class="wrapE">
+                    <div class="resize E" data-dir="E"></div>
+                </div>
+                <div class="wrapS">
+                    <div class="resize S" data-dir="S"></div>
+                </div>
+                <div class="wrapW">
+                    <div class="resize W" data-dir="W"></div>
+                </div>*@
+                <div class="resize NW top-left" data-dir="NW"></div>
+                <div class="resize NE top-right" data-dir="NE"></div>
+                <div class="resize SE bottom-right" data-dir="SE"></div>
+                <div class="resize SW bottom-left" data-dir="SW"></div>
+                @*<div class="drag-rotate-wrap" onmousemove="mouseMove(event)">
+                    <div class="resize drag-rotate">
+                        <svg x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+                        <path d="M41.038,24.1l-7.152,9.342L26.734,24.1H31.4c-0.452-4.397-4.179-7.842-8.696-7.842c-4.82,0-8.742,3.922-8.742,8.742 s3.922,8.742,8.742,8.742c1.381,0,2.5,1.119,2.5,2.5s-1.119,2.5-2.5,2.5c-7.576,0-13.742-6.165-13.742-13.742 s6.166-13.742,13.742-13.742c7.274,0,13.23,5.686,13.697,12.842H41.038z"></path>
+                        </svg>
+                        <i class="fas fa-undo"></i>
                     </div>
+                </div>*@
+            </div>
+        </div>
+        @*<canvas draggable="true" id="dragCanvas" class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>*@
+
+        @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
+    -->
+                            <div class="txts-list">
+                                <!-- js render -->
+                            </div>
+                        </div>
                     <div class="secondary_controler">
                         <button onclick="newTxtBtnClicked()">
                             <i class="fas fa-plus"></i>  Add Line
