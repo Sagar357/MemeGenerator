@@ -181,7 +181,7 @@
                         <div class="mm-preview" id="preview-container">
                             <canvas id="canvas" style="height:inherit; width:inherit;">
                             </canvas>
-                            <!--   <div class="drag-box resizable" id="draggable-container" >
+                               @*<div class="drag-box resizable" id="draggable-container" >*@
                 @*<div class="wrapN">
                     <div class="resize N" data-dir="N"></div>
                 </div>
@@ -194,10 +194,10 @@
                 <div class="wrapW">
                     <div class="resize W" data-dir="W"></div>
                 </div>*@
-                <div class="resize NW top-left" data-dir="NW"></div>
+                @*<div class="resize NW top-left" data-dir="NW"></div>
                 <div class="resize NE top-right" data-dir="NE"></div>
                 <div class="resize SE bottom-right" data-dir="SE"></div>
-                <div class="resize SW bottom-left" data-dir="SW"></div>
+                <div class="resize SW bottom-left" data-dir="SW"></div>*@
                 @*<div class="drag-rotate-wrap" onmousemove="mouseMove(event)">
                     <div class="resize drag-rotate">
                         <svg x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
@@ -206,12 +206,12 @@
                         <i class="fas fa-undo"></i>
                     </div>
                 </div>*@
-            </div>
+            @*</div>*@
         </div>
-        @*<canvas draggable="true" id="dragCanvas" class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>*@
+        <canvas draggable="true" id="dragCanvas" class="ui-widget-content" data-property="image" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
 
         @*<canvas id="canvas1" style="border:2px solid #000;height:auto" ;></canvas>*@
-    -->
+    
                             <div class="txts-list">
                                 <!-- js render -->
                             </div>
@@ -376,7 +376,11 @@
         }
 
         function drawCanvas() {
-            gCtx.drawImage(img, 0, 0);
+            var y = window.scrollY + document.querySelector('#canvas').getBoundingClientRect().top;
+            var x = window.scrollX + document.querySelector('#canvas').getBoundingClientRect().left;
+            var imgData = gCtx.getImageData(x, y, gCtx.canvas.width, gCtx.canvas.height);
+            //gCtx.drawImage(imgData, 0, 0);
+            gCtx.putImageData(imgData, imgData.width, imgData.height);
 
             gMeme.txts.forEach(function (txt) {
                 drawTxt(txt);
@@ -432,13 +436,21 @@
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
             }
 
-            function closeDragElement() {
+            function closeDragElement(e) {
 
+                debugger
+              
+                    if (e.srcElement.dataset.property === "image") {
+                        document.onmouseup = $("#dragCanvas").resizable({
+                            grid: 50
+                        });
 
-                document.onmouseup = $("#dragCanvas").resizable({
-                    grid: 50
-                });
-
+                    }
+                
+                else {
+                    document.onmouseup = null;
+                }
+              
                 document.onmousemove = null;
             }
 
@@ -455,7 +467,7 @@
         }
 
         function writeImage() {
-            
+            debugger
             var c = document.getElementById('dragCanvas');
             var p = document.getElementById('canvas');
             var destCtx = p.getContext('2d');
@@ -463,13 +475,15 @@
             //  var pos = getpostionxy(c);
             //destCtx.drawImage(c, window.innerWidth + pos.x, window.innerHeight+pos.y, 735, 500);
 
-            destCtx.drawImage(c, c.parentElement.offsetLeft - (c.parentElement.offsetWidth / 2), c.parentElement.offsetTop - (c.parentElement.offsetHeight / 2), c.parentElement.offsetWidth, c.parentElement.offsetHeight);
+            destCtx.drawImage(c,window.scrollX + document.querySelector('#dragCanvas').getBoundingClientRect().left , window.scrollY + document.querySelector('#dragCanvas').getBoundingClientRect().top , c.parentElement.offsetWidth, c.parentElement.offsetHeight);
 
             var sourceCtx = c.getContext('2d');
             var img = sourceCtx.createImageData(c.width, c.height);
             for (var i = img.data.length; --i >= 0;)
                 img.data[i] = 0;
             sourceCtx.putImageData(img, 0, 0);
+
+             drawTxt(txt);
         }
 
         function activateCanvas() {

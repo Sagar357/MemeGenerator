@@ -46,6 +46,7 @@ function initMemeEditor(imgId) {
   //  initCanvas();
     initEditor()
     renderTxtsEditor();
+    createContainer(0);
 
 }
 
@@ -92,14 +93,14 @@ function getImgSrc() {
 function drawTxt(txt) {
     debugger
  
-    //gCtx.font = txt.size + 'px' + ' ' + txt.fontFamily;
-    //gCtx.textAlign = txt.align;
-    //gCtx.fillStyle = txt.color;
+    gCtx.font = txt.size + 'px' + ' ' + txt.fontFamily;
+    gCtx.textAlign = txt.align;
+    gCtx.fillStyle = txt.color;
  
-    //if (txt.isShadow) addTxtShadow(txt);
-    //if (txt.isOutline) addTxtOutline(txt);
+    if (txt.isShadow) addTxtShadow(txt);
+    if (txt.isOutline) addTxtOutline(txt);
 
-    //gCtx.fillText(txt.line, txt.x, txt.y);
+    gCtx.fillText(txt.line, txt.x, txt.y);
 }
 
 function addTxtShadow(txt) {
@@ -184,7 +185,9 @@ function renderTxtsEditor() {
                
                 </div>
 
-        `
+        `    ;
+     
+
     })
         .join(' ');
 
@@ -203,6 +206,7 @@ function newTxtBtnClicked() {
     drawCanvas();
     //drawText();
     renderTxtsEditor();
+    createContainer(gMeme.txts.length-1);
    
 }
 
@@ -245,58 +249,63 @@ function drawText() {
 
 }
 
+function createContainer(id) {
+    var maincontainerid = "draggable-container" + id;
+    var containerid = 'movable-para' + id;
+    var mainContainer = document.createElement('div');
+    mainContainer.id = maincontainerid;
+    mainContainer.classList.add("drag-box");
+    mainContainer.classList.add("resizable");
+ //   mainContainer.dataset.add('property', 'text-container');
+
+
+    var para = document.createElement('p');
+    //para.font = txt.size + 'px';
+    //para.fontFamily = txt.fontFamily;
+    //para.textAlign = txt.align;
+    para.color = "white";
+    //para.style.shadowColor = txt.shadowColor;
+    //para.style.shadowOffsetX= txt.shadowOffsetX;
+    //para.style.shadowOffsetY = txt.shadowOffsetY;
+    //para.style.shadowBlur = txt.shadowBlur;
+   // para.innerHTML = element.value;
+    para.id = containerid;
+    para.style.fontSize = '40px';
+    para.style.overflow = "hidden";
+
+    var divlu = document.createElement('div');
+    var divld = document.createElement('div');
+    var divru = document.createElement('div');
+    var divrd = document.createElement('div');
+    divlu.classList.add('resize');
+    divlu.classList.add('NW');
+    divlu.classList.add('top-left');
+    divld.classList.add('resize');
+    divld.classList.add('SW');
+    divld.classList.add('bottom-left');
+    divru.classList = ['resize NE top-right'];
+    divrd.classList = ['resize SE bottom-right'];
+
+    mainContainer.appendChild(divlu);
+    mainContainer.appendChild(divld);
+    mainContainer.appendChild(divru);
+    mainContainer.appendChild(divrd);
+
+    mainContainer.appendChild(para);
+    document.getElementById('preview-container').appendChild(mainContainer);
+
+    var dragele = document.getElementsByClassName("drag-box")
+    for (var i = 0; i < dragele.length; i++) {
+        dragElement(document.getElementById(dragele[i].id));
+    }
+    makeResizableDiv('.resizable')
+}
+
 function editText(element, id) {
     debugger
     var inpType = element.dataset.property;
-  
-    var maincontainerid = "draggable-container" + id;
     var containerid = 'movable-para' + id;
 
-    if (document.getElementById(maincontainerid) === null) {
- 
-        var mainContainer = document.createElement('div');
-        mainContainer.id = maincontainerid;
-        mainContainer.classList.add("drag-box");
-        mainContainer.classList.add("resizable");
-
-
-        var para = document.createElement('p');
-        //para.font = txt.size + 'px';
-        //para.fontFamily = txt.fontFamily;
-        //para.textAlign = txt.align;
-        para.color = "white";
-        //para.style.shadowColor = txt.shadowColor;
-        //para.style.shadowOffsetX= txt.shadowOffsetX;
-        //para.style.shadowOffsetY = txt.shadowOffsetY;
-        //para.style.shadowBlur = txt.shadowBlur;
-        para.innerHTML = element.value;
-        para.id = containerid;
-        para.style.fontSize = '40px';
-        para.style.overflow = "hidden";
-
-        var divlu = document.createElement('div');
-        var divld = document.createElement('div');
-        var divru = document.createElement('div');
-        var divrd = document.createElement('div');
-        divlu.classList = ['resize', 'NW', 'top-left'];
-        divld.classList = ['resize SW', 'bottom-left'];
-        divru.classList = ['resize', 'NE', 'top-right'];
-        divrd.classList = ['resize', 'SE', 'bottom-right'];
-
-        mainContainer.appendChild(divlu);
-        mainContainer.appendChild(divld);
-        mainContainer.appendChild(divru);
-        mainContainer.appendChild(divrd);
-
-        mainContainer.appendChild(para);
-        document.getElementById('preview-container').appendChild(mainContainer);
-
-        var dragele = document.getElementsByClassName("drag-box")
-        for (var i = 0; i < dragele.length; i++) {
-            dragElement(document.getElementById(dragele[i].id));
-        }
-    }
-    else {
  
         if (inpType === "size") {
             $('#' + containerid).css('font-size', element.value + 'px');
@@ -315,7 +324,7 @@ function editText(element, id) {
             if ($('input[id="shadow"]:checked').length >0) {
 
             }
-        }
+        
     }
   
 
