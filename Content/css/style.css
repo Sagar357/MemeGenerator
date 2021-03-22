@@ -1188,3 +1188,227 @@ mid-cmn h2 {
 /*----------  contact  ----------*/
 /*----Footer----*/
 /*# sourceMappingURL=style.css.map */
+
+
+.mm-preview {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.mm-canv {
+    width: 100%;
+}
+
+
+element.style {
+    left: 4px;
+    top: 256px;
+    width: 480px;
+    height: 90px;
+}
+
+.drag-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    cursor: move;
+    border: 1px solid #444;
+    border: 1px solid rgba(0,0,0,.6);
+    background: transparent;
+    touch-action: none;
+    z-index: 2;
+}
+
+    .drag-box:before {
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        width: 100%;
+        height: 100%;
+        content: '';
+        border: 1px dashed #bbb;
+        border: 1px dashed rgba(255,255,255,.6);
+    }
+
+.wrapN {
+    top: 0;
+}
+
+.wrapN, .wrapS {
+    position: absolute;
+    left: 50%;
+}
+
+.N {
+    top: -10px;
+    left: -10px;
+}
+
+.N, .S {
+    cursor: ns-resize;
+}
+
+.resize {
+    position: absolute;
+    z-index: 3;
+    width: 17px;
+    height: 17px;
+    background: #ccc;
+    background: rgba(255,255,255,.6);
+    border: 1px solid #333;
+    border-radius: 2px;
+}
+
+
+
+element.style {
+}
+
+.wrapE {
+    right: 0;
+}
+
+.wrapE, .wrapW {
+    position: absolute;
+    top: 50%;
+}
+
+.wrapE {
+    right: 0;
+}
+
+.wrapE, .wrapW {
+    position: absolute;
+    top: 50%;
+}
+
+.wrapS {
+    bottom: 0;
+}
+
+.wrapN, .wrapS {
+    position: absolute;
+    left: 50%;
+}
+
+.wrapS {
+    bottom: 0;
+}
+
+.wrapN, .wrapS {
+    position: absolute;
+    left: 50%;
+}
+
+.wrapW {
+    left: 0;
+}
+
+.wrapE, .wrapW {
+    position: absolute;
+    top: 50%;
+}
+
+.wrapW {
+    left: 0;
+}
+
+.wrapE, .wrapW {
+    position: absolute;
+    top: 50%;
+}
+
+
+element.style {
+}
+
+
+
+.NW, .SW {
+    left: -10px;
+}
+
+
+
+.NW, .SE {
+    cursor: nw-resize;
+}
+
+
+
+.NE, .SE {
+    right: -10px;
+}
+
+.NW, .NE {
+    top: -10px;
+}
+
+.NE, .SW {
+    cursor: ne-resize;
+}
+
+
+
+.drag-disabled .resize, .drag-box.off .resize {
+    display: none;
+}
+
+.NW, .SW {
+    left: -10px;
+}
+
+.SE, .SW {
+    bottom: -10px;
+}
+
+.NE, .SW {
+    cursor: ne-resize;
+}
+
+
+
+.resize.S {
+    position: absolute;
+    transform: translate(4px, -9px);
+}
+
+.resize.E {
+    transform: translate(-7px, -6px);
+}
+.resize.W {
+    transform: translate(-9px, -8px);
+}
+.resize.N {
+    transform: translate(14px, 1px);
+}
+.resize.drag-rotate {
+    transform: translate(8rem, 111px);
+}
+
+.mm-preview {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    width: 490px;
+}
+
+.drag-box {
+    width: 50% !important;
+    height: 100px;
+    margin: 0 auto;
+    left: 30%;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+.resize.drag-rotate {
+    height: 31px;
+    width: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
