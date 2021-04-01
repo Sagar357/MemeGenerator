@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "View_AdminEditor";
+
+}
+@model MemeGenerator.Models.AdminFileEditList
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Memes-generator.net is the first online meme generator. Browse the most popular memes on the internet, create your own meme or caption your favorite character. Export your meme directly as JPG or MP4. Fast, online, and powerful, Generator lets you make memes perfectly, every time." />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator - Meme Creator - Make a Meme Online</title>
+    <link rel="icon" href="\image\Logo MG 3.png">
+    <script defer src="~/fonts/fontawesome-all.js"></script>
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/fonts/stylesheet.css">
+    <link rel="stylesheet" href="~/Content/css/Hover-master/css/hover-min.css">
+    <link href="~/Content/css/aos.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
+
+</head>
+<body>
+    <main class="wow fadeIn" style="visibility: visible;">
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo item1">
+                        <a href="@Url.Action("Index","Home")">
+                            <!-- <img src="" alt=""> -->
+                            <h1>Meme Generator</h1>
+                        </a>
+                    </div>
+                    @*<ul class="nav_item item2">
+                        <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
+                        <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
+                        <li><a href="@Url.Action("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
+                        <li><a href="@Url.Action("Admin","Home")" class="hvr-shadow-radial">Admin</a></li>
+                    </ul>*@
+                </nav>
+                @*<div class="main-bar openbtn">
+                    <div class="a1"></div>
+                    <div class="b1"></div>
+                    <div class="c1"></div>
+                </div>*@
+
+            </div>
+        </header>
+        <table class="table">
+                <tr>
+                    <th style="font-size:1.5em;color:black">
+                        fileid
+                    </th>
+                    @*<th>
+                            attachmentcode
+                        </th>*@
+                    <th style="font-size:1.5em;color:black">
+                        filepath
+                    </th>
+                    @*<th>
+                            bloburl
+                        </th>*@
+                    <th style="font-size:1.5em;color:black">
+                        fileName
+                    </th>
+                    <th style="font-size:1.5em;color:black">
+                        Description
+                    </th>
+                    <th></th>
+                </tr>
+                @{ int srno = 0;}
+                @foreach (var item in Model.processlist)
+                {
+                    <tr>
+                        <td>
+                            @(++srno)
+                        </td>
+                        @*<td>
+                                @item.attachmentcode
+                            </td>*@
+                        <td>
+                            <img src=" @item.filepath" height="100" width="100" />
+
+                        </td>
+                        @*<td>
+                                @item.bloburl
+                            </td>*@
+                        <td>
+                            @item.fileName
+                        </td>
+                        <td>
+                            @item.Description
+                        </td>
+                        <td>
+                            <a href="@Url.Action("EditDescription" ,"Home")?FileName=@item.fileName">Edit</a>
+
+                            <a href="@Url.Action("DeleteDescription","Home")?Id=@item.fileid">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </body>
+    </html>

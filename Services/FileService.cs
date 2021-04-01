@@ -46,23 +46,24 @@ namespace MemeGenerator.Services
                 Guid attachmentcode = Guid.NewGuid();
                 db.Open();
                 DataSet ds = new DataSet();
-                SqlParameter[] param = new SqlParameter[3];
+                SqlParameter[] param = new SqlParameter[4];
                 param[0] = new SqlParameter("@attachmentcode", attachmentcode);
                 param[1] = new SqlParameter("@filepath", Path.Combine("/image/", file.FileName));
                 param[2] = new SqlParameter("@filename", Path.GetFileNameWithoutExtension(file.FileName));
-              
+                param[3] = new SqlParameter("@Description","");
+
 
                 ds = SqlHelper.ExecuteDataset(db, CommandType.StoredProcedure, "InsertStoredProcedureFile", param);
-                 value = Path.Combine("../image/", file.FileName);
+                value = Path.Combine("../image/", file.FileName);
 
                 message = "success";
             }
 
-           // return message;
+            // return message;
             return value;
 
         }
-        
+
         public static File_list GetFileList()
         {
             File_list listObj = null;
@@ -95,13 +96,21 @@ namespace MemeGenerator.Services
                         {
                             model.filepath = "";
                         }
-                        if(!string.IsNullOrEmpty(dr["fileName"].ToString()))
+                        if (!string.IsNullOrEmpty(dr["fileName"].ToString()))
                         {
                             model.fileName = dr["fileName"].ToString();
                         }
                         else
                         {
                             model.fileName = "";
+                        }
+                        if(!string.IsNullOrEmpty(dr["attachmentcode"].ToString()))
+                        {
+                            model.attachmentcode = dr["attachmentcode"].ToString();
+                        }
+                        else
+                        {
+                            model.attachmentcode = "";
                         }
                         listObj.list.Add(model);
                     }
@@ -135,7 +144,7 @@ namespace MemeGenerator.Services
                         }
                         else
                         {
-                              // model.fileName = null;
+                            // model.fileName = null;
                             model.fileid = 0;
                         }
                         if (!string.IsNullOrEmpty(dr["filepath"].ToString()))
@@ -146,13 +155,29 @@ namespace MemeGenerator.Services
                         {
                             model.filepath = "";
                         }
-                        if(!string.IsNullOrEmpty(dr["fileName"].ToString()))
+                        if (!string.IsNullOrEmpty(dr["fileName"].ToString()))
                         {
                             model.fileName = dr["fileName"].ToString();
                         }
                         else
                         {
                             model.fileName = "";
+                        }
+                        if (!string.IsNullOrEmpty(dr["attachmentcode"].ToString()))
+                        {
+                            model.attachmentcode = dr["attachmentcode"].ToString();
+                        }
+                        else
+                        {
+                            model.attachmentcode = "";
+                        }
+                        if(!string.IsNullOrEmpty(dr["Description"].ToString()))
+                        {
+                            model.Description = dr["Description"].ToString();
+                        }
+                        else
+                        {
+                            model.Description = "";
                         }
 
                     }
@@ -161,6 +186,140 @@ namespace MemeGenerator.Services
             }
             return model;
         }
+        public string Login(LoginModel data)
+        {
+            int responseCode;
+            string status = String.Empty;
+            try
+            {
+                using (SqlConnection con = connectionutils.getConnection())
+                {
+                    SqlCommand cmd = new SqlCommand("validateUser", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@adminName", data.adminName);
+                    cmd.Parameters.AddWithValue("@adminPassword", data.adminPassword);
+                    cmd.Parameters.Add("@outparam", SqlDbType.Int);
+                    cmd.Parameters["@outparam"].Direction = ParameterDirection.Output;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    responseCode = Convert.ToInt32(cmd.Parameters["@outparam"].Value);
+
+                    if (responseCode == 0)
+                        status = "Success";
+                    else if (responseCode == -1)
+                        status = "Invalid Usarname or Password";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = ex.Message;
+            }
+            return (status);
+        }
+
+        public AdminFileEditList AdminEditList()
+        {
+            AdminFileEditList FileEditListObj = new AdminFileEditList();
+            try
+            {
+                using (SqlConnection con = connectionutils.getConnection())
+                {
+                    List<File_Model> tasklist = new List<File_Model>();
+                    SqlCommand cmd = new SqlCommand("getEditList", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    con.Open();
+                    da.Fill(ds);
+                    con.Close();
+
+
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        tasklist.Add(
+                            new File_Model
+                            {
+                                fileid = Convert.ToInt32(dr["fileid"]),
+                                attachmentcode = Convert.ToString(dr["attachmentcode"]),
+                                filepath = Convert.ToString(dr["filepath"]),
+                                bloburl = Convert.ToString(dr["bloburl"]),
+                                fileName = Convert.ToString(dr["fileName"]),
+                                Description = Convert.ToString(dr["Description"])
+
+
+
+                            }
+                            );
+                    }
+                    FileEditListObj.processlist = tasklist;
+
+
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+            return FileEditListObj;
+
+        }
+        public bool UpdateContent(File_Model obj)
+        {
+            using(SqlConnection con= connectionutils.getConnection())
+                
+                {
+                    SqlCommand cmd = new SqlCommand("updateDscription", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@fileid", obj.fileid);
+                    cmd.Parameters.AddWithValue("@attachmentcode", obj.attachmentcode);
+                    cmd.Parameters.AddWithValue("@filepath", obj.filepath);
+                    cmd.Parameters.AddWithValue("@fileName", obj.fileName);
+                    cmd.Parameters.AddWithValue("@Description", obj.Description);
+
+
+                    con.Open();
+                    int i = cmd.ExecuteNonQuery();
+                    con.Close();
+                    if(i >= 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+            }
+        }
+
+        public bool DeleteContent(int fileid)
+        {
+            using (SqlConnection con = connectionutils.getConnection())
+            {
+                SqlCommand cmd = new SqlCommand("DeleteFile", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@fileid", fileid);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                con.Close();
+                if(i<=1)
+                {
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
+
+    }
+}
 
         //public static contactus(memecontact contact)
         //{
@@ -169,14 +328,14 @@ namespace MemeGenerator.Services
         //    {
         //        using (SqlConnection con = connectionutils.getConnection())
         //        {
-                  
+
         //        }
         //    }
-          
+
 
         //}
-    }
-}
+    
+
 //      public static string WriteText(ImageModification_Model model)
 //      {
 //          if(!string.IsNullOrEmpty(model.filePath))

@@ -38,6 +38,7 @@
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
                         <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
                         <li><a href="@Url.Action("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
+                        @*<li><a href="@Url.Action("Admin","Home")" class="hvr-shadow-radial">Admin</a></li>*@
                     </ul>
                 </nav>
                 <div class="main-bar openbtn">
@@ -102,12 +103,12 @@
                         <div class="mid-grid mid_1st wow fadeIn" style="visibility: visible;">
 
 
-                            @* image upload view started here  *@
+                             @*image upload view started here*@  
 
 
-                            @*<div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">*@
-                                @*<figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
+                            <div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                   
                                     @if (!string.IsNullOrEmpty(ViewBag.ImageUrl))
                                     {
                                         <img src="@ViewBag.ImageUrl" />
@@ -121,8 +122,8 @@
 
                                 <figcaption>
                                     <a href="@Url.Action("Index","Home")">Meme Generator</a>
-                                </figcaption>*@
-                              @*</div>*@
+                                </figcaption>
+                              </div>
 
                             @* image upload end here*@
 

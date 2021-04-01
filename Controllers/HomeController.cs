@@ -49,27 +49,27 @@ namespace MemeGenerator.Controllers
 
             return View(fileList);
         }
-   
 
 
-            //public ActionResult WriteText(ImageModification_Model model)
-            //{
-            //    string uploadFile = Server.MapPath("~/image");
-            //    model.filePath = Path.Combine(uploadFile, model.fileName);
-            //    FileService.WriteText(model);
-            //    ViewBag.Message = "Your contact page.";
 
-            //    return View();
-            //}
+        //public ActionResult WriteText(ImageModification_Model model)
+        //{
+        //    string uploadFile = Server.MapPath("~/image");
+        //    model.filePath = Path.Combine(uploadFile, model.fileName);
+        //    FileService.WriteText(model);
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return View();
+        //}
         [Route("Meme/{FileName}")]
-        public ActionResult meme(string FileName )
+        public ActionResult meme(string FileName)
         {
-      
-            File_Model response =FileService.GetFileById(FileName);
+
+            File_Model response = FileService.GetFileById(FileName);
             string filePath = Server.MapPath("~/image");
             string path = Path.Combine(filePath, response.filepath);
-            return View("meme",response);
-       }
+            return View("meme", response);
+        }
 
         //public ActionResult custom()
         //{
@@ -81,6 +81,28 @@ namespace MemeGenerator.Controllers
         //    return View("Contact");
         //}
 
+        public ActionResult Admin()
+        {
+            return View("View_Admin");
+        }
+
+        [HttpPost]
+        public ActionResult Admin(LoginModel userCred)
+        {
+            FileService service = new FileService();
+            string status=service.Login(userCred);
+            if (status == "Success")
+            {
+                Session["login"] = status;
+                AdminFileEditList response = service.AdminEditList();
+                return View("View_AdminEditor", response);
+            }
+            else
+            {
+                return RedirectToAction("Admin");
+            }
+
+        }
         public ActionResult PrivacyPolicy()
         {
             return View("View_PrivacyPolicy");
@@ -94,5 +116,44 @@ namespace MemeGenerator.Controllers
         {
             return View();
         }
-}
+
+        public ActionResult AdminEditor()
+        {
+            if (Session["login"] == null)
+                return RedirectToAction("Admin");
+            FileService service = new FileService();
+            AdminFileEditList response = service.AdminEditList();
+            return View("View_AdminEditor", response);
+        }
+
+        public ActionResult EditDescription(string FileName)
+
+        {
+            File_Model response = FileService.GetFileById(FileName);
+            return View("View_DescriptionEditor", response);
+        }
+
+        [HttpPost]
+        public ActionResult EditDescription(File_Model postObject)
+
+        {
+            FileService service = new FileService();
+            bool response = service.UpdateContent(postObject);
+            return View("View_DescriptionEditor", response);
+        }
+        public ActionResult DeleteDescription(int Id)
+        {
+            FileService service = new FileService();
+            if(service.DeleteContent(Id))
+            {
+                return RedirectToAction("AdminEditor");
+            }
+
+            {
+
+                return View("View_AdminEditor");
+            }
+        }
+
+    }
 }

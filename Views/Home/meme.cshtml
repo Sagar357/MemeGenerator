@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="make @Model.fileName.Replace('-',' ') memes with memes-generator.net,the fast and totally free meme generator. No watermark, custom text and images." />
-    <title>@Model.fileName.Replace('-',' ') - Meme Template and Creator</title>
+    <title>@Model.fileName.Replace('-',' ')-Meme Template and Creator</title>
     <link rel="icon" href="\image\Logo MG 3.png">
     <script defer src="~/fonts/fontawesome-all.js"></script>
     <link rel="stylesheet" href="~/Content/css/style.css">
@@ -64,16 +64,8 @@
                             <div class="right-side mid-cmn" data-aos="fade-left" data-aos-duration="2000"
                                  data-aos-easing="ease-in-sine">
                                 <div class="text-content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
-                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
-                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
-                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
-                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
-                                        Minus, fugit. Veritatis quod in ipsum laboriosam praesentium repudiandae dolor sunt pariatur.
-                                        Minus, fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum obcaecati molestias
-                                        expedita sed dolor odit amet ducimus facere vel repellendus!
+                                    <p>@Html.Raw(Model.Description)
+                                      
                                     </p>
                                     <a href="#" class="meme_btn hvr-bounce-to-right" id="1" onclick="initMemeEditor('#img11',this)">create this meme </a>
                                 </div>
@@ -202,6 +194,11 @@
                                 Add Image
                             </span>
                         </button>
+                        <button type="button" class="choose_file" onclick='CMeme(event)'>
+                            <span>
+                               Create Meme
+                            </span>
+                        </button>
                         <div class="choose_file" id="imgUpload" style="display:none;">
                             <input type="file" onchange='upload(event)' />
 
@@ -281,7 +278,8 @@
         AOS.init();
     </script>
     <script>
-        var img;
+                    var img;
+                  
         function initEditor() {
             var x;
             var imgpath = $('#photo').attr('src');
@@ -323,7 +321,7 @@
             postObj.y = cord.y;
             return postObj;
         }
-
+              
         function draw() {
             var canvas = document.getElementById('canvas');
             debugger
@@ -456,6 +454,7 @@
         });
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+         
             if (document.getElementById(elmnt.id + "header")) {
                 //document.ondblclick = $("#dragCanvas").resizable("destroy");
                 document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
@@ -479,23 +478,51 @@
             }
 
             function elementDrag(e) {
-                e = e || window.event;
-                e.preventDefault();
+                var id = "#" + e.target.id;
+                var x = $(id).position();
+                if (x.top >= 0 && x.top <= 270 && x.left >= 0 && x.left<245) {
 
-                pos1 = pos3 - e.clientX;
-                pos2 = pos4 - e.clientY;
-                pos3 = e.clientX;
-                pos4 = e.clientY;
+                    e = e || window.event;
+                    e.preventDefault();
 
-                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+
+                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+                }
+                else {
+                    e = e || window.event;
+                    e.preventDefault();
+                    debugger
+
+                    if (x.top < 0 ) {
+                        elmnt.style.top = (elmnt.offsetTop + 10) + "px";
+                    
+                    }
+                    else if (x.top > 270) {
+                        elmnt.style.top = (elmnt.offsetTop - 10) + "px";
+                      
+                    }
+
+                    if (x.left < 0) {
+                        elmnt.style.left = (elmnt.offsetLeft + 10) + "px";
+                    }
+                    else {
+                        elmnt.style.left = (elmnt.offsetLeft - 10) + "px";
+                    }
+                  
+                }
             }
        function closeDragElement(e) {
 
                 debugger
               
                     if (e.srcElement.dataset.property === "image") {
-                        document.onmouseup = $("#dragCanvas").resizable({
+                        document.onmouseup = $("#"+e.target.id).resizable({
                             grid: 50
                         });
 
@@ -554,7 +581,27 @@
             $(this.canvas).remove();
         }
 
+        function CMeme(event) {
+            debugger
+            var x = $('.drag-box');
+            for (i = 0; i < x.length; i++) {
+                gMeme.txts[i].line = $('#' + x[i].id).text();
+                //pos3 = event.clientX;
+                //pos4 = event.clientY;
+                //pos1 = pos3 - event.clientX;
+                //pos2 = pos4 - event.clientY;
+                
 
+                //posx = parseInt($('#' + x[i].id).offsetTop - pos2);
+                //posy = parseInt($('#' + x[i].id).offsetLeft - pos1);
+                //gMeme.txts[i].x = posx;
+                //gMeme.txts[i].y = posy;
+            }
+          
+            gMeme.txts.forEach(function (txt) {
+                drawTxt(txt);
+            });
+        }
     </script>
 </body>
 
