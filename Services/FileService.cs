@@ -92,6 +92,7 @@ namespace MemeGenerator.Services
                         {
                             model.filepath = dr["filepath"].ToString();
                         }
+                        
                         else
                         {
                             model.filepath = "";
@@ -99,6 +100,7 @@ namespace MemeGenerator.Services
                         if (!string.IsNullOrEmpty(dr["fileName"].ToString()))
                         {
                             model.fileName = dr["fileName"].ToString();
+
                         }
                         else
                         {
