@@ -10,7 +10,7 @@ var persistCanvas;
 function createGmeme(imgId) {
     return {
         selectedImgId: imgId,
-        txts: [createTxt('Your Text', 150, 70)/*, createTxt('Your Text', 150, 300)*/]
+        txts: [createTxt('', 150, 70)/*, createTxt('Your Text', 150, 300)*/]
     };
 
 }
@@ -201,7 +201,7 @@ function newTxtBtnClicked() {
     //var y = parseInt($('#hiddeny').html());
     //var y = txt.y;  var x = txt.x;
  
-    gMeme.txts.push(createTxt('New Line', 150 , 150 + increament ));
+    gMeme.txts.push(createTxt('', 150 , 150 + increament ));
     increament += 50;
     drawCanvas();
     //drawText();
