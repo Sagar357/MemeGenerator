@@ -10,7 +10,7 @@ var persistCanvas;
 function createGmeme(imgId) {
     return {
         selectedImgId: imgId,
-        txts: [createTxt('', 150, 70)/*, createTxt('Your Text', 150, 300)*/]
+        txts: [createTxt('', 150, 70)/*, createTxt('', 150, 300)*/]
     };
 
 }
@@ -231,13 +231,13 @@ function dlCanvas(eldllink) {
     dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=canvas.png');
 
     eldllink.href = dt;
+    
 }
 
 function toggleView() {
     document.querySelector('.meme-container').classList.toggle('hidden');
     document.querySelector('.gallery').classList.toggle('hidden');
 }
-
 
 function drawText() {
     //gCtx.drawImage(persistCanvas, 0, 0);

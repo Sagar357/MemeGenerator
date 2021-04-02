@@ -38,6 +38,7 @@
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
                         <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
                         <li><a href="@Url.Action("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
+                        @*<li><a href="@Url.Action("Admin","Home")" class="hvr-shadow-radial">Admin</a></li>*@
                     </ul>
                 </nav>
                 <div class="main-bar openbtn">
@@ -102,12 +103,12 @@
                         <div class="mid-grid mid_1st wow fadeIn" style="visibility: visible;">
 
 
-                            @* image upload view started here  *@
+                             @*image upload view started here*@  
 
 
-                            @*<div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">*@
-                                @*<figure>
-                                    <img src="~/img/gallery/alina.png" alt="">
+                            <div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">
+                                <figure>
+                                   
                                     @if (!string.IsNullOrEmpty(ViewBag.ImageUrl))
                                     {
                                         <img src="@ViewBag.ImageUrl" />
@@ -121,8 +122,8 @@
 
                                 <figcaption>
                                     <a href="@Url.Action("Index","Home")">Meme Generator</a>
-                                </figcaption>*@
-                              @*</div>*@
+                                </figcaption>
+                              </div>
 
                             @* image upload end here*@
 
@@ -181,7 +182,7 @@
                     </div>
                 </div>
 
-                <!-- end---here 
+                <!-- end---here
                 <!-- image--grid2---2-->
                 <!--<div class="main-grid" id="Sub_List2">
                     <div class="mid-grid mid_2nd wow fadeIn" style="visibility: visible;">
@@ -567,16 +568,30 @@
     </script>
 
 
+
     @* bot scriot start here *@
     @*<script SameSite="None; Secure" src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"></script>
-    <script>
-        var myLandbot = new Landbot.Popup({
-            
-            configUrl: 'https://chats.landbot.io/v3/H-808783-V9O4LTFYF8ESHO3K/index.json',
-        });
-    </script>*@
+        <script>
+            var myLandbot = new Landbot.Popup({
+
+                configUrl: 'https://chats.landbot.io/v3/H-808783-V9O4LTFYF8ESHO3K/index.json',
+            });
+        </script>*@
 
     @* bot script end here*@
+    
+      
+ @*<script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/60056773c31c9117cb6fb8f6/1esaho7am';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>*@
 
 
 </body>

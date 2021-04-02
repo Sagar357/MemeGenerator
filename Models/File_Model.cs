@@ -12,12 +12,14 @@ namespace MemeGenerator.Models
         public string filepath { get; set; }
         public string bloburl { get; set; }
         public string fileName { get; set; }
+        public string Description { get; set; }
         
 
 
 
 
     }
+
     public class File_list
     {
         public File_list()
@@ -29,7 +31,28 @@ namespace MemeGenerator.Models
 
 
     }
+    public class LoginModel
+    {
+        public string adminName { get; set; }
+        public string adminPassword { get; set; }
+        public int responceCode { get; set; }
+    }
+    
+    public class AdminFileEditList
+    {
+        public AdminFileEditList()
+        {
+            this.processlist = new List<File_Model>();
+        }
+        public List<File_Model> processlist { get; set; }
+       
 
+    }
+    public class postEditorModel
+    {
+        public string editor { get; set; }
+        public string Description { get; set; }
+    }
     //public class memecontact
     //{
     //    public int customerId { get; set; }
