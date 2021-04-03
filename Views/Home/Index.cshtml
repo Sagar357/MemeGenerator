@@ -38,7 +38,7 @@
                         <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
                         <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
                         <li><a href="@Url.Action("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
-                        @*<li><a href="@Url.Action("Admin","Home")" class="hvr-shadow-radial">Admin</a></li>*@
+                        <li><a href="@Url.Action("Admin","Home")" class="hvr-shadow-radial">Admin</a></li>
                     </ul>
                 </nav>
                 <div class="main-bar openbtn">
@@ -131,14 +131,14 @@
                             {
 
                                 <div class="item-wrp item-wrp1">
-                                    <figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { FileName=element.fileName } )'">
+                                    <figure id="img-@element.fileid" onclick="location.href = '@Url.Action("meme" ,"Home" ,new { FileName=element.SeoSlug } )'">
                                         <img src="@element.filepath" id="picture" height="100" width="150" />
                                         @*<a href="@Url.Action("meme", "Home")">meme Generate</a>*@
                                     </figure>
                                     <figcaption>
                                         @*<a href="meme.html" class="meme_btn hvr-bounce-to-right">meme Generate</a>*@
 
-                                        <a href="@Url.Action("meme", "Home" ,new { FileName=element.fileName})" class="meme_btn hvr-bounce-to-right">@element.fileName.Replace('-', ' ')</a>
+                                        <a href="@Url.Action("meme", "Home" ,new { FileName=element.SeoSlug})" class="meme_btn hvr-bounce-to-right">@element.SeoSlug</a>
                                         @*<a href="#"></a>*@
                                     </figcaption>
                                 </div>

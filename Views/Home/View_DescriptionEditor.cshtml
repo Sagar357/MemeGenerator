@@ -34,20 +34,44 @@
                         </a>
                     </div>
                     @*<ul class="nav_item item2">
-                            <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
-                            <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
-                            <li><a href="@Url.Action("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
-                            <li><a href="@Url.Action("Admin","Home")" class="hvr-shadow-radial">Admin</a></li>
-                        </ul>*@
+                        <li><a href="@Url.Action("Index","Home")" class="hvr-shadow-radial">Home</a></li>
+                        <li><a href="@Url.Action("About","Home")" class="hvr-shadow-radial">About</a></li>
+                        <li><a href="@Url.Action("custom","Home")" class="hvr-shadow-radial">Custom Meme</a></li>
+                        <li><a href="@Url.Action("Admin","Home")" class="hvr-shadow-radial">Admin</a></li>
+                    </ul>*@
                 </nav>
                 @*<div class="main-bar openbtn">
-                        <div class="a1"></div>
-                        <div class="b1"></div>
-                        <div class="c1"></div>
-                    </div>*@
+                    <div class="a1"></div>
+                    <div class="b1"></div>
+                    <div class="c1"></div>
+                </div>*@
 
             </div>
+
         </header>
+
+        @*<div class="item-wrp item-wrp0" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-out-cubic">
+            <figure>
+
+                @if (!string.IsNullOrEmpty(ViewBag.ImageUrl))
+                {
+                    <img src="@ViewBag.ImageUrl" />
+                }
+                else
+                {
+                    <img id="previewImage" src="~/image/placeholder.png" />
+                }
+            </figure>
+        <div>
+            <input type="file" style="display:none" name="uploadfile" id="hiddenFileUpload">
+
+            <figcaption>
+                <a href="@Url.Action("Index","Home")">Meme Generator</a>
+            </figcaption>
+        </div>*@
+
+
+
         <input type="hidden" id="hiddenfileid" value="@Model.fileid" />
         <br />
 
@@ -59,16 +83,34 @@
 
         <input type="text" id="fileName" value="@Model.fileName" />
         <br />
+        <div class="Editor-content">
+            <div class="item1 item-cmn1">
+                <h2>Post Name</h2>
+                <textarea name="" id="postname" cols="30" rows="10" placeholder="Post Name">@Model.PostName</textarea>
+            </div>
+            <div class="item1 item-cmn">
+                <h2>Meta Title</h2>
+                <textarea name="" id="metatitle" cols="30" rows="10" placeholder="Meta titile here">@Model.SeoTitle</textarea>
+            </div>
 
+            <div class="item2 item-cmn">
+                <h2>Meta Description</h2>
+                <textarea name="" id="metadescription" cols="30" rows="10" placeholder="Meta Description here">@Model.SeoDescription</textarea>
+            </div>
 
+            <div class="item2 item-cmn2">
+                <h2>slug</h2>
+                <textarea name="" id="slugtext" cols="30" rows="10" placeholder="slug Here">@Model.SeoSlug</textarea>
+            </div>
 
-        <div class="item2 item-cmn1">
-            <textarea name="" id="editor" cols="30" rows="10" placeholder=""  style=""></textarea>
-            <button id="submitt" onclick="submitPage()"> submitt</button>
+            <div class="item2 item-cmn1">
+                <textarea name="" id="editor" cols="30" rows="10" placeholder="" style="">@Model.Description</textarea>
+                <button id="submitt" onclick="submitPage()"> submitt</button>
 
+            </div>
         </div>
 
-        <script>
+            <script>
     $('#editor').ckeditor();
     $(document).ready(function () {
 
@@ -87,6 +129,19 @@
                 postObject.filepath = imagesfile.attributes.src.value;
                 var filename = document.getElementById("fileName");
                 postObject.fileName = filename.value;
+
+                var postnametext = document.getElementById("postname");
+                postObject.PostName = postnametext.value;
+
+                var posttitle = document.getElementById("metatitle");
+                postObject.SeoTitle = posttitle.value;
+
+                var postdescription = document.getElementById("metadescription");
+                postObject.SeoDescription = postdescription.value;
+
+                var postslug = document.getElementById("slugtext");
+                postObject.SeoSlug = postslug.value;
+
 
                 var jStr = JSON.stringify(postObject);
 
@@ -109,7 +164,7 @@
                 });
             }
 
-        </script>
-        </body>
+            </script>
+</body>
 </html>
 

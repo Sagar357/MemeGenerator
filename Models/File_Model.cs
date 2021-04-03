@@ -13,8 +13,11 @@ namespace MemeGenerator.Models
         public string bloburl { get; set; }
         public string fileName { get; set; }
         public string Description { get; set; }
-        
-
+        public string PostName { get; set; }
+        public string SeoTitle { get; set; }
+        public string SeoDescription { get; set; }
+        public string SeoSlug { get; set; }
+        public string file { get; set; }
 
 
 

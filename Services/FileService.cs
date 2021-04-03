@@ -43,13 +43,14 @@ namespace MemeGenerator.Services
 
             using (SqlConnection db = connectionutils.getConnection())
             {
+                string name = Path.GetFileNameWithoutExtension(file.FileName);
                 Guid attachmentcode = Guid.NewGuid();
                 db.Open();
                 DataSet ds = new DataSet();
                 SqlParameter[] param = new SqlParameter[4];
                 param[0] = new SqlParameter("@attachmentcode", attachmentcode);
                 param[1] = new SqlParameter("@filepath", Path.Combine("/image/", file.FileName));
-                param[2] = new SqlParameter("@filename", Path.GetFileNameWithoutExtension(file.FileName));
+                param[2] = new SqlParameter("@filename", name.Replace(" " ,"-"));
                 param[3] = new SqlParameter("@Description","");
 
 
@@ -113,6 +114,46 @@ namespace MemeGenerator.Services
                         else
                         {
                             model.attachmentcode = "";
+                        }
+                        if (!string.IsNullOrEmpty(dr["Description"].ToString()))
+                        {
+                            model.Description = dr["Description"].ToString();
+                        }
+                        else
+                        {
+                            model.Description = "";
+                        }
+                        if (!string.IsNullOrEmpty(dr["PostName"].ToString()))
+                        {
+                            model.PostName = dr["PostName"].ToString();
+                        }
+                        else
+                        {
+                            model.PostName = "";
+                        }
+                        if (!string.IsNullOrEmpty(dr["SeoTitle"].ToString()))
+                        {
+                            model.SeoTitle = dr["SeoTitle"].ToString();
+                        }
+                        else
+                        {
+                            model.SeoTitle = "";
+                        }
+                        if (!string.IsNullOrEmpty(dr["SeoDescription"].ToString()))
+                        {
+                            model.SeoDescription = dr["SeoDescription"].ToString();
+                        }
+                        else
+                        {
+                            model.SeoDescription = "";
+                        }
+                        if (!string.IsNullOrEmpty(dr["SeoSlug"].ToString()))
+                        {
+                            model.SeoSlug = dr["SeoSlug"].ToString();
+                        }
+                        else
+                        {
+                            model.SeoSlug = "";
                         }
                         listObj.list.Add(model);
                     }
@@ -181,7 +222,38 @@ namespace MemeGenerator.Services
                         {
                             model.Description = "";
                         }
-
+                        if(!string.IsNullOrEmpty(dr["PostName"].ToString()))
+                        {
+                            model.PostName = dr["PostName"].ToString();
+                        }
+                        else
+                        {
+                            model.PostName = "";
+                        }
+                        if(!string.IsNullOrEmpty(dr["SeoTitle"].ToString()))
+                        {
+                            model.SeoTitle = dr["SeoTitle"].ToString();
+                        }
+                        else
+                        {
+                            model.SeoTitle = "";
+                        }
+                        if(!string.IsNullOrEmpty(dr["SeoDescription"].ToString()))
+                        {
+                            model.SeoDescription = dr["SeoDescription"].ToString();
+                        }
+                        else
+                        {
+                            model.SeoDescription = "";
+                        }
+                        if(!string.IsNullOrEmpty(dr["SeoSlug"].ToString()))
+                        {
+                            model.SeoSlug = dr["SeoSlug"].ToString();
+                        }
+                        else
+                        {
+                            model.SeoSlug = "";
+                        }
                     }
                 }
 
@@ -246,7 +318,12 @@ namespace MemeGenerator.Services
                                 filepath = Convert.ToString(dr["filepath"]),
                                 bloburl = Convert.ToString(dr["bloburl"]),
                                 fileName = Convert.ToString(dr["fileName"]),
-                                Description = Convert.ToString(dr["Description"])
+                                Description = Convert.ToString(dr["Description"]),
+                                PostName=Convert.ToString(dr["PostName"]),
+                                SeoTitle=Convert.ToString(dr["SeoTitle"]),
+                                SeoDescription=Convert.ToString(dr["SeoDescription"]),
+                                SeoSlug=Convert.ToString(dr["SeoSlug"])
+
 
 
 
@@ -271,9 +348,13 @@ namespace MemeGenerator.Services
         }
         public bool UpdateContent(File_Model obj)
         {
-            using(SqlConnection con= connectionutils.getConnection())
-                
+            bool response=false;
+            try
+            {
+                using (SqlConnection con = connectionutils.getConnection())
                 {
+                    if (string.IsNullOrEmpty(obj.Description))
+                        obj.Description = "";
                     SqlCommand cmd = new SqlCommand("updateDscription", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@fileid", obj.fileid);
@@ -281,21 +362,33 @@ namespace MemeGenerator.Services
                     cmd.Parameters.AddWithValue("@filepath", obj.filepath);
                     cmd.Parameters.AddWithValue("@fileName", obj.fileName);
                     cmd.Parameters.AddWithValue("@Description", obj.Description);
+                    cmd.Parameters.AddWithValue("@PostName", obj.PostName);
+                    cmd.Parameters.AddWithValue("@SeoTitle", obj.SeoTitle);
+                    cmd.Parameters.AddWithValue("@SeoDescription", obj.SeoDescription);
+                    cmd.Parameters.AddWithValue("@SeoSlug", obj.SeoSlug);
 
 
                     con.Open();
                     int i = cmd.ExecuteNonQuery();
                     con.Close();
-                    if(i >= 1)
+                    if (i >= 1)
                     {
-                        return true;
+                        response= true;
                     }
                     else
                     {
-                        return false;
+                        response= false;
                     }
+                }
+
             }
-        }
+            catch (Exception ex)
+            {
+
+               
+            }
+            return response;
+       }
 
         public bool DeleteContent(int fileid)
         {

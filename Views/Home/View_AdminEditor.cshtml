@@ -67,6 +67,18 @@
                     <th style="font-size:1.5em;color:black">
                         Description
                     </th>
+                    <th style="font-size:1.5em;color:black">
+                        Post Name
+                    </th>
+                    <th style="font-size:1.5em;color:black">
+                        Seo Title
+                    </th>
+                    <th style="font-size: 1.5em;color:black">
+                        Seo Description
+                    </th>
+                    <th style="font-size: 1.5em;color:black">
+                        Seo Slug
+                    </th>
                     <th></th>
                 </tr>
                 @{ int srno = 0;}
@@ -93,7 +105,19 @@
                             @item.Description
                         </td>
                         <td>
-                            <a href="@Url.Action("EditDescription" ,"Home")?FileName=@item.fileName">Edit</a>
+                            @item.PostName
+                        </td>
+                        <td>
+                            @item.SeoTitle
+                        </td>
+                        <td>
+                            @item.SeoDescription
+                        </td>
+                        <td>
+                            @item.SeoSlug
+                        </td>
+                        <td>
+                            <a href="@Url.Action("EditDescription" ,"Home")?FileName=@item.SeoSlug">Edit</a>
 
                             <a href="@Url.Action("DeleteDescription","Home")?Id=@item.fileid">Delete</a>
                         </td>
