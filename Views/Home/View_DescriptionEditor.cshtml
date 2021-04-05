@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="~/Content/css/Hover-master/css/hover-min.css">
     <link href="~/Content/css/aos.css" rel="stylesheet" />
     <link href="~/Content/css/animate.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 <body>
@@ -110,7 +111,7 @@
             </div>
         </div>
 
-            <script>
+        <script>
     $('#editor').ckeditor();
     $(document).ready(function () {
 
@@ -155,8 +156,10 @@
                     async: true,
                     data: jStr,
                     success: data => {
-                        
-
+                        swal("Good job!", "You clicked the button!", "success").then((value) => {
+                            location.href = "@Url.Action("AdminEditor","Home")";
+                        });
+                            
                     },
                     error: error => {
 
@@ -165,7 +168,24 @@
                 });
             }
 
-            </script>
+
+
+        </script>
+        @*@if (ViewBag.status == "Success")
+        {
+           
+
+            <script>
+                debugger
+                swal("Your data has been submitted Successfully").then(value => {
+                    const stateobj = { escape: 'adduser' };
+                    history.pushState(stateObj, '', "@Url.Action("Index","Home")");
+                    location.href = "@Url.Action("Index","Home")";
+                });
+                
+
+            </script>*@
+    
 </body>
 </html>
 

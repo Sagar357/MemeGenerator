@@ -62,6 +62,7 @@ namespace MemeGenerator.Controllers
         //    return View();
         //}
         [Route("Meme/{FileName}")]
+           
         public ActionResult meme(string FileName)
         {
 
@@ -132,6 +133,7 @@ namespace MemeGenerator.Controllers
             File_Model response = FileService.GetFileById(FileName);
             return View("View_DescriptionEditor", response);
         }
+       
 
         [HttpPost]
         public ActionResult EditDescription(File_Model postObject)
@@ -139,8 +141,9 @@ namespace MemeGenerator.Controllers
         {
             FileService service = new FileService();
             bool response = service.UpdateContent(postObject);
-            return View("View_DescriptionEditor", response);
+            return (Json(response, JsonRequestBehavior.AllowGet));
         }
+
         public ActionResult DeleteDescription(int Id)
         {
             FileService service = new FileService();

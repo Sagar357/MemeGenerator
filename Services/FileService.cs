@@ -365,7 +365,7 @@ namespace MemeGenerator.Services
                     cmd.Parameters.AddWithValue("@PostName", obj.PostName);
                     cmd.Parameters.AddWithValue("@SeoTitle", obj.SeoTitle);
                     cmd.Parameters.AddWithValue("@SeoDescription", obj.SeoDescription);
-                    cmd.Parameters.AddWithValue("@SeoSlug", obj.SeoSlug);
+                    cmd.Parameters.AddWithValue("@SeoSlug", obj.SeoSlug.Replace(" ", "-"));
 
 
                     con.Open();
