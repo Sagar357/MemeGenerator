@@ -153,7 +153,7 @@
                             </canvas>
                           
                         </div>
-                        <canvas draggable="true" id="dragCanvas" class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
+                        <canvas draggable="true" id="dragCanvas" data-property="image" class="ui-widget-content" style="position: absolute; display:none; width: 100px; height: 125px; left: 100px; top: 100px; touch-action: manipulation; user-select: none; cursor: pointer; border:2px solid black;"></canvas>
                         @*<canvas  id="persistcanvas">
 
         </canvas>*@
@@ -189,7 +189,7 @@
                                 Create Meme
                             </span>
                         </button>
-                        <button type="button" class="choose_file" onclick='activateCanvas()'>
+                        <button type="button" class="choose_file" id="btnaddimg" onclick='activateCanvas()'>
                             <span>
                                 Add Image
                             </span>
@@ -300,7 +300,8 @@
 
         }
 
-           function drawCanvas() {
+        function drawCanvas() {
+               
             var y = window.scrollY + document.querySelector('#canvas').getBoundingClientRect().top;
             var x = window.scrollX + document.querySelector('#canvas').getBoundingClientRect().left;
             var imgData = gCtx.getImageData(x, y, gCtx.canvas.width, gCtx.canvas.height);
@@ -426,7 +427,7 @@
             
             
             gCtx.drawImage(this, 0, 0);
-            persistCanvas = canvas;
+          //  persistCanvas = canvas;
         }
 
         function failed() {
@@ -434,6 +435,11 @@
         }
 
         function drawCanvas() {
+            debugger
+            // gCtx.drawImage(persistCanvas, 0, 0);
+            if (persistCanvas != undefined)
+                gCtx.putImageData(persistCanvas, -10, -10);
+            else
             gCtx.drawImage(img, 0, 0);
 
             gMeme.txts.forEach(function (txt) {
@@ -522,7 +528,7 @@
                 debugger
               
                     if (e.srcElement.dataset.property === "image") {
-                        document.onmouseup = $("#"+e.target.id).resizable({
+                        document.onmouseup = $("#" + e.target.id).makeResizableDiv({
                             grid: 50
                         });
 
@@ -550,20 +556,29 @@
 
         function writeImage() {
             debugger
-            var c = document.getElementById('dragCanvas');
+           // var c = document.getElementById('dragCanvas');
+            var c = $('#dragCanvas');
             var p = document.getElementById('canvas');
-             gCtx = p.getContext('2d');
+            gCtx = p.getContext('2d');
+            var img = document.getElementById('dragCanvas');
+
+            var h = c.height();
+            var w = c.width();
+            var pos = c.position();
          
           //  var pos = getpostionxy(c);
             //destCtx.drawImage(c, window.innerWidth + pos.x, window.innerHeight+pos.y, 735, 500);
 
-            gCtx.drawImage(c, c.parentElement.offsetLeft - (c.parentElement.offsetWidth / 2), c.parentElement.offsetTop - (c.parentElement.offsetHeight / 2), c.parentElement.offsetWidth, c.parentElement.offsetHeight);
+            // gCtx.drawImage(c, c.parentElement.offsetLeft - (c.parentElement.offsetWidth / 2), c.parentElement.offsetTop - (c.parentElement.offsetHeight / 2), c.parentElement.offsetWidth, c.parentElement.offsetHeight);
+            gCtx.drawImage(img, pos.left, pos.top, w, h);
+            persistCanvas = gCtx.createImageData(img.width, img.height);
+            var sourceCtx = img.getContext('2d');
+            var img1 = sourceCtx.createImageData(img.width, img.height);
+            for (var i = img1.data.length; --i >= 0;)
+                img1.data[i] = 0;
+            sourceCtx.putImageData(img1, 0, 0);
 
-            var sourceCtx = c.getContext('2d');
-            var img = sourceCtx.createImageData(c.width, c.height);
-            for (var i = img.data.length; --i >= 0;)
-                img.data[i] = 0;
-            sourceCtx.putImageData(img, 0, 0);
+            deactivateCanvas();
           //  persistCanvas = document.getElementById('canvas');
             //persistCanvas = document.getElementById('persistcanvas');
             //persistCanvas.getContext('2d').drawImage(c ,500 ,500);
@@ -571,9 +586,17 @@
 
         function activateCanvas()
         {
+            $('#btnaddimg').hide();
             $('#btndrg').show();
             $('#dragCanvas').show();
             $('#imgUpload').show();
+        }
+
+        function deactivateCanvas() {
+            $('#btndrg').hide();
+            $('#dragCanvas').hide();
+            $('#imgUpload').hide();
+            $('#btnaddimg').show();
         }
 
         function deletecanvas() {
@@ -586,16 +609,20 @@
             var x = $('.drag-box');
             for (i = 0; i < x.length; i++) {
                 gMeme.txts[i].line = $('#' + x[i].id).text();
-                //pos3 = event.clientX;
-                //pos4 = event.clientY;
-                //pos1 = pos3 - event.clientX;
-                //pos2 = pos4 - event.clientY;
-                
+                var id = '#' + x[i].id;
+                nec = $(id + ' >.NE');
+                no = nec.offset();
+                xno = no.left;
 
-                //posx = parseInt($('#' + x[i].id).offsetTop - pos2);
-                //posy = parseInt($('#' + x[i].id).offsetLeft - pos1);
-                //gMeme.txts[i].x = posx;
-                //gMeme.txts[i].y = posy;
+                nw = $(id + ' >.NW');
+                wo = nw.offset();
+                xwo = wo.left;
+
+                var container = $('#' + x[i].id);
+                var y = container.offset();
+                y.top;
+                gMeme.txts[i].x = y.left;
+                gMeme.txts[i].y = y.top;
             }
           
             gMeme.txts.forEach(function (txt) {
